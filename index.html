@@ -1,12 +1,288 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <title>HTML Academy: Техномарт</title>
-  </head>
-  <body>
 
-    <p>Репозиторий создан для обучения на профессиональном онлайн‑курсе «<a href="https://htmlacademy.ru/intensive/htmlcss">HTML и CSS, уровень 1</a>».</p>
+<head>
+  <meta charset="utf-8">
+  <title>HTML Academy: Техномарт</title>
+</head>
 
-  </body>
+<body>
+
+    <header class="main-header">
+
+      <section class="first-line">
+
+        <a class="main-header-logo">
+          <img src="img/index-logo.svg" width="300" height="80" alt="Логотип магазина «Техномарт»">
+        </a>
+
+        <form>
+          <label for="search">Поиск:</label>
+          <input type="text field" name="search" id="search">
+        </form>
+
+        <!-- Вот дальше затрудняюсь с идентификацией элементов... По идее это ссылки, но во что их завернуть - хз. Заверну пока в параграф. В список не заворачиваю, так как это не однородные элементы. Или их вообще не надо заворачивать... -->
+        <p><a class="bookmarks" href="#">Закладки</a></p>
+        <p><a class="basket" href="#">Корзина</a></p>
+        <p><a class="order btn btn-order" href="#">Оформить заказ</a></p>
+
+      </section>
+
+      <section class="second-line">
+
+        <h1>Интернет-магазин строительных материалов и инструментов для ремонта</h1>
+
+        <address class="header-address">
+          <span class="header-phone">+7 (812) 555-05-55</span>
+          <br>
+          <span class="header-street">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
+        </address>
+
+        <ul class="user-navigation">
+          <li class="login-link">Войти</li>
+          <li class="registration-link">Регистрация</li>
+        </ul>
+
+      </section>
+
+      <section class="third-line">
+        <nav class="main-navigation">
+          <ul class="site-navigation">
+            <li><a href="index.html">Главная</a></li>
+            <!--Вот чот мне кажется, что надо тут ссылку грохнуть... Главной -->
+            <li><a href="company.html">Компания</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="special-offers.html">Спецпредложения</a></li>
+            <li><a href="delivery.html">Доставка</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+      </section>
+
+    </header>
+
+    <main class="container">
+
+      <section class="catalog">
+
+        <h2 class="visually-hidden">Каталог</h2>
+        <!--Тутошгие картинки фоновые, потому не имг. Будут бэкграундом, когда до ЦСС дойдём-->
+
+        <div class="catalog-preview">
+          <header class="preview-header">
+          <b>Дрели</b>
+          <p>Соседям на радость</p>
+          </header>
+          <div class="arrow arrow-left"></div>
+          <div class="arrow arrow-rigth"></div>
+          <a href="#" class="btn btn-catalog">Открыть каталог</a>
+        </div>
+
+
+        <ul class="catalog-items">
+          <li class="catalog-items-materials new">
+            <h3>Материалы</h3>
+            <p class="catalog-items-descritpion">На любой вкус</p>
+          </li>
+
+          <li class="catalog-items-instruments">
+            <h3>Инструмент</h3>
+            <p class="catalog-items-descritpion">На все случаи</p>
+          </li>
+
+          <li class="catalog-items-equipment">
+            <h3>Техника</h3>
+            <p class="catalog-items-descritpion">Для стройки</p>
+          </li>
+
+          <li class="catalog-items-discounts">
+            <h3>Скидки 50%</h3>
+            <p class="catalog-items-descritpion">На 350 товаров</p>
+          </li>
+
+          <li class="catalog-items-delivery">
+            <h3>Доставка</h3>
+            <p class="catalog-items-descritpion">Бесплатно</p>
+          </li>
+        </ul>
+
+      </section>
+
+      <section class="popular-products">
+
+        <h2>Популярные товары:</h2>
+
+        <a href="#" class="btn btn-popular-products">Все популярные товары</a>
+
+        <!-- У меня есть информация, что помимо "альта" так же хорошим тоном является указывать "тайтл" картинки. Если надо - допилю далее. Но сейчас пока тороплюсь. -->
+
+        <ul>
+          <li class="popular-products-card">
+            <img src="img/product_1.jpg" alt="Перфоратор BOSCH BFG 9000" width="150" height="300">
+            <h3>Перфоратор BOSCH BFG 9000</h3>
+            <div class="old-price">32500 Р.</div>
+            <div class="new-price">25500 Р.</div>
+          </li>
+
+          <li class="popular-products-card">
+            <img src="img/product_2.jpg" alt="Перфоратор BOSCH BFG 3000" width="150" height="300">
+            <h3>Перфоратор BOSCH BFG 3000</h3>
+            <div class="old-price">22500 Р.</div>
+            <div class="new-price">15500 Р.</div>
+          </li>
+
+          <li class="popular-products-card">
+            <img src="img/product_3.jpg" alt="Перфоратор BOSCH BFG 6000" width="150" height="300">
+            <h3>Перфоратор BOSCH BFG 6000</h3>
+            <div class="old-price">30500 Р.</div>
+            <div class="new-price">25500 Р.</div>
+          </li>
+
+          <li class="popular-products-card new">
+            <img src="img/product_4.jpg" alt="Перфоратор BOSCH BFG 2000" width="150" height="300">
+            <h3>Перфоратор BOSCH BFG 2000</h3>
+            <div class="new-price">12500 Р.</div>
+          </li>
+        </ul>
+
+      </section>
+
+      <section class="popular-brands">
+
+        <h2>Популярные производители:</h2>
+
+        <a href="#" class="btn btn-popular-brands">Все популярные производители</a>
+
+        <ul>
+
+          <li class="popular-brands-item">
+            <img src="img/brand_1.png" alt="BOSCH" width="80" height="50">
+          </li>
+
+          <li class="popular-brands-item">
+            <img src="img/brand_2.png" alt="Makita" width="80" height="50">
+          </li>
+
+          <li class="popular-brands-item">
+            <img src="img/brand_3.png" alt="DeWALT" width="80" height="50">
+          </li>
+
+          <li class="popular-brands-item">
+            <img src="img/brand_4.png" alt="ИНТЕРСКОЛ" width="80" height="50">
+          </li>
+
+          <li class="popular-brands-item">
+            <img src="img/brand_5.png" alt="HITACHI" width="80" height="50">
+          </li>
+
+          <li class="popular-brands-item">
+            <img src="img/brand_6.png" alt="LG" width="80" height="50">
+          </li>
+
+          <li class="popular-brands-item">
+            <img src="img/brand_7.png" alt="AEG" width="80" height="50">
+          </li>
+
+          <li class="popular-brands-item">
+            <img src="img/brand_8.png" alt="Metabo" width="80" height="50">
+          </li>
+
+        </ul>
+
+      </section>
+
+      <section class="services">
+
+        <h2>Сервисы</h2>
+
+          <p>
+            Хороший интернет-магазин отличается от плохого не только ценами!
+            <br>
+            Мы стараемся изо всех сил, чтобы сделать ваши покупки приятными
+          </p>
+
+          <ul class="service-selection">
+            <li class="service-item active">Доставка</li>
+            <li class="service-item">Гарантия</li>
+            <li class="service-item">Кредит</li>
+          </ul>
+
+          <div class="service-description">
+            <h3>Доставка</h3>
+            <p>Мы с удовольствием доставим ваш товар прямо к вашему подъезду совершенно бесплатно!
+            Ведь мы неплохо заработаем, поднимаея его на ваш этаж!</p>
+          </div>
+
+      </section>
+
+      <section class="about">
+
+        <h2>Компания "Техномарт"</h2>
+
+        <p>Настоящий мужской шоппинг начинается здесь! Огромный выбор товаров для ремонта и строительства не оставит равнодушными любителей сэкономить на гастробайтерах.</p>
+
+        <p>Мы можем доставить ваш товар в самые отдалённые точки России!
+          <br>
+          Техномарт работает со многими транспортными компаниями:
+        </p>
+
+        <ul>
+          <li>Деловые линии</li>
+          <li>Автотрейдинг</li>
+          <li>ЖелДорЭкспедиция</li>
+        </ul>
+
+        <a href="#" class="btn btn-about">Подробнее о компании</a>
+
+      </section>
+
+      <section class="contacts">
+
+        <h2>Контакты</h2>
+
+        <p>Вы можете забрать товар сами, <br> заехав в наш офис:</p>
+
+
+
+        <a href="#" class="btn btn-contact">Заблудились? Напишите нам!</a>
+
+      </section>
+
+    </main>
+
+<!--
+    <footer class="main-footer">
+
+      <p class="footer-contacts">
+        Барбершоп «Бородинский»<br>
+        Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
+        <a href="map.html">Как нас найти?</a><br>
+        Телефон: +7 (812) 666-02-66
+      </p>
+      <div class="footer-social">
+        <b>Давайте дружить!</b>
+        <ul>
+          <li><a class="social-button" href="#">Вконтакте</a></li>
+          <li><a class="social-button" href="#">Фейсбук</a></li>
+          <li><a class="social-button" href="#">Инстаграм</a></li>
+        </ul>
+      </div>
+      <p class="footer-copyright">
+        <b>Разработано:</b> <a class="button" href="https://htmlacademy.ru">HTML Academy</a>
+      </p>
+
+    </footer>
+
+    <section class="modal modal-login">
+      <h2>Личный кабинет</h2>
+      <p>Введите свой логин и пароль.</p>
+      <span class="modal-close">x</span>
+    </section>
+
+  -->
+
+<!-- Чото классов наплодил ппц... ещё и без единообразия названия. Я бы, честно говоря, их лучше на этапе ЦСС прикрутил, по мере необходимости -->
+</body>
+
 </html>
