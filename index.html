@@ -10,31 +10,31 @@
 
     <header class="main-header">
 
-      <section class="first-line">
+      <div> class="first-line">
 
         <a class="main-header-logo">
-          <img src="img/index-logo.svg" width="300" height="80" alt="Логотип магазина «Техномарт»">
+          <b>Техномарт</b>
         </a>
 
         <form>
           <label for="search">Поиск:</label>
-          <input type="text field" name="search" id="search">
+          <input type="text" name="search" id="search">
         </form>
 
-        <!-- Вот дальше затрудняюсь с идентификацией элементов... По идее это ссылки, но во что их завернуть - хз. Заверну пока в параграф. В список не заворачиваю, так как это не однородные элементы. Или их вообще не надо заворачивать... -->
-        <p><a class="bookmarks" href="#">Закладки</a></p>
-        <p><a class="basket" href="#">Корзина</a></p>
-        <p><a class="order btn btn-order" href="#">Оформить заказ</a></p>
+        <ul>
+          <li><a class="bookmarks" href="#">Закладки</a></li>
+          <li><a class="basket" href="#">Корзина</a></li>
+          <li><a class="btn btn-order" href="#">Оформить заказ</a></li>
+        </ul>
 
-      </section>
+      </div>
 
-      <section class="second-line">
+      <div class="second-line">
 
         <h1>Интернет-магазин строительных материалов и инструментов для ремонта</h1>
 
         <address class="header-address">
-          <span class="header-phone">+7 (812) 555-05-55</span>
-          <br>
+          <a href="tel:+78125550555" class="header-phone">+7 (812) 555-05-55</a>
           <span class="header-street">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
         </address>
 
@@ -43,13 +43,13 @@
           <li class="registration-link">Регистрация</li>
         </ul>
 
-      </section>
+      </div>
 
-      <section class="third-line">
+      <div class="third-line">
+
         <nav class="main-navigation">
           <ul class="site-navigation">
-            <li><a href="index.html">Главная</a></li>
-            <!--Вот чот мне кажется, что надо тут ссылку грохнуть... Главной -->
+            <li><a>Главная</a></li> <!-- А шреф разве не является обязательным атрибутом? -->
             <li><a href="company.html">Компания</a></li>
             <li><a href="catalog.html">Каталог</a></li>
             <li><a href="news.html">Новости</a></li>
@@ -58,7 +58,8 @@
             <li><a href="contacts.html">Контакты</a></li>
           </ul>
         </nav>
-      </section>
+
+      </div>
 
     </header>
 
@@ -67,45 +68,75 @@
       <section class="catalog">
 
         <h2 class="visually-hidden">Каталог</h2>
-        <!--Тутошгие картинки фоновые, потому не имг. Будут бэкграундом, когда до ЦСС дойдём-->
 
-        <div class="catalog-preview">
-          <header class="preview-header">
-          <b>Дрели</b>
-          <p>Соседям на радость</p>
-          </header>
-          <div class="arrow arrow-left"></div>
-          <div class="arrow arrow-rigth"></div>
-          <a href="#" class="btn btn-catalog">Открыть каталог</a>
+
+        <div class="catalog-items">
+
+          <div class="catalog-items-materials new">
+            <h3>Материалы</h3>
+            <a href="#" class="catalog-items-detail">На любой вкус</a>
+          </div>
+
+          <div class="catalog-items-instruments">
+            <h3>Инструмент</h3>
+            <a href="#" class="catalog-items-detail">На все случаи</a>
+          </div>
+
+          <div class="catalog-items-equipment">
+            <h3>Техника</h3>
+            <a href="#" class="catalog-items-detail">Для стройки</a>
+          </div>
+
         </div>
 
 
-        <ul class="catalog-items">
-          <li class="catalog-items-materials new">
-            <h3>Материалы</h3>
-            <p class="catalog-items-descritpion">На любой вкус</p>
-          </li>
+        <div class="catalog-preview">
 
-          <li class="catalog-items-instruments">
-            <h3>Инструмент</h3>
-            <p class="catalog-items-descritpion">На все случаи</p>
-          </li>
+          <ul>
+            <li>
+              <a href="#">
+                <h4>Дрели</h4>
+                <p>Соседям на радость</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <h4>Перфораторы</h4>
+                <p>Настоящие мужские игрушки</p>
+              </a>
+            </li>
+          </ul>
 
-          <li class="catalog-items-equipment">
-            <h3>Техника</h3>
-            <p class="catalog-items-descritpion">Для стройки</p>
-          </li>
+          <p  class="catalog-preview-arrows">
+            <button type="button" class="arrow arrow-left"></button>
+            <button type="button" class="arrow arrow-rigth"></button>
+          </p>
 
-          <li class="catalog-items-discounts">
-            <h3>Скидки 50%</h3>
-            <p class="catalog-items-descritpion">На 350 товаров</p>
-          </li>
+            <a href="#" class="btn btn-catalog">Открыть каталог</a>
 
-          <li class="catalog-items-delivery">
-            <h3>Доставка</h3>
-            <p class="catalog-items-descritpion">Бесплатно</p>
-          </li>
-        </ul>
+            <!-- Гуглить пагинацию у меня сегодня уже сил не хватило -->
+            <ul class="catalog-preview-pagination">
+              <li class="catalog-preview-pagination-item selected"><a href="#"></a></li>
+              <li class="catalog-preview-pagination-item"><a href="#"></a></li>
+            </ul>
+
+          </div>
+
+          <!-- Эти 2 блока оборачивать в один контейнер смысла не вижу, так как визуально их и так можно сгруппировать, на сколько я понимаю... может и ошибаюсь. Но связаны они чисто по логике "один этаж", не более -->
+
+          <div class="catalog-advantages">
+
+            <div class="catalog-advantages-discounts">
+              <h3>Скидки 50%</h3>
+              <a href="#" class="catalog-advantages-descritpion">На 350 товаров</a>
+            </div>
+
+            <div class="catalog-advantages-delivery">
+              <h3>Доставка</h3>
+              <a href="#" class="catalog-advantages-descritpion">Бесплатно</a>
+            </div>
+
+          </div>
 
       </section>
 
@@ -114,8 +145,6 @@
         <h2>Популярные товары:</h2>
 
         <a href="#" class="btn btn-popular-products">Все популярные товары</a>
-
-        <!-- У меня есть информация, что помимо "альта" так же хорошим тоном является указывать "тайтл" картинки. Если надо - допилю далее. Но сейчас пока тороплюсь. -->
 
         <ul>
           <li class="popular-products-card">
@@ -127,21 +156,27 @@
 
           <li class="popular-products-card">
             <img src="img/product_2.jpg" alt="Перфоратор BOSCH BFG 3000" width="150" height="300">
-            <h3>Перфоратор BOSCH BFG 3000</h3>
+            <a href=#">
+              <h3>Перфоратор BOSCH BFG 3000</h3>
+            </a>
             <div class="old-price">22500 Р.</div>
             <div class="new-price">15500 Р.</div>
           </li>
 
           <li class="popular-products-card">
             <img src="img/product_3.jpg" alt="Перфоратор BOSCH BFG 6000" width="150" height="300">
-            <h3>Перфоратор BOSCH BFG 6000</h3>
+            <a href=#">
+              <h3>Перфоратор BOSCH BFG 6000</h3>
+            </a>
             <div class="old-price">30500 Р.</div>
             <div class="new-price">25500 Р.</div>
           </li>
 
           <li class="popular-products-card new">
             <img src="img/product_4.jpg" alt="Перфоратор BOSCH BFG 2000" width="150" height="300">
-            <h3>Перфоратор BOSCH BFG 2000</h3>
+            <a href=#">
+              <h3>Перфоратор BOSCH BFG 2000</h3>
+            </a>
             <div class="new-price">12500 Р.</div>
           </li>
         </ul>
@@ -154,45 +189,47 @@
 
         <a href="#" class="btn btn-popular-brands">Все популярные производители</a>
 
-        <ul>
-
-          <li class="popular-brands-item">
+          <a href="#"class="popular-brands-item">
             <img src="img/brand_1.png" alt="BOSCH" width="80" height="50">
-          </li>
+          </a>
 
-          <li class="popular-brands-item">
+          <a href="#" class="popular-brands-item">
             <img src="img/brand_2.png" alt="Makita" width="80" height="50">
-          </li>
+          </a>
 
-          <li class="popular-brands-item">
+          <a href="#" class="popular-brands-item">
             <img src="img/brand_3.png" alt="DeWALT" width="80" height="50">
-          </li>
+          </a>
 
-          <li class="popular-brands-item">
+          <a href="#" class="popular-brands-item">
             <img src="img/brand_4.png" alt="ИНТЕРСКОЛ" width="80" height="50">
-          </li>
+          </a>
 
-          <li class="popular-brands-item">
+          <a href="#" class="popular-brands-item">
             <img src="img/brand_5.png" alt="HITACHI" width="80" height="50">
-          </li>
+          </a>
 
-          <li class="popular-brands-item">
+          <a href="#" class="popular-brands-item">
             <img src="img/brand_6.png" alt="LG" width="80" height="50">
-          </li>
+          </a>
 
-          <li class="popular-brands-item">
+          <a href="#" class="popular-brands-item">
             <img src="img/brand_7.png" alt="AEG" width="80" height="50">
-          </li>
+          </a>
 
-          <li class="popular-brands-item">
+          <a href="#" class="popular-brands-item">
             <img src="img/brand_8.png" alt="Metabo" width="80" height="50">
-          </li>
-
-        </ul>
+          </a>
 
       </section>
 
       <section class="services">
+
+          <!--
+          ВЫ: Вот тут можно использовать header внутри section, чтобы объединить заголовок и описание к нему.
+          Я: Вот это тоже вообще не понял, где именно хэдер использовать. Пока запилю вот так, но я не понимаю, что и зачем я делаю.
+          -->
+        <header class="services-header">
 
         <h2>Сервисы</h2>
 
@@ -201,6 +238,15 @@
             <br>
             Мы стараемся изо всех сил, чтобы сделать ваши покупки приятными
           </p>
+
+        </header>
+
+        <!-- label помимо описания полей форм я использовать не умею. На счёт тутошней "карусели" есть идея только, что как-то с помощью джаваскрипта нужное описание сервиса подтягивать, по клику.
+          Ну то есть на словах мне это как видится:
+          1) Описание сервиса нужно спрятать с помощью дислей: нон (или который там блок полностью убирает, а не скрывает) и делать его видимым по клику.
+          2) При нажатии на кнопку её классам добавляется "актив", а у других кнопок этот класс снимается... Хм
+          И тут до меня похоже дошло, что это форма, а сервис-селекшн - это радиобаттон. Вот на этом я пока этот блок заморожу, в ожидании вашего комментария, а пока добавлю другие 2 дескрипшина, которые я сразу не заметил.
+          -->
 
           <ul class="service-selection">
             <li class="service-item active">Доставка</li>
@@ -212,6 +258,23 @@
             <h3>Доставка</h3>
             <p>Мы с удовольствием доставим ваш товар прямо к вашему подъезду совершенно бесплатно!
             Ведь мы неплохо заработаем, поднимаея его на ваш этаж!</p>
+          </div>
+
+          <!-- Возможно тут не 2 абзаца, а как раз бр надо поставить -->
+
+          <div class="service-description">
+            <h3>Гарантия</h3>
+            <p>Если купленный у нас товар поломается или заискрит, а также в случае пожара, спровоцированного его возгаранием,  вы всегда можете быть уверены в нашей гарантии. Мы обменяем сгоревший товар на новый.
+            </p>
+            <p>Дом уж восстановите как-нибудь сами.</p>
+          </div>
+
+          <!-- И тут -->
+
+          <div class="service-description">
+            <h3>Кредит</h3>
+            <p>Залезть в долговую яму стало проще!</p>>
+            <p>Кредитные консультанты придут вам на помощь.</p>
           </div>
 
       </section>
@@ -243,7 +306,7 @@
 
         <p>Вы можете забрать товар сами, <br> заехав в наш офис:</p>
 
-
+        <img src="img/map.png" alt="Большая Конюшенная ул., 19">
 
         <a href="#" class="btn btn-contact">Заблудились? Напишите нам!</a>
 
@@ -251,38 +314,75 @@
 
     </main>
 
-<!--
     <footer class="main-footer">
 
-      <p class="footer-contacts">
-        Барбершоп «Бородинский»<br>
-        Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
-        <a href="map.html">Как нас найти?</a><br>
-        Телефон: +7 (812) 666-02-66
+      <div class="main-footer__first-line"> <!--Вот вроде так правильно титровать надо... или нет? -->
+
+        <a class="main-footer__logo">
+          <b>Техномарт</b>
+        </a>
+
+        <ul class="main-footer__navigation">
+          <li><a href="company.html">Компания</a></li>
+          <li><a href="news.html">Новости</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="delivery.html">Доставка</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+
+        <address class="main-footer__address">
+          г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <br>
+          <a href="tel:+78125550555" class="header-phone">+7 (812) 555-05-55</a>
+        </address>
+
+        <!-- Ниже адреса у ссылок такие же, как и в разделе "каталог" -->
+        <ul class="main-footer__catalog">
+          <li><a href="#">Материалы</a></li>
+          <li><a href="#">Техника</a></li>
+          <li><a href="#">Инструмент</a></li>
+          <li><a href="#">Спецпредложения</a></li>
+        </ul>
+
+    </div>
+
+    <div class="main-footer__second-line">
+
+      <p class="main-footer__copyright">
+        <!-- Код сущности символа копирайта --> 2010-2019 Компания "Техномарт"
+        <br>
+        Все права защищены
       </p>
-      <div class="footer-social">
-        <b>Давайте дружить!</b>
+
+      <div class="main-footer__social">
         <ul>
           <li><a class="social-button" href="#">Вконтакте</a></li>
           <li><a class="social-button" href="#">Фейсбук</a></li>
           <li><a class="social-button" href="#">Инстаграм</a></li>
         </ul>
       </div>
-      <p class="footer-copyright">
-        <b>Разработано:</b> <a class="button" href="https://htmlacademy.ru">HTML Academy</a>
+      <!-- И вот тут я думаю... а вообще я правильно делаю, что горожу цепочку в названии класса из "футер-основной_раздел-такой-то_кнопка"... Это же всё в цссе легко селектором выбирается... короче в этом плане тоже надо классы маленько прорядить... социал баттон и всё... а чтоб не промазать в цсс потом "футер социал социал-баттон". Даже если у меня внезапно класс "социал баттон" окажется в каком-нибудь другом разделе... Да... Я чото уже представил, какие у меня селекторы будут... Надо прибраться в классах -->
+
+      <!-- С почтой сам загуглил) Появились подозрения, что там есть какая-нибудь фишечка, как и с телефоном -->
+      <p class="main-footer__feedback">
+        Обратная связь: - <a href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
       </p>
+
+      <p class="main-footer__developer">
+        Разработано - <a href="https://htmlacademy.ru">htmlacademy.ru</a>
+      </p>
+
+    </div>
 
     </footer>
 
     <section class="modal modal-login">
       <h2>Личный кабинет</h2>
       <p>Введите свой логин и пароль.</p>
-      <span class="modal-close">x</span>
+      <button type="button">x</button>
     </section>
 
-  -->
+<!-- Ну и в классах я бы пожалуй, всё-таки, навёл порядок, когда баланс дел и времени сойдётся в мою пользу. Почитаю БЭМ (или другую) и попробую поправить.-->
 
-<!-- Чото классов наплодил ппц... ещё и без единообразия названия. Я бы, честно говоря, их лучше на этапе ЦСС прикрутил, по мере необходимости -->
 </body>
 
 </html>
