@@ -1,0 +1,41 @@
+.main-header {
+	height: 320px;
+	background-color: #f3f7f8;
+	border-bottom: 1px solid red;
+}
+
+.catalog {
+	height: 520px;
+	background-color: #ffffff;
+	border-bottom: 1px solid red;
+}
+
+.popular-products {
+	height: 450px;
+	background-color: #ffffff;
+	border-bottom: 1px solid red;
+}
+
+.popular-brands {
+	height: 505px;
+	background-color: #ffffff;
+	border-bottom: 1px solid red;
+}
+
+.services {
+	height: 520px;
+	background-color: #f4f8f9;
+	border-bottom: 1px solid red;
+}
+
+.about {
+	height: 535px;
+	background-color: #ffffff;
+	border-bottom: 1px solid red;
+}
+
+.main-footer {
+	height: 300px;
+	background-color: #32425c;
+	border-bottom: 1px solid red;
+}
