@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <title>HTML Academy: Техномарт</title>
-<!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -13,20 +13,28 @@
 
       <div class="first-line">
 
-        <a class="logo">
+<!-- ВАРИАНТ ДЛЯ ПОСТЕПЕННОЙ ДЕГРАДАЦИИ, ЕСЛИ У ПОЛЬЗОВАТЕЛЯ СТАРЫЙ БРАУЗЕР... ИЛИ ТУТ ЦСС3 НЕ НУЖЕН? НЕ ПОНЯЛ ПОКА, НУЖЕН ИЛИ НЕТ. ВРОДЕ НЕТ, ЛОГО ПРОСТОЙ. НУ КОРОЧЕ ТУПО ЗАПАСКА, ОСНОВНОЙ ВАРИАНТ БУДЕТ ТЕКСТОВЫМ. ПОЙДЁМ СЛОЖНЫМ ПУТЁМ И ПОТРЕНИРУЕМСЯ.
+        <a class="main-header__logo">
           <img src="img/logo.png" alt="Техномарт" width="220" height="47">
         </a>
+-->
 
-        <form>
-          <label for="search">Поиск:</label>
-          <input id="search" name="search" type="text">
+        <a class="main-header__logo">Техномарт</a>
+
+        <form class="main-header__search">
+          <label>
+            Поиск:
+            <input name="search" type="text">
+          </label>
         </form>
 
-        <ul>
-          <li><a class="bookmarks" href="#">Закладки</a></li>
-          <li><a class="basket" href="#">Корзина</a></li>
-          <li><a class="btn btn-order" href="#">Оформить заказ</a></li>
-        </ul>
+<!-- ТУТ ЧОТО НАВЕРНОЕ КЛАССЫ-ТО НАДО ДИВАМ ЗАДАТЬ, А НЕ ССЫЛКАМ... -->
+
+        <div><a class="main-header__bookmarks" href="#">Закладки</a></div>
+
+        <div><a class="main-header__basket" href="#">Корзина</a></div>
+
+        <div><a class="main-header__btn main-header__btn-order" href="#">Оформить заказ</a></div>
 
       </div>
 
@@ -36,14 +44,14 @@
 
         <h1>Интернет-магазин строительных материалов и инструментов для ремонта</h1>
 
-        <address class="address">
-          <a class="phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
+        <address class="main-header__address">
+          <a class="main-header__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
           <span class="street">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
         </address>
 
-        <ul class="user-navigation">
-          <li class="login-link">Войти</li>
-          <li class="registration-link">Регистрация</li>
+        <ul class="main-header__user-navigation">
+          <li><a class="main-header__login-link" href="#">Войти</a></li>
+          <li><a class="main-header__registration-link" href="#">Регистрация</a></li>
         </ul>
 
       </div>
@@ -52,8 +60,8 @@
 
       <div class="third-line">
 
-        <nav class="main-navigation">
-          <ul class="site-navigation">
+        <nav class="main-header__main-navigation">
+          <ul class="main-header__site-navigation">
             <li><a>Главная</a></li>
             <li><a href="company.html">Компания</a></li>
             <li><a href="catalog.html">Каталог</a></li>
@@ -72,76 +80,74 @@
 
     <main class="container">
 
-      <section class="catalog">
+<!-- Я ТУТ ПОДУМАЛ, ЧТО ЭТО НИФИГА НЕ КАТАЛОГ. БУДЕТ ПРОМО БЛОК. НАДЕЮСЬ АД-БЛОК РЕКЛАМНЫЙ НА ТАКОЕ НАЗВАНИЕ НЕ СЪАГРИТСЯ -->
+      <section class="promo">
 
         <h2 class="visually-hidden">Каталог</h2>
 
+        <div class="promo__items">
 
-        <div class="catalog-items">
-
-          <div class="materials new">
+          <div class="promo__item promo__item--new promo__materials">
             <h3>Материалы</h3>
-            <a class="detail" href="#">На любой вкус</a>
+            <a class="promo__detail" href="#" title="Материалы">На любой вкус</a>
           </div>
 
-          <div class="instruments">
+          <div class="promo__item promo__instruments">
             <h3>Инструмент</h3>
-            <a class="detail" href="#">На все случаи</a>
+            <a class="promo__detail" href="#" title="Инструмент">На все случаи</a>
           </div>
 
-          <div class="equipment">
+          <div class="promo__item promo__equipment">
             <h3>Техника</h3>
-            <a class="detail" href="#">Для стройки</a>
+            <a class="promo__detail" href="#" title="Техника">Для стройки</a>
+          </div>
+
+          <div class="promo__item promo__discounts">
+            <h3>Скидки 50%</h3>
+            <a class="promo__descritpion" href="#" title="Скидки">На 350 товаров</a>
+          </div>
+
+          <div class="promo__item promo__delivery">
+            <h3>Доставка</h3>
+            <a class="promo__descritpion" href="#" title="Доставка">Бесплатно</a>
           </div>
 
         </div>
 
 
-<!-- ДОПИЛИТЬ СЛАЙДЕР И ПАГИНАЦИЮ -->
-        <div class="catalog-preview">
+<!-- Я СЛАЙДЕР ПОКА ВНИЗ СЕКЦИИ ОПУЩУ, ИБО ЛОГИКУ ОН МНЕ ЧОТО НАРУШАЕТ... КАК ЕГО ЛУЧШЕ СПОЗИЦИОНИРОВАТЬ - БУДУ ПОТОМ ДУМАТЬ. ПОИДЕЕ КАРТОЧКИ ЕГО ТУПО ОБТЕКАЮТ - ФЛОАТ -->
+<!-- ДОПИЛИТЬ СЛАЙДЕР И ПАГИНАЦИЮ... МОЖЕТ НЕ ПРЕВЬЮ А СЛАЙДЕР ОБОЗВАТЬ? ХОТЯ ЧО, ПРЕВЬЮ ЖЕ... А СЛАЙДЕР - ЧИСТО КАК ЧАСТЬ ТЕХНИЧЕСКОЙ РЕАЛИЗАЦИИ, НЕ СМЫСЛОВАЯ -->
+<!-- МНЕ ТАК ВЛОМ ЧТО-ТО ПОКА ЭТОТ СЛАЙДЕР ДЕЛАТЬ, ПУСТЬ ПОКА В ТАКОМ ВИДЕ ПОБУДЕТ =) -->
+        <div class="promo__preview"> <!-- ИЛИ ЛУЧШЕ СЛАЙДЕР ОБОЗВАТЬ? КАРУСЕЛЬ? ХОТЯ ДЛЯ КАРУСЕЛИ ОН СЛИШКОМ НЕ КРУТИТСЯ -->
 
           <ul>
             <li>
-              <a href="#">
+              <a href="#" title="Дрели">
                 <h4>Дрели</h4>
                 <p>Соседям на радость</p>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#" title="Перфораторы">
                 <h4>Перфораторы</h4>
                 <p>Настоящие мужские игрушки</p>
               </a>
             </li>
           </ul>
 
-          <p class="arrows">
-            <button class="arrow arrow-left" type="button"></button>
-            <button class="arrow arrow-rigth" type="button"></button>
+          <!-- ТУТ ВОТ НАДО ОБЕРТКУ КОНТРОЛ СДЕЛАТЬ... -->
+
+          <p class="promo__arrows">
+            <button class="promo__arrow promo__arrow-left" type="button"></button>
+            <button class="promo__arrow promo__arrow-right" type="button"></button>
           </p>
 
-            <a class="btn btn-catalog" href="#">Открыть каталог</a>
+            <a class="btn promo__btn" href="#">Открыть каталог</a>
 
-            <ul class="pagination">
-              <li class="pagination-item selected"><a href="#"></a></li>
-              <li class="pagination-item"><a href="#"></a></li>
+            <ul class="promo__pagination">
+              <li class="promo__pagination-item promo__pagination-item--selected"><a href="#"></a></li>
+              <li class="promo__pagination-item"><a href="#"></a></li>
             </ul>
-
-          </div>
-
-          <!-- Эти 2 блока оборачивать в один контейнер смысла не вижу, так как визуально их и так можно сгруппировать, на сколько я понимаю... может и ошибаюсь. Но связаны они чисто по логике "один этаж", не более -->
-
-          <div class="catalog-advantages">
-
-            <div class="discounts">
-              <h3>Скидки 50%</h3>
-              <a class="descritpion" href="#">На 350 товаров</a>
-            </div>
-
-            <div class="delivery">
-              <h3>Доставка</h3>
-              <a class="descritpion" href="#">Бесплатно</a>
-            </div>
 
           </div>
 
@@ -153,42 +159,45 @@
 
         <h2>Популярные товары:</h2>
 
-        <a class="btn btn-popular-products" href="#">Все популярные товары</a>
+        <a class="btn popular-products__btn" href="#">Все популярные товары</a>
+
+<!-- ЭТО ВОТ ЭТИ КАРТОЧКИ ВЫ ИМЕЛИ В ВИДУ ОБЕРНУТЬ ССЫЛКАМИ? Я СПЕЦИАЛЬНО ОБЕРНУЛ ТОЛЬКО ЗАГОЛОВКИ (чтобы товар можно было посмотреть не покупая его и не отправляя в каталог), ТАК КАК ПО ТЗ ВРОДЕ КАРТОЧКИ НЕ ССЫЛКИ... ТАМ ПО ХОВЕРУ ПОВЕРХ ТОВАРА 2 КНОПКИ ПОЯВЛЯЮТСЯ... Ссылки на них только нужны, как я понимаю. ИЛИ Я НАПАРИЛ ЧЕГО-ТО?.. ПОИДЕЕ МОЖНО ОБЕРНУТЬ ВСЮ КАРТОЧКУ В ССЫЛКУ, НО ТОГДА ХРЕН ПОЙМЕШЬ ЧТО 2 ПОЯВЛЯЮЩИЕСЯ КНОПКИ ИНТЕРАКТИВНЫ. ТАК ЧТО МНЕ КАЖЕТСЯ ЛУЧШЕ ТАК ОСТАВИТЬ. СЕЙЧАС СТАЙЛГЛАЙД ПОСМОТРЕЛ ЕЩЁ РАЗ _ ТАМ НАПРЯМУЮ ПРО ЭТО НИЧЕГО НЕ СКАЗАНО, НО ЭТО НАИБОЛЕЕ ЛОГИЧНЫЙ ВАРИАНТ, КАК ПО МНЕ-->
+<!-- А, ТАК ЭТО ЗАМЕЧАНИЕ ВООБЩЕ ПРО КАРТУ БЫЛО)) БГГГ. НУ ЛАДНО, ВЫГОВОРИЛСЯ -->
 
         <ul>
-          <li class="card">
-            <img src="img/Perforator_1.jpg" alt="Перфоратор BOSCH BFG 9000" width="218" height="170">
+          <li class="popular-products__item">
+            <img src="img/Perforator_1.jpg" alt="Перфоратор BOSCH BFG 9000" title="Перфоратор BOSCH BFG 9000" width="218" height="170">
             <a href="#">
              <h3>Перфоратор BOSCH BFG 9000</h3>
             </a>
-            <div class="old-price">32500 Р.</div>
-            <div class="new-price">25500 Р.</div>
+            <div class="popular-products__old-price"><del>32500 Р.</del></div>
+            <div class="popular-products__new-price">25500 Р.</div>
           </li>
 
-          <li class="card">
-            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 3000" width="218" height="170">
+          <li class="popular-products__item">
+            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 3000" title="Перфоратор BOSCH BFG 3000" width="218" height="170">
             <a href="#">
               <h3>Перфоратор BOSCH BFG 3000</h3>
             </a>
-            <div class="old-price">22500 Р.</div>
-            <div class="new-price">15500 Р.</div>
+            <div class="popular-products__old-price"><del>22500 Р.</del></div>
+            <div class="popular-products__new-price">15500 Р.</div>
           </li>
 
-          <li class="card">
-            <img src="img/Perforator_3.jpg" alt="Перфоратор BOSCH BFG 6000" width="218" height="170">
+          <li class="popular-products__item">
+            <img src="img/Perforator_3.jpg" alt="Перфоратор BOSCH BFG 6000" title="Перфоратор BOSCH BFG 6000" width="218" height="170">
             <a href="#">
               <h3>Перфоратор BOSCH BFG 6000</h3>
             </a>
-            <div class="old-price">30500 Р.</div>
-            <div class="new-price">25500 Р.</div>
+            <div class="popular-products__old-price"><del>30500 Р.</del></div>
+            <div class="popular-products__new-price">25500 Р.</div>
           </li>
 
-          <li class="card new">
-            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 2000" width="218" height="170">
+          <li class="popular-products__item popular-products__item--new">
+            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 2000" title="Перфоратор BOSCH BFG 2000" width="218" height="170">
             <a href="#">
               <h3>Перфоратор BOSCH BFG 2000</h3>
             </a>
-            <div class="new-price">12500 Р.</div>
+            <div class="popular-products__new-price">12500 Р.</div>
           </li>
         </ul>
 
@@ -200,39 +209,59 @@
 
         <h2>Популярные производители:</h2>
 
-        <a class="btn btn-popular-brands" href="#">Все популярные производители</a>
+        <!-- ТАК ПОЧЕМУ ТУТ БЫЛ НЕ НУЖЕН СПИСОК, А НУЖНЫ ПРОСТО ОТДЕЛЬНЫЕ КАРТИНКИ? ЭТО ЖЕ ВСЁ ОДНОРОДНЫЕ ЭЛЕМЕНТЫ. НЕ ПОНИМАЮ. ИЛИ ОДНОРОДНЫЕ ЭЛЕМЕНТЫ НЕ ПОВОД ИСПОЛЬЗОВАТЬ СПИСОК? А ЧТО ПОВОД? -->
 
-          <a class="item" href="#">
-            <img src="img/bosch.png" alt="BOSCH" width="126" height="37">
+        <a class="btn popular-brands__btn" href="#">Все популярные производители</a>
+
+          <a class="popular-brands__item" href="#">
+            <img src="img/bosch.png" alt="BOSCH" title="BOSCH" width="126" height="37">
           </a>
 
-          <a class="item" href="#">
-            <img src="img/Makita.png" alt="Makita" width="123" height="40">
+          <a class="popular-brands__item" href="#">
+            <img src="img/Makita.png" alt="Makita" title="Makita" width="123" height="40">
           </a>
 
-          <a class="item" href="#">
-            <img src="img/DeWALT.png" alt="DeWALT" width="146" height="44">
+          <a class="popular-brands__item" href="#">
+            <img src="img/DeWALT.png" alt="DeWALT" title="DeWALT" width="146" height="44">
           </a>
 
-          <a class="item" href="#">
-            <img src="img/Интерскол.png" alt="ИНТЕРСКОЛ" width="200" height="88">
+          <a class="popular-brands__item" href="#">
+            <img src="img/Интерскол.png" alt="ИНТЕРСКОЛ" title="ИНТЕРСКОЛ" width="200" height="88">
           </a>
 
-          <a class="item" href="#">
-            <img src="img/HITACHI.png" alt="HITACHI" width="169" height="31">
+          <a class="popular-brands__item" href="#">
+            <img src="img/Hitachi.png" alt="HITACHI" title="HITACHI" width="169" height="31">
           </a>
 
-          <a class="item" href="#">
-            <img src="img/LG.png" alt="LG" width="121" height="73">
+          <a class="popular-brands__item" href="#">
+            <img src="img/LG.png" alt="LG" title="LG" width="121" height="73">
           </a>
 
-          <a class="item" href="#">
-            <img src="img/AEG.png" alt="AEG" width="151" height="96">
+          <a class="popular-brands__item" href="#">
+            <img src="img/AEG.png" alt="AEG" title="AEG" width="151" height="96">
           </a>
 
-          <a class="item" href="#">
-            <img src="img/Metabo.png" alt="Metabo" width="204" height="69">
+          <a class="popular-brands__item" href="#">
+            <img src="img/Metabo.png" alt="Metabo" title="Metabo" width="204" height="69">
           </a>
+
+<!-- У меня в разных браузерах на том месте, где идёт стык картинок - каким-то маленькие чёрные полоски внизу. Не врублюсь что это.-->
+<br>
+
+                      <img src="img/bosch.png" alt="BOSCH" width="126" height="37">
+                      <img src="img/Makita.png" alt="Makita" width="123" height="40">
+                      <img src="img/DeWALT.png" alt="DeWALT" width="146" height="44">
+                      <img src="img/Интерскол.png" alt="ИНТЕРСКОЛ" width="200" height="88">
+                      <img src="img/Hitachi.png" alt="HITACHI" width="169" height="31">
+                      <img src="img/LG.png" alt="LG" width="121" height="73">
+                      <img src="img/AEG.png" alt="AEG" width="151" height="96">
+                      <img src="img/Metabo.png" alt="Metabo" width="204" height="69">
+
+<!-- А вот так нету. Всё, дошло короче, это от того, что они ссылками обёрнуты. ПОТОМ НЕ ЗАБУДЬ УДАЛИТЬ ЭТОТ БЛОК МЕЖДУ КОММЕНТАРИЯМИ И ИХ САМИ ТОЖЕ. (ну после проверки я имею в виду, после следующей лекции. Пусть наставник видит какой я дохуя экспериментатор, сам разобрался =) ) -->
+
+
+
+
 
       </section>
 
@@ -240,9 +269,7 @@
 
       <section class="services">
 
-<!-- ЧТО ЭТО ДАЁТ? (использование хэдера тут) -->
-
-        <header class="services-header">
+        <header class="services__header">
 
         <h2>Сервисы</h2>
 
@@ -255,34 +282,30 @@
         </header>
 
 <!-- ПРИДУМАТЬ, КАК ЭТО РЕАЛИЗОВАТЬ -->
+<!-- НО НЕ СЕГОДНЯ +) -->
 
-          <ul class="service-selection">
-            <li class="item active">Доставка</li>
-            <li class="item">Гарантия</li>
-            <li class="item">Кредит</li>
+          <ul class="services__selection">
+            <li class="services__item services__item--active">Доставка</li>
+            <li class="services__item">Гарантия</li>
+            <li class="services__item">Кредит</li>
           </ul>
 
-          <div class="description">
+          <div class="services__description">
             <h3>Доставка</h3>
-            <p>Мы с удовольствием доставим ваш товар прямо к вашему подъезду совершенно бесплатно!
-            Ведь мы неплохо заработаем, поднимаея его на ваш этаж!</p>
+            <p>Мы с удовольствием доставим ваш товар прямо <br> к вашему подъезду совершенно бесплатно!
+            Ведь мы неплохо заработаем,<br> поднимаея его на ваш этаж!</p>
           </div>
 
-<!-- АБЗАЦЫ ИЛИ БР? -->
-
-          <div class="description">
+          <div class="services__description">
             <h3>Гарантия</h3>
-            <p>Если купленный у нас товар поломается или заискрит, а также в случае пожара, спровоцированного его возгаранием,  вы всегда можете быть уверены в нашей гарантии. Мы обменяем сгоревший товар на новый.
-            </p>
-            <p>Дом уж восстановите как-нибудь сами.</p>
+            <p>Если купленный у нас товар поломается или заискрит,<br> а также в случае пожара, спровоцированного его возгаранием,  вы всегда можете быть уверены в нашей гарантии. Мы обменяем сгоревший товар на новый.<br>
+            Дом уж восстановите как-нибудь сами.</p>
           </div>
 
-          <!-- И тут -->
-
-          <div class="description">
+          <div class="services__description">
             <h3>Кредит</h3>
-            <p>Залезть в долговую яму стало проще!</p>
-            <p>Кредитные консультанты придут вам на помощь.</p>
+            <p>Залезть в долговую яму стало проще!<br>
+            Кредитные консультанты придут вам на помощь.</p>
           </div>
 
       </section>
@@ -290,6 +313,8 @@
 <!-- ---------------------------------------------------------------------------------------------- -->
 
       <section class="about">
+
+        <!-- ВОТ ТУТ ПО ЛОГИКЕ ТОЖЕ ХЭДЕР ВЫРИСОВЫВАЕТСЯ. ОН ТУТ НУЖЕН? -->
 
         <h2>Компания "Техномарт"</h2>
 
@@ -306,7 +331,7 @@
           <li>ЖелДорЭкспедиция</li>
         </ul>
 
-        <a class="btn btn-about" href="#">Подробнее о компании</a>
+        <a class="btn about__btn" href="#">Подробнее о компании</a>
 
       </section>
 
@@ -318,9 +343,11 @@
 
         <p>Вы можете забрать товар сами, <br> заехав в наш офис:</p>
 
-        <img src="img/map-little.png" alt="Большая Конюшенная ул., 19">
+        <!--тут попап будет с большой картой или апишка гугла/яндекса, я так понял-->
+        <a href="#"><img src="img/map-little.png" alt="Большая Конюшенная ул., 19" title="Смотреть офиc на карте" width="300" height="158"></a>
+        <!-- Кстати, а чем попап отличается от модального? -->
 
-        <a class="btn btn-contact" href="#">Заблудились? Напишите нам!</a>
+        <a class="btn contacts__btn" href="#">Заблудились? Напишите нам!</a>
 
       </section>
 
@@ -330,13 +357,14 @@
 
     <footer class="main-footer">
 
-      <div class="first-line"> <!--Вот вроде так правильно титровать надо... или нет? -->
+      <div class="first-line">
 
-        <a class="logo">
-          <img src="img/logo-footer.png" alt="Техномарт" width="220" height="68">
+<!-- Так, привет, а тут-то я его картинкой оставил... Ну ладно, пусть пока так будет, не критично. -->
+        <a class="main-footer__logo">
+          <img src="img/logo-footer.png" alt="Техномарт" title="Техномарт" width="220" height="68">
         </a>
 
-        <ul class="navigation">
+        <ul class="main-footer__navigation">
           <li><a href="company.html">Компания</a></li>
           <li><a href="news.html">Новости</a></li>
           <li><a href="catalog.html">Каталог</a></li>
@@ -344,13 +372,13 @@
           <li><a href="contacts.html">Контакты</a></li>
         </ul>
 
-        <address class="address">
+        <address class="main-footer__address">
           г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <br>
-          <a class="footer-phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
+          <a class="main-footer__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
         </address>
 
         <!-- Ниже адреса у ссылок такие же, как и в разделе "каталог" -->
-        <ul class="catalog">
+        <ul class="main-footer__catalog">
           <li><a href="#">Материалы</a></li>
           <li><a href="#">Техника</a></li>
           <li><a href="#">Инструмент</a></li>
@@ -363,25 +391,25 @@
 
     <div class="second-line">
 
-      <p class="copyright">
+      <p class="main-footer__copyright">
         &copy; 2010-2019 Компания "Техномарт"
         <br>
         Все права защищены
       </p>
 
-      <div class="social">
+      <div class="main-footer__social">
         <ul>
-          <li><a class="social-btn vk-btn" href="#">Вконтакте</a></li>
-          <li><a class="social-btn fb-btn" href="#">Фейсбук</a></li>
-          <li><a class="social-btn in-btn" href="#">Инстаграм</a></li>
+          <li><a class="social-btn vk-btn" href="#" title="Вконтакте">Вконтакте</a></li>
+          <li><a class="social-btn fb-btn" href="#" title="Фейсбук">Фейсбук</a></li>
+          <li><a class="social-btn in-btn" href="#" title="Инстаграм">Инстаграм</a></li>
         </ul>
       </div>
 
-      <p class="feedback">
+      <p class="main-footer__feedback">
         Обратная связь: <a href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
       </p>
 
-      <p class="developer">
+      <p class="main-footer__developer">
         Разработано - <a href="https://htmlacademy.ru">htmlacademy.ru</a>
       </p>
 
@@ -389,13 +417,37 @@
 
     </footer>
 
-    <section class="modal modal-login">
+<!-- Вот с нижними тремя на счёт вижуали хиддена не уверен. Не знаю как именно попапы реализуются. -->
+    <section class="modal modal-login visually-hidden">
       <h2>Личный кабинет</h2>
       <p>Введите свой логин и пароль.</p>
       <button type="button">x</button>
     </section>
 
-<!-- ТАК, ЕЩЁ ЖЕ БОЛЬШОЙ ВСПЛЫВАЮЩЕЙ КАРТЫ НЕ ХВАТАЕТ -->
+    <form class="visually-hidden" action="/echo" method="post">
+
+      <label>
+        Ваше имя:
+        <input name="name" type="text" placeholder="Имя Фамилия">
+      </label>
+
+      <label>
+        Ваш e-mail:
+        <input name="mail" type="email" placeholder="email@example.com">
+      </label>
+
+      <label>
+        Текст письма:
+        <textarea name="letter" cols="30" rows="5">В свободной форме</textarea>
+      </label>
+
+      <button type="submit">Отправить</button>
+
+      <button type="button">x</button>
+
+    </form>
+
+    <img class="visually-hidden" src="img/map-big.png" alt="Большая Конюшенная ул., 19" width="940" height="446">
 
 </body>
 

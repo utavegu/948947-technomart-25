@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <title>HTML Academy: Техномарт - каталог</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -12,20 +13,26 @@
 
       <div class="first-line">
 
-        <a class="logo">
+<!-- ВАРИАНТ ДЛЯ ПОСТЕПЕННОЙ ДЕГРАДАЦИИ, ЕСЛИ У ПОЛЬЗОВАТЕЛЯ СТАРЫЙ БРАУЗЕР... ИЛИ ТУТ ЦСС3 НЕ НУЖЕН? НЕ ПОНЯЛ ПОКА, НУЖЕН ИЛИ НЕТ. ВРОДЕ НЕТ, ЛОГО ПРОСТОЙ. НУ КОРОЧЕ ТУПО ЗАПАСКА, ОСНОВНОЙ ВАРИАНТ БУДЕТ ТЕКСТОВЫМ. ПОЙДЁМ СЛОЖНЫМ ПУТЁМ И ПОТРЕНИРУЕМСЯ.
+        <a class="main-header__logo">
           <img src="img/logo.png" alt="Техномарт" width="220" height="47">
         </a>
+-->
 
-        <form>
-          <label for="search">Поиск:</label>
-          <input type="text" name="search" id="search">
+        <a class="main-header__logo" href="index.html">Техномарт</a>
+
+        <form class="main-header__search">
+          <label>
+            Поиск:
+            <input name="search" type="text">
+          </label>
         </form>
 
-        <ul>
-          <li><a class="bookmarks" href="#">Закладки</a></li>
-          <li><a class="basket in-stock" href="#">Корзина: 10</a></li>
-          <li><a class="btn btn-order allow" href="#">Оформить заказ</a></li>
-        </ul>
+        <div><a class="main-header__bookmarks" href="#">Закладки</a></div>
+
+        <div><a class="main-header__basket main-header__basket--in-stock" href="#">Корзина: 10</a></div>
+
+        <div><a class="btn btn-order btn-order--allow" href="#">Оформить заказ</a></div>
 
       </div>
 
@@ -33,24 +40,25 @@
 
         <h1>Интернет-магазин строительных материалов и инструментов для ремонта</h1>
 
-        <address class="address">
-          <a class="phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
+        <address class="main-header__address">
+          <a class="main-header__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
           <span class="street">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
         </address>
 
-        <ul class="user-navigation">
-          <li class="user-link"><a href="">Равшан Джамшутович</a></li>
-          <li class="order-link"><a href="">Мои заказы</a></li>
-          <li class="personal-link"><a href="">Личный кабинет</a></li>
+        <ul class="main-header__user-navigation">
+          <li class="main-header__user-link"><a href="">Равшан Джамшутович</a></li>
+          <li class="main-header__order-link"><a href="">Мои заказы</a></li>
+          <li class="main-header__personal-link"><a href="">Личный кабинет</a></li>
         </ul>
 
       </div>
 
       <div class="third-line">
 
-        <nav class="main-navigation">
-          <ul class="site-navigation">
-            <li><a>Главная</a></li>
+<!-- ССЫЛКУ НА КАТАЛОГ ОСТАВИТЬ! ТАК КАК ЭТО ПОДРАЗДЕЛ ПЕРФОРАТОРОВ. А ЧТО С ОСНОВНОЙ СТРАНИЦЫ СЮДА ВЕДЕТ... НУ ПОТОМУ ЧТО НЕТ КАТАЛОГА, ПУСТЬ ХОТЯ БЫ СЮДА ВЕДЕТ -->
+        <nav class="main-header__main-navigation">
+          <ul class="main-header__site-navigation">
+            <li><a href="index.html">Главная</a></li>
             <li><a href="company.html">Компания</a></li>
             <li><a href="catalog.html">Каталог</a></li>
             <li><a href="news.html">Новости</a></li>
@@ -66,18 +74,64 @@
 
     <main class="container">
 
-      <ul class="breadcrumbs">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="catalog.html">Каталог</a></li>
-        <li><a href="instruments.html">Инструменты</a></li>
-        <li class="breadcrumbs-current">Перфораторы</li>
+      <ul>
+        <li><a class="breadcrumbs" href="index.html">Главная</a></li>
+        <li><a class="breadcrumbs" href="catalog.html">Каталог</a></li>
+        <li><a class="breadcrumbs" href="instruments.html">Инструменты</a></li>
+        <li><a class="breadcrumbs breadcrumbs--current">Перфораторы</a></li>
       </ul>
+      <!-- Пересадил класс от ul к li. Может и напрасно -->
 
       <h2>Перфораторы</h2>
 
       <section class="filters">
         <h3>Фильтр:</h3>
-        <!-- Здесь будет форма -->
+        <form action="/echo" method="post">
+
+          <fieldset oninput="priceoutput.value=pricecount.value">
+            <legend>Цена:</legend>
+            <input type="range" id="pricecount" name="pricecount" min="1000" max="30000" step="1000" value="25000">
+            <output id="priceoutput" name="priceoutput">25000</output>
+            <span class="maxprice">30000</span> <!-- Вот на счёт спана не уверен -->
+          </fieldset>
+
+          <fieldset>
+            <legend>Производители:</legend>
+            <label>
+              <input type="checkbox" name="BOSCH" checked>
+              BOSCH
+            </label>
+            <label>
+              <input type="checkbox" name="ИНТЕРСКОЛ">
+              ИНТЕРСКОЛ
+            </label>
+            <label>
+              <input type="checkbox" name="Makita" checked>
+              Makita
+            </label>
+            <label>
+              <input type="checkbox" name="DeWALT">
+              DeWALT
+            </label>
+            <label>
+              <input type="checkbox" name="HITACHI">
+              HITACHI
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Питание:</legend>
+            <label>
+              <input type="radio" name="power" value="Аккумуляторные" checked> Аккумуляторные
+            </label>
+            <label>
+              <input type="radio" name="power" value="Сетевые"> Сетевые
+            </label>
+          </fieldset>
+
+          <button type="submit">Показать</button>
+
+        </form>
       </section>
 
       <section class="catalog">
@@ -85,94 +139,95 @@
 
         <!-- Тут будет сортировка. Пока не знаю, как её реализовать... Ну, предположительно, это 2 неупорядоченных списка радиобаттанов -->
 
-        <ul class="catalog-list">
+        <ul class="catalog__list">
 
-          <li class="item">
-            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 9000" width="218" height="170">
+          <li class="catalog__item">
+            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 3000" title="Перфоратор BOSCH BFG 3000" width="218" height="170">
             <a href="#">
               <h4>Перфоратор BOSCH BFG 3000</h4>
             </a>
-            <div class="old-price">22500 Р.</div>
-            <div class="new-price">15500 Р.</div>
+            <div class="catalog__old-price"><del>22500 Р.</del></div>
+            <div class="catalog__new-price">15500 Р.</div>
           </li>
 
-          <li class="item">
-            <img src="img/Perforator_3.jpg" alt="Перфоратор BOSCH BFG 9000" width="218" height="170">
+          <li class="catalog__item">
+            <img src="img/Perforator_3.jpg" alt="Перфоратор BOSCH BFG 6000" title="Перфоратор BOSCH BFG 6000" width="218" height="170">
             <a href="#">
               <h4>Перфоратор BOSCH BFG 6000</h4>
             </a>
-            <div class="old-price">30500 Р.</div>
-            <div class="new-price">25500 Р.</div>
+            <div class="catalog__old-price"><del>30500 Р.</del></div>
+            <div class="catalog__new-price">25500 Р.</div>
           </li>
 
-          <li class="item new hover">
+          <li class="catalog__item catalog__item--new catalog__item--hover">
             <a class="btn buy-btn" href="#">Купить</a>
             <button type="button">В закладки</button>
             <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
-            <div class="new-price">12500 Р.</div>
+            <div class="catalog__new-price">12500 Р.</div>
           </li>
 
-          <li class="item">
-            <img src="img/Perforator_2.jpg  " alt="Перфоратор BOSCH BFG 9000" width="218" height="170">
+          <li class="catalog__item">
+            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 2000" title="Перфоратор BOSCH BFG 2000" width="218" height="170">
             <a href="#">
               <h4>Перфоратор BOSCH BFG 3000</h4>
             </a>
-            <div class="old-price">22500 Р.</div>
-            <div class="new-price">15500 Р.</div>
+            <div class="catalog__old-price"><del>22500 Р.</del></div>
+            <div class="catalog__new-price">15500 Р.</div>
           </li>
 
-          <li class="item new">
-            <img src="img/Perforator_3.jpg" alt="Перфоратор BOSCH BFG 9000" width="218" height="170">
+          <li class="catalog__item catalog__item--new">
+            <img src="img/Perforator_3.jpg" alt="Перфоратор BOSCH BFG 6000" title="Перфоратор BOSCH BFG 6000" width="218" height="170">
             <a href="#">
               <h4>Перфоратор BOSCH BFG 6000</h4>
             </a>
-            <div class="old-price">30500 Р.</div>
-            <div class="new-price">25500 Р.</div>
+            <div class="catalog__old-price"><del>30500 Р.</del></div>
+            <div class="catalog__new-price">25500 Р.</div>
           </li>
 
-          <li class="item">
-            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 9000" width="218" height="170">
+          <li class="catalog__item">
+            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 2000" title="Перфоратор BOSCH BFG 2000" width="218" height="170">
             <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
-            <div class="new-price">12500 Р.</div>
+            <div class="catalog__new-price">12500 Р.</div>
           </li>
 
-          <li class="item new">
-            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 9000" width="218" height="170">
+          <li class="catalog__item catalog__item--new">
+            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 3000" title="Перфоратор BOSCH BFG 3000" width="218" height="170">
             <a href="#">
               <h4>Перфоратор BOSCH BFG 3000</h4>
             </a>
-            <div class="old-price">22500 Р.</div>
-            <div class="new-price">15500 Р.</div>
+            <div class="catalog__old-price"><del>22500 Р.</del></div>
+            <div class="catalog__new-price">15500 Р.</div>
           </li>
 
-          <li class="item">
-            <img src="img/Perforator_3.jpg" alt="Перфоратор BOSCH BFG 9000" width="218" height="170">
+          <li class="catalog__item">
+            <img src="img/Perforator_3.jpg" alt="Перфоратор BOSCH BFG 6000" title="Перфоратор BOSCH BFG 6000" width="218" height="170">
             <a href="#">
               <h4>Перфоратор BOSCH BFG 6000</h4>
             </a>
-            <div class="old-price">30500 Р.</div>
-            <div class="new-price">25500 Р.</div>
+            <div class="catalog__old-price"><del>30500 Р.</del></div>
+            <div class="catalog__new-price">25500 Р.</div>
           </li>
 
-          <li class="item">
-            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 9000" width="218" height="170">
+          <li class="catalog__item">
+            <img src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 2000" title="Перфоратор BOSCH BFG 2000" width="218" height="170">
             <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
-            <div class="new-price">12500 Р.</div>
+            <div class="catalog__new-price">12500 Р.</div>
           </li>
 
         </ul>
 
-        <ul class="pagination-list">
-          <li class="pagination-item pagination-item-current"><a>1</a></li>
-          <li class="pagination-item"><a href="#">2</a></li>
-          <li class="pagination-item"><a href="#">3</a></li>
-          <li class="pagination-item pagination-item-next"><a href="#">Следующая</a></li>
+        <!--Вот тут нормально, что классы у элементов списка? Или их лучше ссылкам перекинуть? -->
+        <ul class="catalog__pagination-list">
+          <li class="catalog__pagination-item catalog__pagination-item--current"><a>1</a></li>
+          <li class="catalog__pagination-item"><a href="#">2</a></li>
+          <li class="catalog__pagination-item"><a href="#">3</a></li>
+          <li class="catalog__pagination-item catalog__pagination-item--next"><a href="#">Следующая</a></li>
         </ul>
 
       </section>
@@ -180,7 +235,7 @@
       <section class="about-perforators">
         <h3>Пара слов о перфораторах</h3>
         <p>
-          Перфоратор - универсальный строительный инструмент. Предназначен для сверления и долбления отверстий в кирпиче, бетоне и камне. Существуют электромеханические и пневматические перфораторы. Современные модели могут выполнять функции дрели, шуруповерта и отбойного молотка. В ассортиментном ряду есть выбор "трехрежимников": в одном устройстве будут совмещены отбойный молоток и ударная дрель.
+          Перфоратор - универсальный строительный инструмент. Предназначен для сверления и долбления отверстий в кирпиче, бетоне и камне.<br> Существуют электромеханические и пневматические перфораторы. Современные модели могут выполнять функции дрели, шуруповерта и отбойного молотка. В ассортиментном ряду есть выбор "трехрежимников": в одном устройстве будут совмещены отбойный молоток и ударная дрель.
         </p>
 
       </section>
@@ -191,11 +246,12 @@
 
       <div class="first-line">
 
-        <a class="logo">
-          <img src="img/logo-footer.png" alt="Техномарт" width="220" height="68">
+<!-- Тоже пусть пока картинкой будет -->
+        <a class="main-footer__logo" href="index.html">
+          <img src="img/logo-footer.png" alt="Техномарт" title="Техномарт" width="220" height="68">
         </a>
 
-        <ul class="navigation">
+        <ul class="main-footer__navigation">
           <li><a href="company.html">Компания</a></li>
           <li><a href="news.html">Новости</a></li>
           <li><a href="catalog.html">Каталог</a></li>
@@ -203,13 +259,13 @@
           <li><a href="contacts.html">Контакты</a></li>
         </ul>
 
-        <address class="address">
+        <address class="main-footer__address">
           г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <br>
-          <a class="phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
+          <a class="main-footer__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
         </address>
 
         <!-- Ниже адреса у ссылок такие же, как и в разделе "каталог" -->
-        <ul class="catalog">
+        <ul class="main-footer__catalog">
           <li><a href="#">Материалы</a></li>
           <li><a href="#">Техника</a></li>
           <li><a href="#">Инструмент</a></li>
@@ -220,13 +276,13 @@
 
     <div class="second-line">
 
-      <p class="copyright">
+      <p class="main-footer__copyright">
         &copy; 2010-2019 Компания "Техномарт"
         <br>
         Все права защищены
       </p>
 
-      <div class="social">
+      <div class="main-footer__social">
         <ul>
           <li><a class="social-btn vk-btn" href="#">Вконтакте</a></li>
           <li><a class="social-btn fb-btn" href="#">Фейсбук</a></li>
@@ -234,17 +290,24 @@
         </ul>
       </div>
 
-      <p class="feedback">
+      <p class="main-footer__feedback">
         Обратная связь: - <a href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
       </p>
 
-      <p class="developer">
+      <p class="main-footer__developer">
         Разработано - <a href="https://htmlacademy.ru">htmlacademy.ru</a>
       </p>
 
     </div>
 
     </footer>
+
+    <div class="product-added__popup">
+      <b>Товар добавлен в корзину!</b>b>
+      <a class="btn btn-checkout" href="#">Оформить заказ</a>
+      <button type="button">Продолжить покупки</button>
+      <button type="button">x</button>
+    </div>
 
 </body>
 

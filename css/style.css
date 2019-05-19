@@ -1,3 +1,18 @@
+/*НЕ ЗАБУДЬ УБРАТЬ ВЫСОТУ, КОГДА БУДЕШЬ ЦСС ПОДКЛЮЧАТЬ!*/
+
+/*Это временные стили - чтобы проще было доступность прочекать*/
+a:focus,
+img:focus,
+button:focus,
+[input] {
+  outline: 5px solid orange;
+}
+
+input:focus {
+background-color: orange;
+}
+
+/*
 .main-header {
 	height: 320px;
 	background-color: #f3f7f8;
@@ -39,3 +54,4 @@
 	background-color: #32425c;
 	border-bottom: 1px solid red;
 }
+*/
