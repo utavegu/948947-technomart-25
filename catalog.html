@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>HTML Academy: Техномарт - каталог</title>
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -13,13 +14,9 @@
 
       <div class="first-line">
 
-<!-- ВАРИАНТ ДЛЯ ПОСТЕПЕННОЙ ДЕГРАДАЦИИ, ЕСЛИ У ПОЛЬЗОВАТЕЛЯ СТАРЫЙ БРАУЗЕР... ИЛИ ТУТ ЦСС3 НЕ НУЖЕН? НЕ ПОНЯЛ ПОКА, НУЖЕН ИЛИ НЕТ. ВРОДЕ НЕТ, ЛОГО ПРОСТОЙ. НУ КОРОЧЕ ТУПО ЗАПАСКА, ОСНОВНОЙ ВАРИАНТ БУДЕТ ТЕКСТОВЫМ. ПОЙДЁМ СЛОЖНЫМ ПУТЁМ И ПОТРЕНИРУЕМСЯ.
-        <a class="main-header__logo">
+        <a class="main-header__logo" href="index.html">
           <img src="img/logo.png" alt="Техномарт" width="220" height="47">
         </a>
--->
-
-        <a class="main-header__logo" href="index.html">Техномарт</a>
 
         <form class="main-header__search">
           <label>
@@ -55,7 +52,6 @@
 
       <div class="third-line">
 
-<!-- ССЫЛКУ НА КАТАЛОГ ОСТАВИТЬ! ТАК КАК ЭТО ПОДРАЗДЕЛ ПЕРФОРАТОРОВ. А ЧТО С ОСНОВНОЙ СТРАНИЦЫ СЮДА ВЕДЕТ... НУ ПОТОМУ ЧТО НЕТ КАТАЛОГА, ПУСТЬ ХОТЯ БЫ СЮДА ВЕДЕТ -->
         <nav class="main-header__main-navigation">
           <ul class="main-header__site-navigation">
             <li><a href="index.html">Главная</a></li>
@@ -72,30 +68,65 @@
 
     </header>
 
+    <!-- ---------------------------------------------------------------------------------------------- -->
+
     <main class="container">
 
-      <ul>
-        <li><a class="breadcrumbs" href="index.html">Главная</a></li>
-        <li><a class="breadcrumbs" href="catalog.html">Каталог</a></li>
-        <li><a class="breadcrumbs" href="instruments.html">Инструменты</a></li>
-        <li><a class="breadcrumbs breadcrumbs--current">Перфораторы</a></li>
+      <ul class="breadcrumbs">
+        <li><a class="visually-hidden" href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="instruments.html">Инструменты</a></li>
+        <li><a class="breadcrumbs--current">Перфораторы</a></li>
       </ul>
-      <!-- Пересадил класс от ul к li. Может и напрасно -->
 
-      <h2>Перфораторы</h2>
+      <h2 class="page-section-header">Перфораторы</h2>
 
       <section class="filters">
         <h3>Фильтр:</h3>
-        <form action="/echo" method="post">
+        <form action="https://echo.htmlacademy.ru" method="post">
 
+          <!-- С БЕГУНКОМ Я ТАК ТОЛКОМ И НЕ ПОНЯЛ, ЧЕГО ОТ МЕНЯ ХОТЯТ, ПОТОМУ ПОКА СДЕЛАЮ ВОТ ТАК. Я ТАК ПОНЯЛ, ЧТО ФУНКЦИОНИРОВАТЬ ОН У МЕНЯ НЕ ДОЛЖЕН, А ПРОСТО НУЖНО ПОВТОРИТЬ ЕГО ВНЕШНИЙ ВИД -->
           <fieldset oninput="priceoutput.value=pricecount.value">
             <legend>Цена:</legend>
-            <input type="range" id="pricecount" name="pricecount" min="1000" max="30000" step="1000" value="25000">
-            <output id="priceoutput" name="priceoutput">25000</output>
-            <span class="maxprice">30000</span> <!-- Вот на счёт спана не уверен -->
+            <div class="range__box">
+              <div class="range__regulator range__regulator--left" style="cursor: pointer;" tabindex="0"> <!-- Временное решение, потом в общий стайл css хуйну -->
+                <svg width="20" height="20">
+                  <circle r="10" cx="10" cy="10" fill="#ffffff"/>
+                  <rect width="4" height="4" x="8" y="8" rx="1" fill="#ababab"/>
+                </svg>
+              </div>
+              <div class="range__regulator range__regulator--right" style="cursor: pointer;" tabindex="0">
+                <svg width="20" height="20">
+                  <circle r="10" cx="10" cy="10" fill="lightgray"/>
+                  <rect width="4" height="4" x="8" y="8" rx="1" fill="gray"/> <!-- Этому пока такие цвета сделал, чтобы их хотя бы видно было -->
+                </svg>
+              </div>
+              <div class="range__line">
+                <svg width="170" height="6">
+                  <line x1="0" y1="3" x2="140" y2="3" stroke="#00ca74" stroke-width="2" />
+                  <line x1="140" y1="3" x2="170" y2="3" stroke="#d7dcde" stroke-width="2" />
+                </svg>
+              </div>
+              <!-- Регулятором через CSS потом поменять вид курсора -->
+            </div>
+
+            <!-- С НАМБЕРОМ НЕ ПОЛУЧИЛОСЬ. ТАМ СПРАВА ПОЯВЛЯЮТСЯ СТРЕЛОЧКИ ПЕРЕКЛЮЧЕНИЯ ЧИСЕЛ. ИЛИ ИХ МОЖНО КАК-ТО УБРАТЬ, ОСТАВИВ ТИП НАМБЕР? -->
+            <div class="select_price_box select_price_box--left">
+              <input type="text" name="min-price" value="0">
+            </div>
+
+            <svg width="10" height="1">
+              <line x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="1" /> <!-- Примерные параметры -->
+            </svg>
+
+            <div class="select_price_box select_price_box--right">
+              <input type="text" name="max-price" value="30000">
+            </div>
+
           </fieldset>
 
           <fieldset>
+
             <legend>Производители:</legend>
             <label>
               <input type="checkbox" name="BOSCH" checked>
@@ -117,9 +148,11 @@
               <input type="checkbox" name="HITACHI">
               HITACHI
             </label>
+
           </fieldset>
 
           <fieldset>
+
             <legend>Питание:</legend>
             <label>
               <input type="radio" name="power" value="Аккумуляторные" checked> Аккумуляторные
@@ -127,6 +160,7 @@
             <label>
               <input type="radio" name="power" value="Сетевые"> Сетевые
             </label>
+
           </fieldset>
 
           <button type="submit">Показать</button>
@@ -134,10 +168,21 @@
         </form>
       </section>
 
+      <!-- ---------------------------------------------------------------------------------------------- -->
+
       <section class="catalog">
         <h3 class="visually-hidden">Перфораторы</h3>
 
-        <!-- Тут будет сортировка. Пока не знаю, как её реализовать... Ну, предположительно, это 2 неупорядоченных списка радиобаттанов -->
+        <div class="sort">
+          Сортировка:
+          <a class="sort-item sort-item--current by-price" href="#">По цене</a>
+          <a class="sort-item by-type" href="#">По типу</a>
+          <a class="sort-item by-functional" href="#">По функционалу</a>
+          <!-- Две ниже текст надо будет скрыть через цсс... или какие там ещё приёмы есть -->
+          <a class="sort-arrow ascending" href="#">По возрастанию</a>
+          <a class="sort-arrow descending" href="#">По убыванию</a>
+          <!-- Ссылки - ГЕТ-запросы -->
+        </div>
 
         <ul class="catalog__list">
 
@@ -159,9 +204,9 @@
             <div class="catalog__new-price">25500 Р.</div>
           </li>
 
-          <li class="catalog__item catalog__item--new catalog__item--hover">
+          <li class="catalog__item catalog__item--new catalog__item">
             <a class="btn buy-btn" href="#">Купить</a>
-            <button type="button">В закладки</button>
+            <button class="btn bookmarks-btn" type="button">В закладки</button>
             <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
@@ -222,15 +267,16 @@
 
         </ul>
 
-        <!--Вот тут нормально, что классы у элементов списка? Или их лучше ссылкам перекинуть? -->
         <ul class="catalog__pagination-list">
-          <li class="catalog__pagination-item catalog__pagination-item--current"><a>1</a></li>
-          <li class="catalog__pagination-item"><a href="#">2</a></li>
-          <li class="catalog__pagination-item"><a href="#">3</a></li>
-          <li class="catalog__pagination-item catalog__pagination-item--next"><a href="#">Следующая</a></li>
+          <li><a class="catalog__pagination-item catalog__pagination-item--current">1</a></li>
+          <li><a class="catalog__pagination-item" href="#">2</a></li>
+          <li><a class="catalog__pagination-item" href="#">3</a></li>
         </ul>
+        <a class="catalog__pagination-item catalog__pagination-item--next" href="#">Следующая</a>
 
       </section>
+
+      <!-- ---------------------------------------------------------------------------------------------- -->
 
       <section class="about-perforators">
         <h3>Пара слов о перфораторах</h3>
@@ -242,11 +288,12 @@
 
     </main>
 
+    <!-- ---------------------------------------------------------------------------------------------- -->
+
     <footer class="main-footer">
 
       <div class="first-line">
 
-<!-- Тоже пусть пока картинкой будет -->
         <a class="main-footer__logo" href="index.html">
           <img src="img/logo-footer.png" alt="Техномарт" title="Техномарт" width="220" height="68">
         </a>
@@ -264,7 +311,6 @@
           <a class="main-footer__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
         </address>
 
-        <!-- Ниже адреса у ссылок такие же, как и в разделе "каталог" -->
         <ul class="main-footer__catalog">
           <li><a href="#">Материалы</a></li>
           <li><a href="#">Техника</a></li>
@@ -300,13 +346,20 @@
 
     </div>
 
+    <!-- ---------------------------------------------------------------------------------------------- -->
+
     </footer>
 
-    <div class="product-added__popup">
+    <div class="modal product-added__modal">
       <b>Товар добавлен в корзину!</b>b>
       <a class="btn btn-checkout" href="#">Оформить заказ</a>
       <button type="button">Продолжить покупки</button>
-      <button type="button">x</button>
+      <button type="button">
+        <svg width="10" height="10">
+          <line x1="0" y1="0" x2="10" y2="10" stroke="black" stroke-width="3" />
+          <line x1="0" y1="10" x2="10" y2="00" stroke="black" stroke-width="3" />
+        </svg>
+      </button>
     </div>
 
 </body>

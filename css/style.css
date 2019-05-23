@@ -1,6 +1,3 @@
-/*НЕ ЗАБУДЬ УБРАТЬ ВЫСОТУ, КОГДА БУДЕШЬ ЦСС ПОДКЛЮЧАТЬ!*/
-
-/*Это временные стили - чтобы проще было доступность прочекать*/
 a:focus,
 img:focus,
 button:focus,
@@ -12,46 +9,594 @@ input:focus {
 background-color: orange;
 }
 
-/*
-.main-header {
-	height: 320px;
-	background-color: #f3f7f8;
-	border-bottom: 1px solid red;
+.modal,
+.popup {
+	display: none;
 }
 
-.catalog {
-	height: 520px;
-	background-color: #ffffff;
-	border-bottom: 1px solid red;
+/* ------------------------------------------------------------ */
+
+@font-face {
+font-family: Cuprum;
+src: url('../fonts/web/cuprum.woff')
 }
+
+@font-face {
+font-family: PT Sans;
+src: url('../fonts/web/ptsans.woff')
+}
+
+
+/* Порядок свойств (в соответствии с кодгайдом) потом отсортирую. Автоматическую сортировку ставить не хочу, надо самому привыкать. */
+
+/*ТАК ЖЕ Я ВИЖУ, ЧТО ЧАСТЬ СВОЙСТВ ТУТ МОЖНО СХЛОПНУТЬ, НО ПОКА НЕ БУДУ РИСКОВАТЬ, ЧТОБЫ НЕ НАПАРИТЬ, ЗАЙМУСЬ ЭТИМ НА ЭТАПАХ ДОПИЛКИ*/
+
+/*Ещё я бы ul сразу все лист стайл нон сделал, но это вроде критерии не позволяют*/
+
+.visually-hidden {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0 !important;
+	border: 0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+body {
+	margin: 0;
+  padding: 0;
+	font-family: "Cuprum", "Arial", sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+/*Ну не связывает их больше ничего, кроме того, что они красные)) Придумаю потом синоним*/
+.btn-red {
+	font-style: italic;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	color: #ffffff;
+	background-color: #ee3643;
+	/*
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	Так, походу надо какую-то обёртку придумать для этих кнопок
+	*/
+}
+
+/* -----ХЭДЭР------------------------------------------------------- */
+
+.main-header {
+	border-bottom: 5px dotted red;
+}
+
+.main-header .first-line {
+	background-color: #293449;
+	font-size: 17px;
+	line-height: 18px;
+	color: #ffffff;
+}
+
+.main-header__search,
+.main-header__bookmarks,
+.main-header__basket,
+.main-header__btn {
+	display: inline-block;
+}
+
+.main-header__btn-order {
+	background-color: #63a63e;
+}
+
+/* ------------------------------------------------------------ */
+
+.main-header .second-line {
+	background-color: #f4f7f9
+}
+
+.main-header .second-line h1 {
+	font-style: italic;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 23px;
+	color: #ee3643;
+}
+
+.main-header__address {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 24px;
+	color: #32425c;
+}
+
+.main-header__phone {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 21px;
+	line-height: 21px;
+	color: #ee3643;
+}
+
+.main-header__user-navigation {
+	list-style: none;
+}
+
+.main-header__login-link,
+.main-header__registration-link {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 21px;
+	line-height: 21px;
+	color: #000000;
+}
+
+/* ------------------------------------------------------------ */
+
+.main-header .third-line {
+	background-color: #32425c
+}
+
+.main-header__main-navigation {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	line-height: 17px;
+	color: #ffffff;
+}
+
+.main-header__site-navigation {
+	list-style: none;
+}
+
+/* -----ПРОМО------------------------------------------------------- */
+
+.promo {
+	background-color: #ffffff;
+	border-bottom: 5px dotted red;
+}
+
+.promo__item {
+	width: 300px;
+	height: 123px;
+	display: inline-block;
+}
+
+.promo__item h3 {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 30px;
+	color: #ffffff;
+}
+
+.promo__item a {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	color: #ffffff;
+}
+
+.promo__materials {
+	background-color: #ffbf47;
+}
+
+.promo__instruments {
+	background-color: #3bbce3;
+}
+
+.promo__equipment {
+	background-color: #dc91d8;
+}
+
+.promo__discounts {
+	background-color: #8ed78f;
+}
+
+.promo__delivery {
+	background-color: #ffc047;
+}
+
+.promo__preview {
+	width: 620px;
+	height: 266px;
+	border: 1px dotted green;
+	background-image: url("../img/man-2.jpg");
+}
+
+.promo__preview  ul {
+	list-style: none;
+}
+
+.promo__preview h4 {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 36px;
+	color: #ffffff;
+}
+
+.promo__preview p {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 24px;
+	color: #ffffff;
+}
+
+/* -----ПОПУЛЯРНЫЕ ТОВАРЫ------------------------------------------------------- */
 
 .popular-products {
-	height: 450px;
 	background-color: #ffffff;
-	border-bottom: 1px solid red;
+	border-bottom: 5px dotted red;
 }
+
+.popular-products h2 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 30px;
+	color: #32425c;
+}
+
+.popular-products ul {
+	list-style: none;
+}
+
+.popular-products__item h3 {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 20px;
+	color: #000000;
+}
+
+.popular-products__old-price {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 17px;
+	line-height: 18px;
+	color: #a9a9a9;
+}
+
+.popular-products__new-price {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 17px;
+	line-height: 18px;
+	color: #ffffff;
+}
+
+.popular-products__item--new {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 4.85px;
+	line-height: 5.13px;
+	color: #ffffff;
+}
+
+/* -----ПОПУЛЯРНЫЕ ПРОИЗВОДИТЕЛИ------------------------------------------------------- */
 
 .popular-brands {
-	height: 505px;
 	background-color: #ffffff;
-	border-bottom: 1px solid red;
+	border-bottom: 5px dotted red;
 }
+
+.popular-brands h2 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 30px;
+	color: #32425c;
+}
+
+/* -----СЕРВИСЫ------------------------------------------------------- */
 
 .services {
-	height: 520px;
 	background-color: #f4f8f9;
-	border-bottom: 1px solid red;
+	border-bottom: 5px dotted red;
 }
+
+.services__header h2 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 30px;
+	color: #000000;
+}
+
+.services__header p {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 24px;
+	color: #000000;
+}
+
+.services__selection {
+	list-style: none;
+}
+
+.services__item {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 21px;
+	line-height: 30px;
+	color: #ffffff;
+}
+
+.services__item--active {
+	color: #32425c;
+}
+
+.services__description h3 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	line-height: 36px;
+	color: #32425c;
+}
+
+.services__description p {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 24px;
+	color: #000000;
+}
+
+/* -----О КОМПАНИИ и КОНТАКТЫ------------------------------------------------------- */
 
 .about {
-	height: 535px;
 	background-color: #ffffff;
-	border-bottom: 1px solid red;
+	border-bottom: 5px dotted red;
 }
 
-.main-footer {
-	height: 300px;
-	background-color: #32425c;
-	border-bottom: 1px solid red;
+.about__header h2,
+.contacts h2 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 30px;
+	color: #000000;
 }
-*/
+
+.about__header p,
+.contacts p {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 24px;
+	color: #000000;
+}
+
+.about ul {
+	list-style: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 20px;
+	color: #000000;
+}
+
+/* ------------------------------------------------------------ */
+
+.main-footer {
+	background-color: #32425c;
+	border-bottom: 5px dotted red;
+}
+
+.main-footer ul {
+	list-style: none;
+}
+
+.main-footer__navigation {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 24px;
+	color: #f1f5f7;
+}
+
+.main-footer__address,
+.main-footer__phone {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 24px;
+	color: #f3f7f9;
+}
+
+.main-footer__catalog {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 24px;
+	color: #ffd180;
+}
+
+.main-footer__copyright {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 18px;
+	color: #ffffff;
+}
+
+.main-footer__feedback,
+.main-footer__developer {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 18px;
+	color: #ffffff;
+}
+
+.main-footer__feedback a,
+.main-footer__developer a {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 18px;
+	color: #ffd180;
+}
+
+/* ------------------------------++++++++++ДАЛЕЕ КАТАЛОГ++++++++++------------------------------ */
+
+.main-header__user-link a {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 21px;
+	line-height: 21px;
+	color: #000000;
+}
+
+.main-header__order-link a,
+.main-header__personal-link a {
+	text-decoration: underline;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 18px;
+	color: #32425c;
+}
+
+/* ------------------------------------------------------------ */
+
+.breadcrumbs {
+	list-style: none;
+}
+
+.breadcrumbs li {
+	display: inline;
+}
+
+.breadcrumbs a {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 18px;
+	color: #000000;
+}
+
+/* ------------------------------------------------------------ */
+
+.page-section-header {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 30px;
+	color: #32425c;
+}
+
+/* ------------------------------------------------------------ */
+
+.filters {
+	background-color: #ffffff;
+	border-bottom: 5px dotted red;
+}
+
+.filters legend {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 17px;
+	line-height: 30px;
+	color: #000000;
+}
+/*Внимание! Похоже у "питания" другой межсимвольный интервал!*/
+
+.filters label {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 20px;
+	color: #000000;
+}
+
+.filters {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 18px;
+	color: #000000;
+}
+
+/* ------------------------------------------------------------ */
+
+.catalog {
+	background-color: #ffffff;
+	border-bottom: 5px dotted red;
+}
+
+.catalog .sort {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 18px;
+	color: #000000;
+}
+
+.sort .sort-item {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 18px;
+	color: #acaaa5;
+	border-bottom: 1px red dotted;
+	/*Возможно там чёрный цвет и опасити*/
+}
+
+.sort .sort-item--current {
+	color: #ee3643;
+	border-bottom: none;
+}
+
+.buy-btn {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	color: #ffffff;
+}
+
+.bookmarks-btn {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	color: #32425c;
+}
+
+/* ------------------------------------------------------------ */
+
+/* ДОДЕЛАТЬ НАВИГАЦИЮ И ЭБАУТ ПЕРФОРАТОРС*/
+
+
+
+/* ------------------------------------------------------------ */
+
+.about-perforators {
+	background-color: #f2f6f8;
+	border-bottom: 5px dotted red;
+}

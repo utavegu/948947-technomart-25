@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>HTML Academy: Техномарт</title>
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -13,13 +14,9 @@
 
       <div class="first-line">
 
-<!-- ВАРИАНТ ДЛЯ ПОСТЕПЕННОЙ ДЕГРАДАЦИИ, ЕСЛИ У ПОЛЬЗОВАТЕЛЯ СТАРЫЙ БРАУЗЕР... ИЛИ ТУТ ЦСС3 НЕ НУЖЕН? НЕ ПОНЯЛ ПОКА, НУЖЕН ИЛИ НЕТ. ВРОДЕ НЕТ, ЛОГО ПРОСТОЙ. НУ КОРОЧЕ ТУПО ЗАПАСКА, ОСНОВНОЙ ВАРИАНТ БУДЕТ ТЕКСТОВЫМ. ПОЙДЁМ СЛОЖНЫМ ПУТЁМ И ПОТРЕНИРУЕМСЯ.
         <a class="main-header__logo">
           <img src="img/logo.png" alt="Техномарт" width="220" height="47">
         </a>
--->
-
-        <a class="main-header__logo">Техномарт</a>
 
         <form class="main-header__search">
           <label>
@@ -28,13 +25,11 @@
           </label>
         </form>
 
-<!-- ТУТ ЧОТО НАВЕРНОЕ КЛАССЫ-ТО НАДО ДИВАМ ЗАДАТЬ, А НЕ ССЫЛКАМ... -->
+        <div class="main-header__bookmarks"><a href="#">Закладки</a></div>
 
-        <div><a class="main-header__bookmarks" href="#">Закладки</a></div>
+        <div class="main-header__basket"><a href="#">Корзина</a></div>
 
-        <div><a class="main-header__basket" href="#">Корзина</a></div>
-
-        <div><a class="main-header__btn main-header__btn-order" href="#">Оформить заказ</a></div>
+        <div class="main-header__btn main-header__btn-order"><a href="#">Оформить заказ</a></div>
 
       </div>
 
@@ -80,10 +75,9 @@
 
     <main class="container">
 
-<!-- Я ТУТ ПОДУМАЛ, ЧТО ЭТО НИФИГА НЕ КАТАЛОГ. БУДЕТ ПРОМО БЛОК. НАДЕЮСЬ АД-БЛОК РЕКЛАМНЫЙ НА ТАКОЕ НАЗВАНИЕ НЕ СЪАГРИТСЯ -->
       <section class="promo">
 
-        <h2 class="visually-hidden">Каталог</h2>
+        <h2 class="visually-hidden">Промо-блок</h2>
 
         <div class="promo__items">
 
@@ -114,11 +108,8 @@
 
         </div>
 
-
-<!-- Я СЛАЙДЕР ПОКА ВНИЗ СЕКЦИИ ОПУЩУ, ИБО ЛОГИКУ ОН МНЕ ЧОТО НАРУШАЕТ... КАК ЕГО ЛУЧШЕ СПОЗИЦИОНИРОВАТЬ - БУДУ ПОТОМ ДУМАТЬ. ПОИДЕЕ КАРТОЧКИ ЕГО ТУПО ОБТЕКАЮТ - ФЛОАТ -->
-<!-- ДОПИЛИТЬ СЛАЙДЕР И ПАГИНАЦИЮ... МОЖЕТ НЕ ПРЕВЬЮ А СЛАЙДЕР ОБОЗВАТЬ? ХОТЯ ЧО, ПРЕВЬЮ ЖЕ... А СЛАЙДЕР - ЧИСТО КАК ЧАСТЬ ТЕХНИЧЕСКОЙ РЕАЛИЗАЦИИ, НЕ СМЫСЛОВАЯ -->
-<!-- МНЕ ТАК ВЛОМ ЧТО-ТО ПОКА ЭТОТ СЛАЙДЕР ДЕЛАТЬ, ПУСТЬ ПОКА В ТАКОМ ВИДЕ ПОБУДЕТ =) -->
-        <div class="promo__preview"> <!-- ИЛИ ЛУЧШЕ СЛАЙДЕР ОБОЗВАТЬ? КАРУСЕЛЬ? ХОТЯ ДЛЯ КАРУСЕЛИ ОН СЛИШКОМ НЕ КРУТИТСЯ -->
+<!-- ДОПИЛИТЬ СЛАЙДЕР И ПАГИНАЦИЮ... И ОЖИВИТЬ ЕГО НА ЧИСТОМ ЦСС БЕЗ JS-->
+        <div class="promo__preview">
 
           <ul>
             <li>
@@ -142,7 +133,7 @@
             <button class="promo__arrow promo__arrow-right" type="button"></button>
           </p>
 
-            <a class="btn promo__btn" href="#">Открыть каталог</a>
+            <a class="btn btn__red promo__btn" href="#">Открыть каталог</a>
 
             <ul class="promo__pagination">
               <li class="promo__pagination-item promo__pagination-item--selected"><a href="#"></a></li>
@@ -159,10 +150,7 @@
 
         <h2>Популярные товары:</h2>
 
-        <a class="btn popular-products__btn" href="#">Все популярные товары</a>
-
-<!-- ЭТО ВОТ ЭТИ КАРТОЧКИ ВЫ ИМЕЛИ В ВИДУ ОБЕРНУТЬ ССЫЛКАМИ? Я СПЕЦИАЛЬНО ОБЕРНУЛ ТОЛЬКО ЗАГОЛОВКИ (чтобы товар можно было посмотреть не покупая его и не отправляя в каталог), ТАК КАК ПО ТЗ ВРОДЕ КАРТОЧКИ НЕ ССЫЛКИ... ТАМ ПО ХОВЕРУ ПОВЕРХ ТОВАРА 2 КНОПКИ ПОЯВЛЯЮТСЯ... Ссылки на них только нужны, как я понимаю. ИЛИ Я НАПАРИЛ ЧЕГО-ТО?.. ПОИДЕЕ МОЖНО ОБЕРНУТЬ ВСЮ КАРТОЧКУ В ССЫЛКУ, НО ТОГДА ХРЕН ПОЙМЕШЬ ЧТО 2 ПОЯВЛЯЮЩИЕСЯ КНОПКИ ИНТЕРАКТИВНЫ. ТАК ЧТО МНЕ КАЖЕТСЯ ЛУЧШЕ ТАК ОСТАВИТЬ. СЕЙЧАС СТАЙЛГЛАЙД ПОСМОТРЕЛ ЕЩЁ РАЗ _ ТАМ НАПРЯМУЮ ПРО ЭТО НИЧЕГО НЕ СКАЗАНО, НО ЭТО НАИБОЛЕЕ ЛОГИЧНЫЙ ВАРИАНТ, КАК ПО МНЕ-->
-<!-- А, ТАК ЭТО ЗАМЕЧАНИЕ ВООБЩЕ ПРО КАРТУ БЫЛО)) БГГГ. НУ ЛАДНО, ВЫГОВОРИЛСЯ -->
+        <a class="btn btn__red popular-products__btn" href="#">Все популярные товары</a>
 
         <ul>
           <li class="popular-products__item">
@@ -209,9 +197,7 @@
 
         <h2>Популярные производители:</h2>
 
-        <!-- ТАК ПОЧЕМУ ТУТ БЫЛ НЕ НУЖЕН СПИСОК, А НУЖНЫ ПРОСТО ОТДЕЛЬНЫЕ КАРТИНКИ? ЭТО ЖЕ ВСЁ ОДНОРОДНЫЕ ЭЛЕМЕНТЫ. НЕ ПОНИМАЮ. ИЛИ ОДНОРОДНЫЕ ЭЛЕМЕНТЫ НЕ ПОВОД ИСПОЛЬЗОВАТЬ СПИСОК? А ЧТО ПОВОД? -->
-
-        <a class="btn popular-brands__btn" href="#">Все популярные производители</a>
+        <a class="btn btn__red popular-brands__btn" href="#">Все популярные производители</a>
 
           <a class="popular-brands__item" href="#">
             <img src="img/bosch.png" alt="BOSCH" title="BOSCH" width="126" height="37">
@@ -245,24 +231,6 @@
             <img src="img/Metabo.png" alt="Metabo" title="Metabo" width="204" height="69">
           </a>
 
-<!-- У меня в разных браузерах на том месте, где идёт стык картинок - каким-то маленькие чёрные полоски внизу. Не врублюсь что это.-->
-<br>
-
-                      <img src="img/bosch.png" alt="BOSCH" width="126" height="37">
-                      <img src="img/Makita.png" alt="Makita" width="123" height="40">
-                      <img src="img/DeWALT.png" alt="DeWALT" width="146" height="44">
-                      <img src="img/Интерскол.png" alt="ИНТЕРСКОЛ" width="200" height="88">
-                      <img src="img/Hitachi.png" alt="HITACHI" width="169" height="31">
-                      <img src="img/LG.png" alt="LG" width="121" height="73">
-                      <img src="img/AEG.png" alt="AEG" width="151" height="96">
-                      <img src="img/Metabo.png" alt="Metabo" width="204" height="69">
-
-<!-- А вот так нету. Всё, дошло короче, это от того, что они ссылками обёрнуты. ПОТОМ НЕ ЗАБУДЬ УДАЛИТЬ ЭТОТ БЛОК МЕЖДУ КОММЕНТАРИЯМИ И ИХ САМИ ТОЖЕ. (ну после проверки я имею в виду, после следующей лекции. Пусть наставник видит какой я дохуя экспериментатор, сам разобрался =) ) -->
-
-
-
-
-
       </section>
 
 <!-- ---------------------------------------------------------------------------------------------- -->
@@ -282,7 +250,6 @@
         </header>
 
 <!-- ПРИДУМАТЬ, КАК ЭТО РЕАЛИЗОВАТЬ -->
-<!-- НО НЕ СЕГОДНЯ +) -->
 
           <ul class="services__selection">
             <li class="services__item services__item--active">Доставка</li>
@@ -314,11 +281,13 @@
 
       <section class="about">
 
-        <!-- ВОТ ТУТ ПО ЛОГИКЕ ТОЖЕ ХЭДЕР ВЫРИСОВЫВАЕТСЯ. ОН ТУТ НУЖЕН? -->
+        <header class="about__header">
 
-        <h2>Компания "Техномарт"</h2>
+          <h2>Компания "Техномарт"</h2>
 
-        <p>Настоящий мужской шоппинг начинается здесь! Огромный выбор товаров для ремонта и строительства не оставит равнодушными любителей сэкономить на гастробайтерах.</p>
+          <p>Настоящий мужской шоппинг начинается здесь! Огромный выбор товаров для ремонта и строительства не оставит равнодушными любителей сэкономить на гастробайтерах.</p>
+
+        </header>
 
         <p>Мы можем доставить ваш товар в самые отдалённые точки России!
           <br>
@@ -331,9 +300,11 @@
           <li>ЖелДорЭкспедиция</li>
         </ul>
 
-        <a class="btn about__btn" href="#">Подробнее о компании</a>
+        <a class="btn btn__red about__btn" href="#">Подробнее о компании</a>
 
       </section>
+
+  <!-- Вот эти 2 блока оберни как в барбершопе -->
 
 <!-- ---------------------------------------------------------------------------------------------- -->
 
@@ -343,11 +314,9 @@
 
         <p>Вы можете забрать товар сами, <br> заехав в наш офис:</p>
 
-        <!--тут попап будет с большой картой или апишка гугла/яндекса, я так понял-->
         <a href="#"><img src="img/map-little.png" alt="Большая Конюшенная ул., 19" title="Смотреть офиc на карте" width="300" height="158"></a>
-        <!-- Кстати, а чем попап отличается от модального? -->
 
-        <a class="btn contacts__btn" href="#">Заблудились? Напишите нам!</a>
+        <a class="btn btn__red contacts__btn" href="#">Заблудились? Напишите нам!</a>
 
       </section>
 
@@ -359,7 +328,6 @@
 
       <div class="first-line">
 
-<!-- Так, привет, а тут-то я его картинкой оставил... Ну ладно, пусть пока так будет, не критично. -->
         <a class="main-footer__logo">
           <img src="img/logo-footer.png" alt="Техномарт" title="Техномарт" width="220" height="68">
         </a>
@@ -377,7 +345,6 @@
           <a class="main-footer__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
         </address>
 
-        <!-- Ниже адреса у ссылок такие же, как и в разделе "каталог" -->
         <ul class="main-footer__catalog">
           <li><a href="#">Материалы</a></li>
           <li><a href="#">Техника</a></li>
@@ -417,14 +384,20 @@
 
     </footer>
 
-<!-- Вот с нижними тремя на счёт вижуали хиддена не уверен. Не знаю как именно попапы реализуются. -->
-    <section class="modal modal-login visually-hidden">
+
+
+    <section class="modal modal-login">
       <h2>Личный кабинет</h2>
       <p>Введите свой логин и пароль.</p>
-      <button type="button">x</button>
+      <button type="button">
+        <svg width="10" height="10">
+          <line x1="0" y1="0" x2="10" y2="10" stroke="black" stroke-width="3" />
+          <line x1="0" y1="10" x2="10" y2="00" stroke="black" stroke-width="3" />
+        </svg>
+      </button>
     </section>
 
-    <form class="visually-hidden" action="/echo" method="post">
+    <form class="modal modal-letter" action="https://echo.htmlacademy.ru" method="post">
 
       <label>
         Ваше имя:
@@ -443,11 +416,16 @@
 
       <button type="submit">Отправить</button>
 
-      <button type="button">x</button>
+      <button type="button">
+        <svg width="10" height="10">
+          <line x1="0" y1="0" x2="10" y2="10" stroke="black" stroke-width="3" />
+          <line x1="0" y1="10" x2="10" y2="00" stroke="black" stroke-width="3" />
+        </svg>
+      </button>
 
     </form>
 
-    <img class="visually-hidden" src="img/map-big.png" alt="Большая Конюшенная ул., 19" width="940" height="446">
+    <img class="modal modal-big-map" src="img/map-big.png" alt="Большая Конюшенная ул., 19" width="940" height="446">
 
 </body>
 
