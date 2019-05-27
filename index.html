@@ -12,7 +12,9 @@
 
     <header class="main-header">
 
-      <div class="first-line">
+      <div class="main-header__first-line">
+
+        <div class="main-wrapper main-header__first-line-box">
 
         <a class="main-header__logo">
           <img src="img/logo.png" alt="Техномарт" width="220" height="47">
@@ -25,47 +27,54 @@
           </label>
         </form>
 
-        <div class="main-header__bookmarks"><a href="#">Закладки</a></div>
+        <a href="#"><div class="main-header__bookmarks">Закладки</div></a>
 
-        <div class="main-header__basket"><a href="#">Корзина</a></div>
+        <a href="#"><div class="main-header__basket">Корзина</div></a>
 
-        <div class="main-header__btn main-header__btn-order"><a href="#">Оформить заказ</a></div>
+        <a href="#"><div class="main-header__btn main-header__btn-order">Оформить заказ</div></a>
+
+        </div>
 
       </div>
 
 <!-- -------------------- -->
 
-      <div class="second-line">
+      <div class="main-header__second-line">
+
+        <div class="main-wrapper">
+
+        <div class="main-header__second-line-first-floor-box">
 
         <h1>Интернет-магазин строительных материалов и инструментов для ремонта</h1>
 
         <address class="main-header__address">
-          <a class="main-header__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
+          <a href="tel:+78125550555"><div class="main-header__phone">+7 (812) 555-05-55</div></a>
           <span class="street">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
         </address>
 
         <ul class="main-header__user-navigation">
-          <li><a class="main-header__login-link" href="#">Войти</a></li>
-          <li><a class="main-header__registration-link" href="#">Регистрация</a></li>
+          <li class="main-header__login-link"><a href="#">Войти</a></li>
+          <li class="main-header__registration-link"><a href="#">Регистрация</a></li>
         </ul>
 
-      </div>
+        </div>
 
-<!-- -------------------- -->
-
-      <div class="third-line">
+        <!-- Так, а нельзя же вроде лишки ссылками оборачивать... хм... или можно... пока так оставлю, потом валидатор подскажет. -->
+        <!-- Ага, нельзя... тогда остаётся открытым вопрос, как сделать, чтобы кликалась вся кнопка, а не только ссылка внутри нее. В ином случае я бы сделал обёрнутый див, но тут что-то не хочется городить конструкцию вида ul-li-a-div. -->
 
         <nav class="main-header__main-navigation">
           <ul class="main-header__site-navigation">
-            <li><a>Главная</a></li>
-            <li><a href="company.html">Компания</a></li>
-            <li><a href="catalog.html">Каталог</a></li>
-            <li><a href="news.html">Новости</a></li>
-            <li><a href="special-offers.html">Спецпредложения</a></li>
-            <li><a href="delivery.html">Доставка</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
+            <li class="main-header__navigation-item"><a>Главная</a></li>
+            <li class="main-header__navigation-item"><a href="company.html">Компания</a></li>
+            <li class="main-header__navigation-item"><a href="catalog.html">Каталог</a></li>
+            <li class="main-header__navigation-item"><a href="news.html">Новости</a></li>
+            <li class="main-header__navigation-item"><a href="special-offers.html">Спецпредложения</a></li>
+            <li class="main-header__navigation-item"><a href="delivery.html">Доставка</a></li>
+            <li class="main-header__navigation-item"><a href="contacts.html">Контакты</a></li>
           </ul>
         </nav>
+
+        </div>
 
       </div>
 
@@ -74,6 +83,8 @@
 <!-- ---------------------------------------------------------------------------------------------- -->
 
     <main class="container">
+
+      <div class="main-wrapper">
 
       <section class="promo">
 
@@ -152,7 +163,7 @@
 
         <a class="btn btn__red popular-products__btn" href="#">Все популярные товары</a>
 
-        <ul>
+        <ul class="popular-products__list">
           <li class="popular-products__item">
             <img src="img/Perforator_1.jpg" alt="Перфоратор BOSCH BFG 9000" title="Перфоратор BOSCH BFG 9000" width="218" height="170">
             <a href="#">
@@ -185,6 +196,9 @@
             <a href="#">
               <h3>Перфоратор BOSCH BFG 2000</h3>
             </a>
+            <div class="popular-products__old-price"><del>ВРЕМЕННАЯ ЗАГЛУШКА</del></div>
+            <!-- КАК В ЭТОТ ЭЛЕМЕНТ НТХ-ЧАЙЛДОМ ПОПАСТЬ? НЕ ПОЛУЧАЕТСЯ -->
+            <!-- ЕЩЕ И ВЫРАВНИВАЕТ ПО ДРУГОЙ ЛИНИИ... ДА ЧТО НЕ ТАК С ЭТИМ ЭЛЕМЕНТОМ? -->
             <div class="popular-products__new-price">12500 Р.</div>
           </li>
         </ul>
@@ -199,39 +213,61 @@
 
         <a class="btn btn__red popular-brands__btn" href="#">Все популярные производители</a>
 
-          <a class="popular-brands__item" href="#">
-            <img src="img/bosch.png" alt="BOSCH" title="BOSCH" width="126" height="37">
+        <div class="popular-brands__item-list">
+
+          <a href="#">
+            <div class="popular-brands__item-card">
+              <img src="img/bosch.png" alt="BOSCH" title="BOSCH" width="126" height="37">
+            </div>
           </a>
 
-          <a class="popular-brands__item" href="#">
-            <img src="img/Makita.png" alt="Makita" title="Makita" width="123" height="40">
+          <a href="#">
+            <div class="popular-brands__item-card">
+              <img src="img/Makita.png" alt="Makita" title="Makita" width="123" height="40">
+            </div>
           </a>
 
-          <a class="popular-brands__item" href="#">
-            <img src="img/DeWALT.png" alt="DeWALT" title="DeWALT" width="146" height="44">
+          <a href="#">
+           <div class="popular-brands__item-card">
+              <img src="img/DeWALT.png" alt="DeWALT" title="DeWALT" width="146" height="44">
+           </div>
           </a>
 
-          <a class="popular-brands__item" href="#">
-            <img src="img/Интерскол.png" alt="ИНТЕРСКОЛ" title="ИНТЕРСКОЛ" width="200" height="88">
+          <a href="#">
+            <div class="popular-brands__item-card">
+              <img src="img/Интерскол.png" alt="ИНТЕРСКОЛ" title="ИНТЕРСКОЛ" width="200" height="88">
+            </div>
           </a>
 
-          <a class="popular-brands__item" href="#">
-            <img src="img/Hitachi.png" alt="HITACHI" title="HITACHI" width="169" height="31">
+          <a href="#">
+           <div class="popular-brands__item-card">
+              <img src="img/Hitachi.png" alt="HITACHI" title="HITACHI" width="169" height="31">
+           </div>
           </a>
 
-          <a class="popular-brands__item" href="#">
-            <img src="img/LG.png" alt="LG" title="LG" width="121" height="73">
+          <a href="#">
+           <div class="popular-brands__item-card">
+              <img src="img/LG.png" alt="LG" title="LG" width="121" height="73">
+           </div>
           </a>
 
-          <a class="popular-brands__item" href="#">
-            <img src="img/AEG.png" alt="AEG" title="AEG" width="151" height="96">
+          <a href="#">
+            <div class="popular-brands__item-card">
+              <img src="img/AEG.png" alt="AEG" title="AEG" width="151" height="96">
+            </div>
           </a>
 
-          <a class="popular-brands__item" href="#">
-            <img src="img/Metabo.png" alt="Metabo" title="Metabo" width="204" height="69">
+          <a href="#">
+            <div class="popular-brands__item-card">
+              <img src="img/Metabo.png" alt="Metabo" title="Metabo" width="204" height="69">
+            </div>
           </a>
+
+        </div>
 
       </section>
+
+    </div>
 
 <!-- ---------------------------------------------------------------------------------------------- -->
 
@@ -250,6 +286,7 @@
         </header>
 
 <!-- ПРИДУМАТЬ, КАК ЭТО РЕАЛИЗОВАТЬ -->
+<!-- КАК В КОНЦЕ ПЕРВОГО КУРСА ФЛЕКСБОКСА -->
 
           <ul class="services__selection">
             <li class="services__item services__item--active">Доставка</li>
@@ -326,7 +363,7 @@
 
     <footer class="main-footer">
 
-      <div class="first-line">
+      <div class="main-footer__first-line">
 
         <a class="main-footer__logo">
           <img src="img/logo-footer.png" alt="Техномарт" title="Техномарт" width="220" height="68">
@@ -356,7 +393,7 @@
 
 <!-- -------------------- -->
 
-    <div class="second-line">
+    <div class="main-footer__second-line">
 
       <p class="main-footer__copyright">
         &copy; 2010-2019 Компания "Техномарт"
