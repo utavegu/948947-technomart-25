@@ -1,3 +1,4 @@
+/*
 a:focus,
 img:focus,
 button:focus,
@@ -8,10 +9,11 @@ button:focus,
 input:focus {
 background-color: orange;
 }
+*/
 
-.modal {
+/*.modal, .popup {
 	display: none;
-}
+}*/
 
 /* ------------------------------------------------------------ */
 
@@ -33,20 +35,21 @@ src: url('../fonts/web/ptsans.woff')
 
 /*Ещё я бы ul сразу все лист стайл нон сделал, но это вроде критерии не позволяют. Да перечитай их уже.*/
 
-/*
-body > * {
-	background: rgba(255, 0, 0, 0.30);
-}
-body > * > * {
-	background: rgba(255, 255, 0, 0.3);
-}
-body > * > * > * {
-	background: rgba(0, 255, 0, 0.3);
-}
-body > * > * > * > * {
-	background: rgba(0, 255, 255, 0.3);
-}
-*/
+/*ВООБЩЕ МИНИМАЛЬНУЮ ВЫСОТУ ВЕРНИ ВСЕМ СЕКЦИЯМ*/
+
+
+
+/*body > * { background: rgba(255, 0, 0, 0.1); }
+body > * > * { background: rgba(0, 255, 0, 0.1); }
+body > * > * > * { background: rgba(0, 0, 255, 0.1); }
+body > * > * > * > * { background: rgba(255, 255, 0, 0.1); }
+body > * > * > * > * > * { background: rgba(0, 255, 255, 0.1); }
+body > * > * > * > * > * > * { background: rgba(255, 0, 255, 0.1); }
+body > * > * > * > * > * > * > * { background: rgba(255, 255, 255, 0.1); }*/
+
+
+
+
 
 .visually-hidden {
 	position: absolute !important;
@@ -71,6 +74,7 @@ a {
 }
 
 /*Блин, надоело каждый отдельно обнулять) Потом придумаю как для критериев сделать*/
+/*Хмм... а что если всем ul задать один класс... фак зе систем, так сказать*/
 ul {
 	margin: 0px;
 	padding: 0px;
@@ -78,14 +82,16 @@ ul {
 }
 
 .main-wrapper {
-width: 960px;
-margin: auto;
-padding-left: 10px;
-padding-right: 10px;
+	width: 960px;
+	margin: auto;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 /*Вообще надо бы все кнопки разделить на несколько групп и придумать им классы*/
 /*Ну не связывает их больше ничего, кроме того, что они красные)) Придумаю потом синоним*/
+/* Хм... они одиночные... можно их "соло баттон" обозвать. И не забудь обязательно сделать "универсальную кнопку" btn по советам из 7 лекции. */
+
 .btn__red {
 	font-style: italic;
 	font-weight: normal;
@@ -104,9 +110,6 @@ padding-right: 10px;
 
 /* -----ХЭДЭР------------------------------------------------------- */
 
-.main-header {
-}
-
 .main-header__first-line {
 	background-color: #293449;
 	font-size: 17px;
@@ -117,54 +120,189 @@ padding-right: 10px;
 }
 
 .main-header__first-line-box {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-height: 42px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	min-height: 42px;
 }
 
 .main-header__logo {
 	width: 220px;
-	height: 42px;
+	height: 42px;   /*И нижняя граница ещё 5*/
 	background-color: #ee3643;
+	margin: 0px;
+	padding: 0px;
+	box-shadow: 0 5px 0 0 #b52933;
+	text-align: center;
+	line-height: 42px; /*Бля, щикарное свойство... А то этот вертикал алигн нифига не работает, как и алигн итем/селф/контент у флексов*/
+}
+
+.main-header__logo:hover {
+	background-color: #ca2c37;
+}
+
+.main-header__logo:active {
+	background-color: #ba2732;
 }
 
 .main-header__search {
+position: relative;
+}
+
+.main-header__search input {
 	width: 270px;
 	height: 42px;
+	border: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	line-height: 18px;
+	color: #ffffff;  /*НЕ ПОЛУЧАЕТСЯ ПОМЕНЯТЬ ЦВЕТ ПЛЭЙСХОЛДЕРА НА НУЖНЫЙ*/
+	/*А ещё не понимаю как его подвинуть от левого края... Хотя походу начинаю понимать. Лупа - не часть плэйсхолдера.
+	Он начинается после неё. Но белеть они должны вместе, при фокусе.*/
+	background-color: #293449;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	padding-left: 49px;
+
 }
+
+.main-header__search::before {
+	content: "";
+	position: absolute;
+	left: 17px;
+	top: 12px;
+	width: 20px; /*ПРИМЕРНО*/
+	height: 20px; /*ПРИМЕРНО*/
+
+	background-image: url("../img/svg/icon-search.svg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+
+	opacity: 0.3;
+}
+
 .main-header__bookmarks {
 	width: 140px;
 	height: 42px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.main-header__bookmarks::before {
+	content: "";
+	position: absolute;
+	padding-bottom: 30px;
+	width: 20px; /*ПРИМЕРНО*/
+	height: 20px; /*ПРИМЕРНО*/
+	background-image: url("../img/svg/icon-bookmark.svg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	opacity: 0.3;
 }
 
 .main-header__basket {
 	width: 160px;
 	height: 42px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.main-header__basket::before {
+	content: "";
+	position: absolute;
+	padding-bottom: 30px;
+	width: 20px; /*ПРИМЕРНО*/
+	height: 20px; /*ПРИМЕРНО*/
+	background-image: url("../img/svg/icon-cart.svg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	opacity: 0.3;
 }
 
 .main-header__btn-order {
-	width: 160px;
+	width: 150px;
 	height: 42px;
 	background-color: #63a63e;
+	margin: 0px;
+	padding: 0px;
 }
+
+.main-header__search input:hover,
+.main-header__bookmarks:hover,
+.main-header__basket:hover {
+	background-color: #212a3a;
+}
+
+.main-header__search:hover::before,
+.main-header__bookmarks:hover::before,
+.main-header__basket:hover::before {
+	opacity: 1;
+}
+
+.main-header__btn-order:hover  {
+	background-color: #5fbb2d;
+}
+
+.main-header__bookmarks:active::before,
+.main-header__bookmarks:active {
+	opacity: 0.6;
+}
+
+.main-header__bookmarks:active {
+	background-color: #161d29;
+}
+
+.main-header__basket:active::before,
+.main-header__basket:active {
+	opacity: 0.6;
+}
+
+.main-header__basket:active {
+	background-color: #161d29;
+}
+
+.main-header__btn-order:active  {
+	opacity: 0.5;
+	background-color: #518534;     /*ИЛИ БЭКГРАУНД КАЛОР ТУТ ЛИШНИЙ? (КАК И ВЫШЕ)... ЦВЕТ МЕНЯЕТСЯ ОТ ОПАСИТИ*/
+}
+
+.main-header__search input:focus {
+	background-color: #ffffff;
+	color: #111111;			/*ОПЯТЬ НЕ ХОЧЕТ НУЖНЫЙ ЦВЕТ ПРИНИМАТЬ. САМОМУ ПОЭЙСХОЛДЕРУ ТОЖЕ ПРОБОВАЛ МЕНЯТЬ. И С ОПАСИТИ ИГРАЛСЯ.*/
+}
+
+.main-header__search input:focus::before {
+	fill:#ee3643;
+}
+
+/*ТАК, А ВОТ ТУТ Я ЧТО-ТО ЗАСТРЯЛ... ВРОДЕ, ЧТОБЫ ДО ЦВЕТА СВГ ЭЛЕМЕНТА ДОСТУЧАТЬСЯ, НАДО ЕГО ИНЛАЙН СДЕЛАТЬ ЧТОЛИ...*/
 
 /* ------------------------------------------------------------ */
 
 .main-header__second-line {
 	background-color: #f4f7f9;
-	padding-bottom: 40px;
+	padding-top: 46px;
+	padding-bottom: 60px;
 }
 
 .main-header__second-line-first-floor-box {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding-bottom: 50px;
 }
 
+/* ----- */
+
 .main-header__second-line h1 {
+	padding: 0px;
+	margin: 0px;
+	padding-left: 53px;
+	padding-right: 62px;
+	box-sizing: border-box;
 	font-style: italic;
 	font-weight: normal;
 	font-size: 16px;
@@ -173,6 +311,8 @@ align-items: center;
 	width: 310px;
 }
 
+/* ----- */
+
 .main-header__address {
 	font-style: normal;
 	font-weight: normal;
@@ -180,9 +320,13 @@ align-items: center;
 	line-height: 24px;
 	color: #32425c;
 	width: 320px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .main-header__phone {
+	box-sizing: border-box;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 21px;
@@ -190,23 +334,45 @@ align-items: center;
 	color: #ee3643;
 	width: 264px;
 	border: 3px solid #ffffff;
+	padding-top: 11px;
+	padding-bottom: 12px;
+	padding-left: 72px;
+	position: relative;
 }
+
+.main-header__phone::before {
+	content: "";
+	position: absolute;
+
+	left: 13px;
+	/*А, вон оно в чём дело, площадке надо "релятив" назначать. Поправь в тех трёх выше тоже. И бокс-сайзинг бордер бокс им задай*/
+
+
+	width: 20px; /*ПРИМЕРНО*/
+	height: 20px; /*ПРИМЕРНО*/
+
+	background-image: url("../img/svg/icon-phone.svg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+/* ----- */
 
 .main-header__user-navigation {
 	list-style: none;
-	width: 310px;
-
+	width: 280px;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 21px;
 	line-height: 21px;
-
 	display: flex;
-	margin-top: 158px;
+	justify-content: space-between;
 }
 
 .main-header__user-navigation a {
 	color: #000000;
+	display: inline-block;
+	text-align: center;
 }
 
 .main-header__login-link {
@@ -214,15 +380,18 @@ align-items: center;
 	height: 45px;
 	margin-right: 10px;
 	background-color: #ffffff;
+	LINE-HEIGHT: 45px; /*Походу "костыль", но сработало*/
 }
 
 .main-header__registration-link {
 	width: 150px;
 	height: 45px;
 	background-color: #ffffff;
+	LINE-HEIGHT: 45px; /*Походу "костыль", но сработало*/
 }
 
 
+/* -----ГЛАВНАЯ НАВИГАЦИЯ (ХЭДЕР)------------------------------------------------------- */
 
 
 .main-header__main-navigation {
@@ -232,6 +401,7 @@ align-items: center;
 	line-height: 17px;
 	color: #ffffff;
 	background-color: #32425c;
+	box-shadow: 0 5px 0 0 #293449;
 }
 
 .main-header__site-navigation {
@@ -242,14 +412,42 @@ align-items: center;
 }
 
 .main-header__navigation-item {
-	height: 56px;
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+	box-sizing: border-box;
+	padding-top: 22px;
+	padding-bottom: 26px;
+	padding-left: 31px;
+	padding-right: 31px;
 }
 
 /* -----ПРОМО------------------------------------------------------- */
 
 .promo {
 	background-color: #ffffff;
-	min-height: 522px;
+	border: 3px dotted green;
+	margin-top: 59px;
+	margin-bottom: 53px;
+}
+
+.promo__first-box {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.promo__second-box {
+	display: flex;
+	flex-shrink: 0;
+	justify-content: space-between;
+}
+/*НЕ ПОНЯЛ КАК СДЕЛАТЬ, ЧТОБЫ ДОСТАВКА НА МЕСТО ВСТАЛА*/
+
+.promo__third-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .promo__item {
@@ -295,16 +493,74 @@ align-items: center;
 	background-color: #ffc047;
 }
 
+/*Далее слайдер*/
+
 .promo__preview {
 	width: 620px;
 	height: 266px;
-	border: 1px dotted green;
-	background-image: url("../img/man-2.jpg");
+	border: 1px dotted red;
+	flex-shrink: 0;
+	position: relative;
 }
 
-.promo__preview  ul {
+.promo__slider-list {
 	list-style: none;
+	margin: 0;
+	padding: 0;
 }
+
+.promo__slider-item {
+	display: none;
+}
+
+
+.promo__slider-item:nth-child(1) {
+	position: absolute;
+	left: 0;
+  top: 0;
+
+  background-image: url("../img/man-1.jpg");
+  background-repeat: no-repeat;
+
+  width: 620px;
+  height: 266px;
+}
+
+/* ЧОТО КАРТИНКИ-ТО РАЗНОГО РАЗМЕРА!*/
+/*Я ПОМНЮ ВРОДЕ ЕСТЬ КАКОЙ-ТО ТРЮК ПРАВИЛЬНО ВЫРОВНЯТЬ КАРТИНКУ ПОД РАЗМЕРЫ ОКНА, БЕЗ ИСКАЖЕНИЯ ПРОПОРЦИЙ, НО НЕ ПОМНЮ КАКОЙ */
+
+.promo__slider-item:nth-child(2) {
+	position: absolute;
+	left: 0;
+  top: 0;
+
+  background-image: url("../img/man-2.jpg");
+  background-repeat: no-repeat;
+
+  width: 620px;
+  height: 266px;
+}
+
+.promo__pagination {
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+}
+
+.promo__pagination-item {
+	display: inline;
+}
+
+#slide1:checked ~ .promo__slider-item:nth-child(1) {
+  display: block;
+}
+
+#slide2:checked ~ .promo__slider-item:nth-child(2) {
+  display: block;
+}
+
+
+
 
 .promo__preview h4 {
 	font-style: normal;
@@ -323,10 +579,49 @@ align-items: center;
 	color: #ffffff;
 }
 
+.promo__btn {
+	position: absolute;
+	left: 5%;
+	bottom: 5%;
+}
+
+.promo__arrow {
+	position: absolute;
+	width: 40px; /*ПОКА ПРИМЕРНО*/
+	height: 40px; /*ПОКА ПРИМЕРНО*/
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.promo__arrow-left {
+	background-image: url("../img/svg/icon-left.svg");
+	left: 10px;
+	top: 50%;
+}
+
+.promo__arrow-right {
+	background-image: url("../img/svg/icon-right.svg");
+	right: 10px;
+	top: 50%;
+}
+
 /* -----ПОПУЛЯРНЫЕ ТОВАРЫ------------------------------------------------------- */
 
 .popular-products {
 	background-color: #ffffff;
+	border: 3px dotted red;
+	margin-bottom: 21px;
+}
+
+.popular-products__first-box {
+	display: flex;
+	justify-content: space-between;
+	background-color: #f9f5f0;
+	align-items: baseline;
+	min-height: 89px;
 }
 
 .popular-products h2 {
@@ -336,6 +631,11 @@ align-items: center;
 	line-height: 30px;
 	color: #32425c;
 	text-transform: uppercase;
+	margin-left: 30px;
+}
+
+.popular-products__btn {
+	margin-right: 24px;
 }
 
 .popular-products__list {
@@ -352,12 +652,16 @@ height: 318px;
 }
 
 .popular-products__item--new {
-	font-family: "PT Sans", "Arial", sans-serif;
+/*	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 4.85px;
 	line-height: 5.13px;
-	color: #ffffff;
+	color: #ffffff;*/
+}
+
+.popular-products__item:nth-child(4) del {
+	visibility: hidden;
 }
 
 .popular-products__item h3 {
@@ -400,6 +704,16 @@ height: 318px;
 
 .popular-brands {
 	background-color: #ffffff;
+	border: 3px dotted yellow;
+	margin-bottom: 85px;
+}
+
+.popular-brands__first-box {
+	display: flex;
+	justify-content: space-between;
+	background-color: #f9f5f0;
+	align-items: baseline;
+	min-height: 89px;
 }
 
 .popular-brands h2 {
@@ -409,6 +723,11 @@ height: 318px;
 	line-height: 30px;
 	color: #32425c;
 	text-transform: uppercase;
+	margin-left: 30px;
+}
+
+.popular-brands__btn {
+	margin-right: 24px;
 }
 
 .popular-brands__item-list {
@@ -451,7 +770,42 @@ height: 318px;
 }
 
 .services__selection {
+	background-color: black; /*ВРЕМЕННО*/
+}
+
+.services__item {
+	border: 1px dashed white; /*ВРЕМЕННО*/
+}
+
+.services__slider {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	border: 3px dotted pink;
+}
+
+.services__description {
+	display: none;
+	width: 600px; /*нука харэ прыгать... ВРЕМЕННО!*/
+}
+
+#pipiska-1:checked ~ .services__description:nth-of-type(1) {
+  display: block;
+}
+
+#pipiska-2:checked ~ .services__description:nth-of-type(2) {
+  display: block;
+}
+
+#pipiska-3:checked ~ .services__description:nth-of-type(3) {
+  display: block;
+}
+
+.services__selection {
 	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .services__item {
@@ -490,6 +844,14 @@ height: 318px;
 	background-color: #ffffff;
 }
 
+.about-box {
+	display: flex;
+	border: 3px dotted lightgreen;
+
+	position: relative;
+	min-height: 537px;
+}
+
 .about__header h2,
 .contacts h2 {
 	font-style: normal;
@@ -519,10 +881,17 @@ height: 318px;
 	color: #000000;
 }
 
-/* ------------------------------------------------------------ */
+/* --------------------------ФУТЕР---------------------------------- */
 
 .main-footer {
+}
+
+.main-footer__first-line {
 	background-color: #32425c;
+}
+
+.main-footer__second-line {
+	background-color: #293449;
 }
 
 .main-footer ul {
@@ -614,7 +983,7 @@ height: 318px;
 	color: #32425c;
 }
 
-/* ------------------------------------------------------------ */
+/* -------------------------- ХЛЕБНЫЕ КРОШКИ - НАВИГАЦИОННАЯ ЦЕПОЧКА---------------------------------- */
 
 .breadcrumbs {
 	list-style: none;
@@ -634,7 +1003,7 @@ height: 318px;
 	text-transform: uppercase;
 }
 
-/* ------------------------------------------------------------ */
+/* ----------------------------ЗАБЫЛ ЧО-------------------------------- */
 
 .page-section__title {
 	font-style: normal;
@@ -645,7 +1014,7 @@ height: 318px;
 	text-transform: uppercase;
 }
 
-/* ------------------------------------------------------------ */
+/* ---------------------------ФИЛЬТРЫ КАКИЕ-ТО--------------------------------- */
 
 .filters {
 	background-color: #ffffff;
@@ -681,7 +1050,7 @@ height: 318px;
 	color: #000000;
 }
 
-/* ------------------------------------------------------------ */
+/* ---------------------------СОРТИРОВКИ--------------------------------- */
 
 .catalog {
 	background-color: #ffffff;
@@ -731,7 +1100,7 @@ height: 318px;
 	text-transform: uppercase;
 }
 
-/* ------------------------------------------------------------ */
+/* --------------------------ПАГИНАЦИЯ КАТАЛОГА---------------------------------- */
 
 .catalog__pagination-list {
 	list-style: none;
@@ -758,7 +1127,7 @@ height: 318px;
 	background-color: #ee3643;
 }
 
-/* ------------------------------------------------------------ */
+/* --------------------------ПАРА СЛОВ О ПЕРФОРАЦИИ---------------------------------- */
 
 .about-perforators h3 {
 	font-style: normal;
@@ -779,8 +1148,83 @@ height: 318px;
 }
 
 
-/* ------------------------------------------------------------ */
+/* -------------------------А ЭТО ЗАЧЕМ? НЕ ПОМНЮ----------------------------------- */
 
 .about-perforators {
 	background-color: #f2f6f8;
+}
+
+
+/* -------------------------МОДАЛЫ И ПОПУПЫ----------------------------------- */
+
+.write-us {
+	width: 620px;
+	min-height: 423px;
+	border: 1px solid grey;
+	box-shadow: 0	-7px 0 0 #ff5257;
+	margin: auto;
+	position: relative;
+}
+
+.write-us__letter-wrapper {
+	width: 460px;
+	margin: auto;
+}
+
+.write-us__user-info {
+	display: flex;
+	justify-content: space-between;
+}
+
+.write-us textarea {
+	width: 460px;
+	height: 110px;
+	resize: none;
+}
+
+/*ДАЛЕЕ ЭПИЧЕСКАЯ БИТВА ЗА СЕРУЮ ПОЛОСУ ВНИЗУ ФОРМЫ*/
+
+.write-us::after {
+	content: "БЛЯ ЧТО НЕ ТАК, НУ ЗАЕБИСЬ ЖЕ ПРИДУМАЛ. ЭТО ПОТОМУ ЧТО ТЫ ФОРМА, ДА?"
+	color: black;
+	width: 620px;
+	height: 112px;
+	background-color: #f4f4f4;
+	position: absolute;
+}
+
+.NEPSEVDOELEMENT {
+	width: 620px;
+	height: 112px;
+	background-color: #f4f4f4;
+	position: relative;
+}
+
+.NEPSEVDOELEMENT .btn__red {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+
+/*Бля, трэш какой...*/
+
+.write-us .button_close {
+	background-color: transparent;
+	border: none;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+/*Там ещё слабые размытые тени во все стороны! не забудь их добавить*/
+
+
+
+
+.map-popup {
+	position: absolute;
+	margin: auto;
+	opacity: 0.1;
+	width: 940px;
+	height: 446px;
 }

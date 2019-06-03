@@ -10,32 +10,36 @@
 
 <body>
 
+<!-- ХЭДЕР И ФУТЕР ПРАВИЛЬНО ПОЛНОСТЬЮ ЗАКОНЧИ НА ПЕРВОЙ, ПОТОМ СКОПИРУЙ ИХ НА ВТОРУЮ С ЗАМЕНОЙ ССЫЛОК И РЯДА ДЕТАЛЕЙ -->
+
     <header class="main-header">
 
       <div class="main-header__first-line">
 
         <div class="main-wrapper main-header__first-line-box">
 
-        <a class="main-header__logo">
-          <img src="img/logo.png" alt="Техномарт" width="220" height="47">
-        </a>
+          <a class="main-header__logo">
+            <img src="img/svg/logo-technomart.svg" alt="Техномарт" width="110" height="18">
+          </a>
 
-        <form class="main-header__search">
-          <label>
-            Поиск:
-            <input name="search" type="text">
-          </label>
-        </form>
+          <form class="main-header__search">
+            <label>
+              <span class="visually-hidden">Поиск</span>
+              <input name="search" type="text" placeholder="Поиск:">
+            </label>
+          </form>
 
-        <a href="#"><div class="main-header__bookmarks">Закладки</div></a>
+          <a class="main-header__bookmarks" href="#">Закладки</a>
 
-        <a href="#"><div class="main-header__basket">Корзина</div></a>
+          <a class="main-header__basket" href="#">Корзина</a>
 
-        <a href="#"><div class="main-header__btn main-header__btn-order">Оформить заказ</div></a>
+          <a class="main-header__btn main-header__btn-order" href="#">Оформить заказ</a>
 
         </div>
 
       </div>
+
+      <!-- УБЕРИ ВСЕ ЛИШНИЕ ДИВЫ И ПРОСТО ДОБАВСЬ ССЫЛКАМ ПАДДИНГИ.... ИЛИ ИНЛАЙН БЛОКИ НАДО СДЕЛАТЬ... ЧОТО ЗАБЫЛ УЖЕ... ЭТО В ПОСЛЕДНЕЙ ЛЕКЦИИ БЫЛО, СМОТРИ КОНСПЕКТ -->
 
 <!-- -------------------- -->
 
@@ -43,34 +47,34 @@
 
         <div class="main-wrapper">
 
-        <div class="main-header__second-line-first-floor-box">
+          <div class="main-header__second-line-first-floor-box">
 
-        <h1>Интернет-магазин строительных материалов и инструментов для ремонта</h1>
+            <h1>Интернет-магазин строительных материалов и инструментов для ремонта</h1>
 
-        <address class="main-header__address">
-          <a href="tel:+78125550555"><div class="main-header__phone">+7 (812) 555-05-55</div></a>
-          <span class="street">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
-        </address>
+            <address class="main-header__address">
+              <a class="main-header__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
+              <span class="street">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
+            </address>
 
-        <ul class="main-header__user-navigation">
-          <li class="main-header__login-link"><a href="#">Войти</a></li>
-          <li class="main-header__registration-link"><a href="#">Регистрация</a></li>
-        </ul>
+            <ul class="main-header__user-navigation">
+              <li><a class="main-header__login-link" href="#">Войти</a></li>
+              <li><a class="main-header__registration-link" href="#">Регистрация</a></li>
+            </ul>
 
-        </div>
+          </div>
 
         <!-- Так, а нельзя же вроде лишки ссылками оборачивать... хм... или можно... пока так оставлю, потом валидатор подскажет. -->
         <!-- Ага, нельзя... тогда остаётся открытым вопрос, как сделать, чтобы кликалась вся кнопка, а не только ссылка внутри нее. В ином случае я бы сделал обёрнутый див, но тут что-то не хочется городить конструкцию вида ul-li-a-div. -->
 
         <nav class="main-header__main-navigation">
           <ul class="main-header__site-navigation">
-            <li class="main-header__navigation-item"><a>Главная</a></li>
-            <li class="main-header__navigation-item"><a href="company.html">Компания</a></li>
-            <li class="main-header__navigation-item"><a href="catalog.html">Каталог</a></li>
-            <li class="main-header__navigation-item"><a href="news.html">Новости</a></li>
-            <li class="main-header__navigation-item"><a href="special-offers.html">Спецпредложения</a></li>
-            <li class="main-header__navigation-item"><a href="delivery.html">Доставка</a></li>
-            <li class="main-header__navigation-item"><a href="contacts.html">Контакты</a></li>
+            <li><a class="main-header__navigation-item">Главная</a></li>
+            <li><a class="main-header__navigation-item" href="company.html">Компания</a></li>
+            <li><a class="main-header__navigation-item" href="catalog.html">Каталог</a></li>
+            <li><a class="main-header__navigation-item" href="news.html">Новости</a></li>
+            <li><a class="main-header__navigation-item" href="special-offers.html">Спецпредложения</a></li>
+            <li><a class="main-header__navigation-item" href="delivery.html">Доставка</a></li>
+            <li><a class="main-header__navigation-item" href="contacts.html">Контакты</a></li>
           </ul>
         </nav>
 
@@ -90,66 +94,87 @@
 
         <h2 class="visually-hidden">Промо-блок</h2>
 
-        <div class="promo__items">
+          <div class="promo__first-box">
 
-          <div class="promo__item promo__item--new promo__materials">
-            <h3>Материалы</h3>
-            <a class="promo__detail" href="#" title="Материалы">На любой вкус</a>
+            <div class="promo__item promo__item--new promo__materials">
+              <h3>Материалы</h3>
+              <a class="promo__detail" href="#" title="Материалы">На любой вкус</a>
+            </div>
+
+            <div class="promo__item promo__instruments">
+              <h3>Инструмент</h3>
+              <a class="promo__detail" href="#" title="Инструмент">На все случаи</a>
+            </div>
+
+            <div class="promo__item promo__equipment">
+              <h3>Техника</h3>
+              <a class="promo__detail" href="#" title="Техника">Для стройки</a>
+            </div>
+
           </div>
 
-          <div class="promo__item promo__instruments">
-            <h3>Инструмент</h3>
-            <a class="promo__detail" href="#" title="Инструмент">На все случаи</a>
-          </div>
+          <div class="promo__second-box">
 
-          <div class="promo__item promo__equipment">
-            <h3>Техника</h3>
-            <a class="promo__detail" href="#" title="Техника">Для стройки</a>
-          </div>
+<!-- СЛАЙДЕР 1 - НАЧАЛО -->
 
-          <div class="promo__item promo__discounts">
-            <h3>Скидки 50%</h3>
-            <a class="promo__descritpion" href="#" title="Скидки">На 350 товаров</a>
-          </div>
+            <div class="promo__preview">
 
-          <div class="promo__item promo__delivery">
-            <h3>Доставка</h3>
-            <a class="promo__descritpion" href="#" title="Доставка">Бесплатно</a>
-          </div>
+              <ul class="promo__slider-list">
 
-        </div>
+                <li class="promo__slider-item">
+                  <a href="#" title="Дрели">
+                    <h4>Дрели</h4>
+                    <p>Соседям на радость</p>
+                  </a>
+                </li>
 
-<!-- ДОПИЛИТЬ СЛАЙДЕР И ПАГИНАЦИЮ... И ОЖИВИТЬ ЕГО НА ЧИСТОМ ЦСС БЕЗ JS-->
-        <div class="promo__preview">
+                <li class="promo__slider-item">
+                  <a href="#" title="Перфораторы">
+                    <h4>Перфораторы</h4>
+                    <p>Настоящие мужские игрушки</p>
+                  </a>
+                </li>
 
-          <ul>
-            <li>
-              <a href="#" title="Дрели">
-                <h4>Дрели</h4>
-                <p>Соседям на радость</p>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="Перфораторы">
-                <h4>Перфораторы</h4>
-                <p>Настоящие мужские игрушки</p>
-              </a>
-            </li>
-          </ul>
+              </ul>
 
-          <!-- ТУТ ВОТ НАДО ОБЕРТКУ КОНТРОЛ СДЕЛАТЬ... -->
+              <ul class="promo__pagination">
+                <li class="promo__pagination-item promo__pagination-item--1">
+                  <input type="radio" id="slide1" name="slides" checked>
+                </li>
+                <li class="promo__pagination-item promo__pagination-item--2">
+                  <input type="radio" id="slide2" name="slides">
+                </li>
+              </ul>
 
-          <p class="promo__arrows">
-            <button class="promo__arrow promo__arrow-left" type="button"></button>
-            <button class="promo__arrow promo__arrow-right" type="button"></button>
-          </p>
+              <p class="promo__arrows">
+                <button class="promo__arrow promo__arrow-left" type="button"></button>
+                <button class="promo__arrow promo__arrow-right" type="button"></button>
+              </p>
 
-            <a class="btn btn__red promo__btn" href="#">Открыть каталог</a>
+              <a class="btn btn__red promo__btn" href="#">Открыть каталог</a>
 
-            <ul class="promo__pagination">
-              <li class="promo__pagination-item promo__pagination-item--selected"><a href="#"></a></li>
-              <li class="promo__pagination-item"><a href="#"></a></li>
-            </ul>
+            </div>
+
+<!--  ДА НЕ РАБОТАЕТ НИХУЯ ЭТОТ СЛАЙДЁР!!!11 Я НА НЕГО ЧАСА 4 УБИЛ!!111 ФПЕЗДУ -->
+
+<!-- Да в рот кирпич, в очко варенье! Подозреваю чото не ладно с именами классов и айдишников. Давай ещё раз всё внимательно там. Но потом.>
+
+
+<!-- СЛАЙДЕР 1 - КОНЕЦ -->
+
+            <div class="promo__third-box">
+
+              <div class="promo__item promo__discounts">
+                <h3>Скидки 50%</h3>
+                <a class="promo__descritpion" href="#" title="Скидки">На 350 товаров</a>
+              </div>
+
+              <div class="promo__item promo__delivery">
+                <h3>Доставка</h3>
+                <a class="promo__descritpion" href="#" title="Доставка">Бесплатно</a>
+              </div>
+
+           </div>
 
           </div>
 
@@ -159,11 +184,16 @@
 
       <section class="popular-products">
 
-        <h2>Популярные товары:</h2>
+        <div class="popular-products__first-box">
 
-        <a class="btn btn__red popular-products__btn" href="#">Все популярные товары</a>
+          <h2>Популярные товары:</h2>
+
+          <a class="btn btn__red popular-products__btn" href="#">Все популярные товары</a>
+
+        </div>
 
         <ul class="popular-products__list">
+
           <li class="popular-products__item">
             <img src="img/Perforator_1.jpg" alt="Перфоратор BOSCH BFG 9000" title="Перфоратор BOSCH BFG 9000" width="218" height="170">
             <a href="#">
@@ -196,11 +226,10 @@
             <a href="#">
               <h3>Перфоратор BOSCH BFG 2000</h3>
             </a>
-            <div class="popular-products__old-price"><del>ВРЕМЕННАЯ ЗАГЛУШКА</del></div>
-            <!-- КАК В ЭТОТ ЭЛЕМЕНТ НТХ-ЧАЙЛДОМ ПОПАСТЬ? НЕ ПОЛУЧАЕТСЯ -->
-            <!-- ЕЩЕ И ВЫРАВНИВАЕТ ПО ДРУГОЙ ЛИНИИ... ДА ЧТО НЕ ТАК С ЭТИМ ЭЛЕМЕНТОМ? -->
+            <div class="popular-products__old-price"><del>ЗАГЛУШКА</del></div>
             <div class="popular-products__new-price">12500 Р.</div>
           </li>
+
         </ul>
 
       </section>
@@ -209,9 +238,13 @@
 
       <section class="popular-brands">
 
-        <h2>Популярные производители:</h2>
+        <div class="popular-brands__first-box">
 
-        <a class="btn btn__red popular-brands__btn" href="#">Все популярные производители</a>
+          <h2>Популярные производители:</h2>
+
+          <a class="btn btn__red popular-brands__btn" href="#">Все популярные производители</a>
+
+        </div>
 
         <div class="popular-brands__item-list">
 
@@ -273,6 +306,8 @@
 
       <section class="services">
 
+        <div class="main-wrapper">
+
         <header class="services__header">
 
         <h2>Сервисы</h2>
@@ -285,36 +320,59 @@
 
         </header>
 
-<!-- ПРИДУМАТЬ, КАК ЭТО РЕАЛИЗОВАТЬ -->
-<!-- КАК В КОНЦЕ ПЕРВОГО КУРСА ФЛЕКСБОКСА -->
+<!-- СЛАЙДЕР 2 - НАЧАЛО -->
 
-          <ul class="services__selection">
-            <li class="services__item services__item--active">Доставка</li>
-            <li class="services__item">Гарантия</li>
-            <li class="services__item">Кредит</li>
-          </ul>
+          <div class="services__slider">
 
-          <div class="services__description">
-            <h3>Доставка</h3>
-            <p>Мы с удовольствием доставим ваш товар прямо <br> к вашему подъезду совершенно бесплатно!
-            Ведь мы неплохо заработаем,<br> поднимаея его на ваш этаж!</p>
+            <ul class="services__selection">
+              <li class="services__item"><label for="pipiska-1">Доставка</label></li>
+              <li class="services__item"><label for="pipiska-2">Гарантия</label></li>
+              <li class="services__item"><label for="pipiska-3">Кредит</label></li>
+            </ul>
+
+
+            <input class="visually-hidden" type="radio" id="pipiska-1" name="abracadabrablia" checked>
+            <input class="visually-hidden" type="radio" id="pipiska-2" name="abracadabrablia">
+            <input class="visually-hidden" type="radio" id="pipiska-3" name="abracadabrablia">
+
+
+            <!-- ДУБЛЬ 2 БЛЯ, МОЖЕТ ХОТЬ ЭТОТ ЗАРАБОТАЕТ -->
+
+            <div class="services__description">
+              <h3>Доставка</h3>
+              <p>Мы с удовольствием доставим ваш товар прямо <br> к вашему подъезду совершенно бесплатно!
+              Ведь мы неплохо заработаем,<br> поднимаея его на ваш этаж!</p>
+            </div>
+
+            <div class="services__description">
+              <h3>Гарантия</h3>
+              <p>Если купленный у нас товар поломается или заискрит,<br> а также в случае пожара, спровоцированного его возгаранием,  вы всегда можете быть уверены в нашей гарантии. Мы обменяем сгоревший товар на новый.<br>
+              Дом уж восстановите как-нибудь сами.</p>
+            </div>
+
+            <div class="services__description">
+              <h3>Кредит</h3>
+              <p>Залезть в долговую яму стало проще!<br>
+              Кредитные консультанты придут вам на помощь.</p>
+            </div>
+
           </div>
 
-          <div class="services__description">
-            <h3>Гарантия</h3>
-            <p>Если купленный у нас товар поломается или заискрит,<br> а также в случае пожара, спровоцированного его возгаранием,  вы всегда можете быть уверены в нашей гарантии. Мы обменяем сгоревший товар на новый.<br>
-            Дом уж восстановите как-нибудь сами.</p>
-          </div>
+        </div>
 
-          <div class="services__description">
-            <h3>Кредит</h3>
-            <p>Залезть в долговую яму стало проще!<br>
-            Кредитные консультанты придут вам на помощь.</p>
-          </div>
+<!-- Хм... а этот работает... Ну я хер знает прямо. Ладно, попозже ими займусь. Тут ещё марафет с ними наводить через лэйблы и скрытие радиобоксов -->
+
+<!-- Ладно, вот так сойдёт пока. Работает как надо. Причесать его дальше - уже не проблема. У дальшейшим же приключениям! -->
+
+<!-- СЛАЙДЕР 2 - КОНЕЦ -->
 
       </section>
 
 <!-- ---------------------------------------------------------------------------------------------- -->
+
+      <div class="main-wrapper">
+
+      <div class="about-box">
 
       <section class="about">
 
@@ -341,10 +399,6 @@
 
       </section>
 
-  <!-- Вот эти 2 блока оберни как в барбершопе -->
-
-<!-- ---------------------------------------------------------------------------------------------- -->
-
       <section class="contacts">
 
         <h2>Контакты</h2>
@@ -357,6 +411,17 @@
 
       </section>
 
+
+<!-- Ну ты же тут живёшь формально. Привязываем тебя у данной площадке и будешь над ней позиционироваться по клику. Ко всей большой секции, не только к контактам с маленькой картой -->
+      <img class="popup map-popup" src="img/map-big.png" alt="Большая Конюшенная ул., 19" width="940" height="446">
+<!-- Внимание, тут тоже размытые тени! -->
+
+
+
+    </div>
+
+    </div>
+
 <!-- ---------------------------------------------------------------------------------------------- -->
 
     </main>
@@ -365,9 +430,12 @@
 
       <div class="main-footer__first-line">
 
+      <div class="main-wrapper">
+
         <a class="main-footer__logo">
           <img src="img/logo-footer.png" alt="Техномарт" title="Техномарт" width="220" height="68">
         </a>
+        <!-- ПЕРЕДЕЛАЙ ПО ТОМУ ЖЕ ПРИНЦИПУ, ЧТО И ВЕРХНИЙ -->
 
         <ul class="main-footer__navigation">
           <li><a href="company.html">Компания</a></li>
@@ -391,9 +459,13 @@
 
     </div>
 
+    </div>
+
 <!-- -------------------- -->
 
     <div class="main-footer__second-line">
+
+      <div class="main-wrapper">
 
       <p class="main-footer__copyright">
         &copy; 2010-2019 Компания "Техномарт"
@@ -419,11 +491,13 @@
 
     </div>
 
+    </div>
+
     </footer>
 
 
 
-    <section class="modal modal-login">
+    <section class="modal modal-login"> <!--Блин, а ты кто вообще?.. я не пойму, откуда тебя взял -->
       <h2>Личный кабинет</h2>
       <p>Введите свой логин и пароль.</p>
       <button type="button">
@@ -434,35 +508,66 @@
       </button>
     </section>
 
-    <form class="modal modal-letter" action="https://echo.htmlacademy.ru" method="post">
 
-      <label>
-        Ваше имя:
-        <input name="name" type="text" placeholder="Имя Фамилия">
-      </label>
 
-      <label>
-        Ваш e-mail:
-        <input name="mail" type="email" placeholder="email@example.com">
-      </label>
+    <br><br><br><br><br>
 
-      <label>
-        Текст письма:
-        <textarea name="letter" cols="30" rows="5">В свободной форме</textarea>
-      </label>
 
-      <button type="submit">Отправить</button>
 
-      <button type="button">
-        <svg width="10" height="10">
-          <line x1="0" y1="0" x2="10" y2="10" stroke="black" stroke-width="3" />
-          <line x1="0" y1="10" x2="10" y2="00" stroke="black" stroke-width="3" />
+    <form class="modal write-us" action="https://echo.htmlacademy.ru" method="post">
+
+
+
+      <div class="write-us__letter-wrapper">
+
+      <div class="write-us__user-info">
+
+        <p class="write-us__item">
+          <label>
+            Ваше имя:<br>
+            <input name="name" type="text" placeholder="Имя Фамилия">
+          </label>
+        </p>
+
+        <p class="write-us__item">
+          <label>
+            Ваш e-mail:<br>
+            <input name="mail" type="email" placeholder="email@example.com">
+          </label>
+        </p>
+
+      </div>
+
+      <p class="write-us__item">
+        <label>
+          Текст письма:
+          <textarea name="letter">В свободной форме</textarea>
+        </label>
+      </p>
+
+      </div>>
+
+      <button class="button_close" type="button">
+        <svg width="21" height="21">
+          <line x1="0" y1="0" x2="21" y2="21" stroke="#ee3643" stroke-width="3" />
+          <line x1="0" y1="21" x2="21" y2="00" stroke="#ee3643" stroke-width="3" />
         </svg>
       </button>
 
+      <div class="NEPSEVDOELEMENT">
+        <button class="btn__red" type="submit">Отправить</button>
+      </div>
+
     </form>
 
-    <img class="modal modal-big-map" src="img/map-big.png" alt="Большая Конюшенная ул., 19" width="940" height="446">
+<!-- Не, с кнопками полный пиздец, конечно. Надо их к какому-то единообразию привести. -->
+<!-- Чото мой самодельный крестик недостаточно жирный -->
+
+    <br><br><br><br><br>
+
+
+
+
 
 </body>
 
