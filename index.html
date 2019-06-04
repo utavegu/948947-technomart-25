@@ -117,47 +117,80 @@
 
 <!-- СЛАЙДЕР 1 - НАЧАЛО -->
 
-            <div class="promo__preview">
+            <div class="promo__slider">
 
-              <ul class="promo__slider-list">
+              <!-- Ты, слайдер, не с тем связался. И ты будешь работать, хочется тебе того, или нет -->
+              <!-- Скрипты потом в самый низ перенести надо будет, я так понимаю. Если вообще конечно этот "костыль" не забракуют. Ну хотя это не костыль, имхо, но просто за рамки программы выходит
+              УВАЖАЕМАЯ КОМИССИЯ! Я 6 ЧАСОВ ПЫТАЛСЯ ОЖИВИТЬ ЭТОТ СЛАЙДЕР! СНАЧАЛА ПРОБОВАЛ ТАК ЖЕ, КАК И НИЖНИЙ. ПОТОМ ЕЩЁ ДЕСЯТКОМ СПОСОБОВ. ПАРА ОБРАЗКОВ СТАРОГО КОДА ПРИЛАГАЕТСЯ В ЗАКОММЕНТИРОВАННОМ ВИДЕ. НАДЕЮСЬ, ВЫ ОЦЕНИТЕ МОИ СТАРАНИЯ И СМЕКАЛКУ.
+              Хотя, походу, рано я победу праздную... в половине браузеров лэйбл кликает на кнопку, но скрипт не активируется. А если непосредственно на кнопку нажать, то всё норм.
+              -->
 
-                <li class="promo__slider-item">
+                <input class="promo__pagination-item promo__pagination-item--1" id="TEST123" type="button" value="КНОПКА1" onclick="test1()">
+                <script type="text/javascript">
+                  function test1() {
+                  document.getElementsByClassName('promo__slider-item--1')[0].style.display = 'block';
+                  document.getElementsByClassName('promo__slider-item--2')[0].style.display = 'none';
+                  }
+                </script>
+
+                <input class="promo__pagination-item promo__pagination-item--2" id="TEST234" type="button" value="КНОПКА2" onclick="test2()">
+                <script type="text/javascript">
+                  function test2() {
+                  document.getElementsByClassName('promo__slider-item--2')[0].style.display = 'block';
+                  document.getElementsByClassName('promo__slider-item--1')[0].style.display = 'none';
+                  }
+                </script>
+
+              <div class="promo__slider-list">
+                <div class="promo__slider-item promo__slider-item--1">
                   <a href="#" title="Дрели">
                     <h4>Дрели</h4>
                     <p>Соседям на радость</p>
                   </a>
-                </li>
-
-                <li class="promo__slider-item">
+                </div>
+                <div class="promo__slider-item promo__slider-item--2">
                   <a href="#" title="Перфораторы">
                     <h4>Перфораторы</h4>
                     <p>Настоящие мужские игрушки</p>
                   </a>
-                </li>
-
-              </ul>
-
-              <ul class="promo__pagination">
-                <li class="promo__pagination-item promo__pagination-item--1">
-                  <input type="radio" id="slide1" name="slides" checked>
-                </li>
-                <li class="promo__pagination-item promo__pagination-item--2">
-                  <input type="radio" id="slide2" name="slides">
-                </li>
-              </ul>
+                </div>
+              </div>
 
               <p class="promo__arrows">
-                <button class="promo__arrow promo__arrow-left" type="button"></button>
-                <button class="promo__arrow promo__arrow-right" type="button"></button>
+                <label for="TEST123">
+                  <button class="promo__arrow promo__arrow-left" type="button"></button>
+                </label>
+                <label for="TEST234">
+                  <button class="promo__arrow promo__arrow-right" type="button"></button>
+                </label>
               </p>
 
               <a class="btn btn__red promo__btn" href="#">Открыть каталог</a>
 
             </div>
 
-<!--  ДА НЕ РАБОТАЕТ НИХУЯ ЭТОТ СЛАЙДЁР!!!11 Я НА НЕГО ЧАСА 4 УБИЛ!!111 ФПЕЗДУ -->
+<!--   СТАРЫЙ КОД
+                <div class="promo__pagination">
+                  <input class="promo__pagination-item" id="switch-slides-1" type="radio" name="switch_slides_group" checked>
+                  <input class="promo__pagination-item" id="switch-slides-2" type="radio" name="switch_slides_group">
+                </div>
 
-<!-- Да в рот кирпич, в очко варенье! Подозреваю чото не ладно с именами классов и айдишников. Давай ещё раз всё внимательно там. Но потом.>
+                <ul class="promo__slider-list">
+                  <li class="promo__slider-item">
+                    <a href="#" title="Дрели">
+                      <h4>Дрели</h4>
+                      <p>Соседям на радость</p>
+                    </a>
+                  </li>
+                  <li class="promo__slider-item">
+                    <a href="#" title="Перфораторы">
+                      <h4>Перфораторы</h4>
+                      <p>Настоящие мужские игрушки</p>
+                    </a>
+                  </li>
+                </ul>
+-->
+
 
 
 <!-- СЛАЙДЕР 1 - КОНЕЦ -->
@@ -330,27 +363,23 @@
               <li class="services__item"><label for="pipiska-3">Кредит</label></li>
             </ul>
 
-
             <input class="visually-hidden" type="radio" id="pipiska-1" name="abracadabrablia" checked>
             <input class="visually-hidden" type="radio" id="pipiska-2" name="abracadabrablia">
             <input class="visually-hidden" type="radio" id="pipiska-3" name="abracadabrablia">
 
-
-            <!-- ДУБЛЬ 2 БЛЯ, МОЖЕТ ХОТЬ ЭТОТ ЗАРАБОТАЕТ -->
-
-            <div class="services__description">
+            <div class="services__slide">
               <h3>Доставка</h3>
               <p>Мы с удовольствием доставим ваш товар прямо <br> к вашему подъезду совершенно бесплатно!
               Ведь мы неплохо заработаем,<br> поднимаея его на ваш этаж!</p>
             </div>
 
-            <div class="services__description">
+            <div class="services__slide">
               <h3>Гарантия</h3>
               <p>Если купленный у нас товар поломается или заискрит,<br> а также в случае пожара, спровоцированного его возгаранием,  вы всегда можете быть уверены в нашей гарантии. Мы обменяем сгоревший товар на новый.<br>
               Дом уж восстановите как-нибудь сами.</p>
             </div>
 
-            <div class="services__description">
+            <div class="services__slide">
               <h3>Кредит</h3>
               <p>Залезть в долговую яму стало проще!<br>
               Кредитные консультанты придут вам на помощь.</p>
@@ -361,6 +390,8 @@
         </div>
 
 <!-- Хм... а этот работает... Ну я хер знает прямо. Ладно, попозже ими займусь. Тут ещё марафет с ними наводить через лэйблы и скрытие радиобоксов -->
+
+<!-- УКАЗАТЕЛЬ ПОИНТЕР ДОБАВЬ -->
 
 <!-- Ладно, вот так сойдёт пока. Работает как надо. Причесать его дальше - уже не проблема. У дальшейшим же приключениям! -->
 
@@ -545,7 +576,7 @@
         </label>
       </p>
 
-      </div>>
+      </div>
 
       <button class="button_close" type="button">
         <svg width="21" height="21">
@@ -562,11 +593,6 @@
 
 <!-- Не, с кнопками полный пиздец, конечно. Надо их к какому-то единообразию привести. -->
 <!-- Чото мой самодельный крестик недостаточно жирный -->
-
-    <br><br><br><br><br>
-
-
-
 
 
 </body>

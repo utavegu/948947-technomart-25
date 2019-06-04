@@ -38,15 +38,15 @@ src: url('../fonts/web/ptsans.woff')
 /*ВООБЩЕ МИНИМАЛЬНУЮ ВЫСОТУ ВЕРНИ ВСЕМ СЕКЦИЯМ*/
 
 
-
-/*body > * { background: rgba(255, 0, 0, 0.1); }
+/*
+body > * { background: rgba(255, 0, 0, 0.1); }
 body > * > * { background: rgba(0, 255, 0, 0.1); }
 body > * > * > * { background: rgba(0, 0, 255, 0.1); }
 body > * > * > * > * { background: rgba(255, 255, 0, 0.1); }
 body > * > * > * > * > * { background: rgba(0, 255, 255, 0.1); }
 body > * > * > * > * > * > * { background: rgba(255, 0, 255, 0.1); }
-body > * > * > * > * > * > * > * { background: rgba(255, 255, 255, 0.1); }*/
-
+body > * > * > * > * > * > * > * { background: rgba(255, 255, 255, 0.1); }
+*/
 
 
 
@@ -495,7 +495,7 @@ position: relative;
 
 /*Далее слайдер*/
 
-.promo__preview {
+.promo__slider {
 	width: 620px;
 	height: 266px;
 	border: 1px dotted red;
@@ -503,66 +503,71 @@ position: relative;
 	position: relative;
 }
 
-.promo__slider-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.promo__slider-item {
-	display: none;
-}
-
-
-.promo__slider-item:nth-child(1) {
-	position: absolute;
-	left: 0;
-  top: 0;
-
-  background-image: url("../img/man-1.jpg");
-  background-repeat: no-repeat;
-
-  width: 620px;
-  height: 266px;
-}
-
-/* ЧОТО КАРТИНКИ-ТО РАЗНОГО РАЗМЕРА!*/
-/*Я ПОМНЮ ВРОДЕ ЕСТЬ КАКОЙ-ТО ТРЮК ПРАВИЛЬНО ВЫРОВНЯТЬ КАРТИНКУ ПОД РАЗМЕРЫ ОКНА, БЕЗ ИСКАЖЕНИЯ ПРОПОРЦИЙ, НО НЕ ПОМНЮ КАКОЙ */
-
-.promo__slider-item:nth-child(2) {
-	position: absolute;
-	left: 0;
-  top: 0;
-
-  background-image: url("../img/man-2.jpg");
-  background-repeat: no-repeat;
-
-  width: 620px;
-  height: 266px;
-}
-
-.promo__pagination {
+/*.promo__pagination {
 	position: absolute;
 	left: 50%;
 	bottom: 10%;
-}
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}*/
 
 .promo__pagination-item {
-	display: inline;
+	z-index: 100;
+	position: absolute;
 }
 
-#slide1:checked ~ .promo__slider-item:nth-child(1) {
+.promo__pagination-item--1 {
+top: 0px;
+left: 0px;
+}
+
+.promo__pagination-item--2 {
+top: 0px;
+right: 0px;
+}
+
+/* ЧОТО КАРТИНКИ-ТО РАЗНОГО РАЗМЕРА!*/
+/*Я ПОМНЮ ВРОДЕ ЕСТЬ КАКОЙ-ТО ТРЮК ПРАВИЛЬНО ВЫРОВНЯТЬ КАРТИНКУ ПОД РАЗМЕРЫ ОКНА, БЕЗ ИСКАЖЕНИЯ ПРОПОРЦИЙ, НО НЕ ПОМНЮ КАКОЙ - имг.. записал */
+
+.promo__slider-item {
+	width: 620px;
+  height: 266px;
+	position: absolute;
+	left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+.promo__slider-item:nth-of-type(1) {
+  background-image: url("../img/man-1.jpg");
   display: block;
 }
 
-#slide2:checked ~ .promo__slider-item:nth-child(2) {
+.promo__slider-item:nth-of-type(2) {
+  background-image: url("../img/man-2.jpg");
+}
+
+/*
+#switch-slides-1:checked ~ .promo__slider-list .promo__slider-item:nth-of-type(1) {
   display: block;
 }
 
+#switch-slides-2:checked ~ .promo__slider-list .promo__slider-item:nth-of-type(2) {
+  display: block;
+}
 
+.promo__pagination [type="radio"]:nth-of-type(1):checked ~ .promo__slider-list .promo__slider-item:nth-child(1) {
+	display: block;
+}
 
+.promo__pagination [type="radio"]:nth-of-type(2):checked ~ .promo__slider-list .promo__slider-item:nth-child(2) {
+	display: block;
+}
+*/
 
-.promo__preview h4 {
+.promo__slider h4 {
 	font-style: normal;
 	font-weight: bold;
 	font-size: 36px;
@@ -571,7 +576,7 @@ position: relative;
 	text-transform: uppercase;
 }
 
-.promo__preview p {
+.promo__slider p {
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
@@ -594,6 +599,7 @@ position: relative;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
+	z-index: 150;
 }
 
 .promo__arrow-left {
@@ -782,23 +788,23 @@ height: 318px;
 	flex-direction: row;
 	justify-content: space-between;
 
-	border: 3px dotted pink;
+	border: 3px dotted pink; /*ВРЕМЕННО*/
 }
 
-.services__description {
+.services__slide {
 	display: none;
 	width: 600px; /*нука харэ прыгать... ВРЕМЕННО!*/
 }
 
-#pipiska-1:checked ~ .services__description:nth-of-type(1) {
+#pipiska-1:checked ~ .services__slide:nth-of-type(1) {
   display: block;
 }
 
-#pipiska-2:checked ~ .services__description:nth-of-type(2) {
+#pipiska-2:checked ~ .services__slide:nth-of-type(2) {
   display: block;
 }
 
-#pipiska-3:checked ~ .services__description:nth-of-type(3) {
+#pipiska-3:checked ~ .services__slide:nth-of-type(3) {
   display: block;
 }
 
@@ -820,7 +826,7 @@ height: 318px;
 	color: #32425c;
 }
 
-.services__description h3 {
+.services__slide h3 {
 	font-style: normal;
 	font-weight: normal;
 	font-size: 36px;
@@ -829,7 +835,7 @@ height: 318px;
 	text-transform: uppercase;
 }
 
-.services__description p {
+.services__slide p {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: normal;
@@ -1182,7 +1188,8 @@ height: 318px;
 	resize: none;
 }
 
-/*ДАЛЕЕ ЭПИЧЕСКАЯ БИТВА ЗА СЕРУЮ ПОЛОСУ ВНИЗУ ФОРМЫ*/
+/*ДАЛЕЕ ЭПИЧЕСКАЯ БИТВА ЗА СЕРУЮ ПОЛОСУ ВНИЗУ ФОРМЫ
+А вроде можно ведь частичную заливку цветом сделать... ты повспоминай*/
 
 .write-us::after {
 	content: "БЛЯ ЧТО НЕ ТАК, НУ ЗАЕБИСЬ ЖЕ ПРИДУМАЛ. ЭТО ПОТОМУ ЧТО ТЫ ФОРМА, ДА?"
