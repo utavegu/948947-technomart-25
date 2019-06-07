@@ -12,62 +12,93 @@
 
   <!-- ХЭДЭР -->
 
+<!-- ---------------------------------------------------------------------------------------------- -->
+
     <main class="container">
 
+      <div class="main-wrapper">
+
+<!-- Точность позиционирования пока оставляет желать лучшего -->
       <ul class="breadcrumbs">
-        <li><a href="index.html"><span class="visually-hidden">Главная</span></a></li>
-        <li><a href="catalog.html">Каталог</a></li>
-        <li><a href="instruments.html">Инструменты</a></li>
-        <li><a class="breadcrumbs--current">Перфораторы</a></li>
+        <li class="breadcrumbs__item"><a href="index.html"><span class="visually-hidden">Главная</span></a></li>
+        <!-- Мне бы домик-то кликабельным сделать. Если я вместо визуалли-хиддена цвет текста на белый поменяю - так себе идея? -->
+        <li class="breadcrumbs__item"><a href="catalog.html">Каталог</a></li>
+        <li class="breadcrumbs__item"><a href="instruments.html">Инструменты</a></li>
+        <li class="breadcrumbs__item"><a class="breadcrumbs--current">Перфораторы</a></li>
       </ul>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
 
       <h2 class="page-section__title">Перфораторы</h2>
 
+      <div class="option-wrapper">
+
+      <div class="option-wrapper__left">
+
       <section class="filters">
-        <h3>Фильтр:</h3>
+
+        <h3 class="products-search-title">Фильтр:</h3>
+
         <form action="https://echo.htmlacademy.ru" method="post">
 
-         С БЕГУНКОМ Я ТАК ТОЛКОМ И НЕ ПОНЯЛ, ЧЕГО ОТ МЕНЯ ХОТЯТ, ПОТОМУ ПОКА СДЕЛАЮ ВОТ ТАК. Я ТАК ПОНЯЛ, ЧТО ФУНКЦИОНИРОВАТЬ ОН У МЕНЯ НЕ ДОЛЖЕН, А ПРОСТО НУЖНО ПОВТОРИТЬ ЕГО ВНЕШНИЙ ВИД
-          <fieldset oninput="priceoutput.value=pricecount.value">
+          <fieldset class="filters__price">
+
             <legend>Цена:</legend>
 
-            <div class="range__box">
-              <div class="range__regulator range__regulator--left" style="cursor: pointer;" tabindex="0">
-                <svg width="20" height="20">
-                  <circle r="10" cx="10" cy="10" fill="#ffffff"/>
-                  <rect width="4" height="4" x="8" y="8" rx="1" fill="#ababab"/>
-                </svg>
+              <div class="range__box">
+
+                <!-- ПОМЕНЯЙ ТОЖЕ НА ИМЕЮЩИЕСЯ СВГ-ХИ, НЕ УСЛОЖНЯЙ -->
+
+                <div class="range__regulator range__regulator--left" tabindex="0">
+                  <!-- <svg width="20" height="20">
+                    <circle r="10" cx="10" cy="10" fill="#ffffff"/>
+                    <rect width="4" height="4" x="8" y="8" rx="1" fill="#ababab"/>
+                  </svg> -->
+                </div>
+
+                <div class="range__regulator range__regulator--right" tabindex="0">
+                  <!-- <svg width="20" height="20">
+                    <circle r="10" cx="10" cy="10" fill="#ffffff"/>
+                    <rect width="4" height="4" x="8" y="8" rx="1" fill="#ababab"/>
+                  </svg> -->
+                </div>
+
+                <div class="range__line range__line--green">
+                  <svg width="120" height="2">
+                    <line x1="0" y1="0" x2="120" y2="0" stroke="#00ca74" stroke-height="2" />
+                  </svg>
+                </div>
+
+                <div class="range__line range__line--gray">
+                  <svg width="20" height="2">
+                    <line x1="0" y1="0" x2="20" y2="0" stroke="#d7dcde" stroke-height="2" />
+                  </svg>
+                </div>
+
               </div>
-              <div class="range__regulator range__regulator--right" style="cursor: pointer;" tabindex="0">
-                <svg width="20" height="20">
-                  <circle r="10" cx="10" cy="10" fill="lightgray"/>
-                  <rect width="4" height="4" x="8" y="8" rx="1" fill="gray"/>
+
+              <div class="filters__price-input">
+
+                <div class="filters__select-price-box">
+                  <input type="text" name="min-price" value="0">
+                </div>
+
+                <svg class="filters__price-input-diapason" width="10" height="1">
+                  <line x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="1" />
                 </svg>
+
+                <div class="filters__select-price-box">
+                  <input type="text" name="max-price" value="30000">
+                </div>
+
               </div>
-              <div class="range__line">
-                <svg width="170" height="6">
-                  <line x1="0" y1="3" x2="140" y2="3" stroke="#00ca74" stroke-width="2" />
-                  <line x1="140" y1="3" x2="170" y2="3" stroke="#d7dcde" stroke-width="2" />
-                </svg>
-              </div>
-            </div>
-            Помни про временный внутренний стиль и цвет одного из ползунков. И про примерные параметры линии ползунка.
 
-            <div class="select_price_box select_price_box--left">
-              <input type="text" name="min-price" value="0">
-            </div>
+          </fieldset>
 
-            <svg width="10" height="1">
-              <line x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="1" />
-            </svg>
 
-            <div class="select_price_box select_price_box--right">
-              <input type="text" name="max-price" value="30000">
-            </div>
+<!-- КЛАССЫ ТУТ ПЕРЕИМЕНУЙ ОТ ГРЕХА ПОДАЛЬШЕ... С ЭТИМИ СЛАЙДЕРАМИ
 
-<!-- КЛАССЫ ТУТ ПЕРЕИМЕНУЙ ОТ ГРЕХА ПОДАЛЬШЕ... С ЭТИМИ СЛАЙДЕРАМИ -->
-
-            <div class="slide">
+          <div class="slide">
 
               <div class="slide__controls">
                 <div class="slide__controls-panel">
@@ -78,92 +109,101 @@
 
               <div class="slide__out">
                 <input class="slide__input" type="text" name="">
-                <span> -  </span>
+                <span> - </span>
                 <input class="slide__input" type="text" name="">
               </div>
 
             </div>
 
-          </fieldset>
+-->
 
-          <fieldset>
-
+          <fieldset class="filters__manufacturers">
             <legend>Производители:</legend>
-            <ul>
-              <li>
-                <label>
-                  <input type="checkbox" name="BOSCH" checked>BOSCH
+            <ul class="filters__manufacturers-list">
+              <li class="filters__manufacturers-item">
+                <label class="filters__manufacturers-label">
+                  <input class="filters__manufacturers-input visually-hidden" type="checkbox" name="BOSCH" checked>
+                  <span class="filters__manufacturers-checkbox"></span>
+                  <span class="filters__manufacturers-brand">BOSCH</span>
                 </label>
               </li>
-              <li>
-                <label>
-                  <input type="checkbox" name="ИНТЕРСКОЛ">ИНТЕРСКОЛ
+              <li class="filters__manufacturers-item">
+                <label class="filters__manufacturers-label">
+                  <input class="filters__manufacturers-input visually-hidden" type="checkbox" name="ИНТЕРСКОЛ">
+                  <span class="filters__manufacturers-checkbox"></span>
+                  <span class="filters__manufacturers-brand">ИНТЕРСКОЛ</span>
                 </label>
               </li>
-              <li>
-                <label>
-                  <input type="checkbox" name="Makita" checked>Makita
+
+              <!-- НИЖЕ 2 ЗАДИЗЭЙБЛИЛ ЧИСТО ДЛЯ ДЕМОНСТРАЦИИ -->
+
+              <li class="filters__manufacturers-item">
+                <label class="filters__manufacturers-label">
+                  <input class="filters__manufacturers-input visually-hidden" type="checkbox" name="Makita" checked disabled>
+                  <span class="filters__manufacturers-checkbox"></span>
+                  <span class="filters__manufacturers-brand">Makita</span>
                 </label>
               </li>
-              <li>
-                <label>
-                 <input type="checkbox" name="DeWALT">DeWALT
+              <li class="filters__manufacturers-item">
+                <label class="filters__manufacturers-label">
+                 <input class="filters__manufacturers-input visually-hidden" type="checkbox" name="DeWALT" disabled>
+                 <span class="filters__manufacturers-checkbox"></span>
+                 <span class="filters__manufacturers-brand">DeWALT</span>
                 </label>
               </li>
-              <li>
-                <label>
-                  <input type="checkbox" name="HITACHI">HITACHI
+              <li class="filters__manufacturers-item">
+                <label class="filters__manufacturers-label">
+                  <input class="filters__manufacturers-input visually-hidden" type="checkbox" name="HITACHI">
+                  <span class="filters__manufacturers-checkbox"></span>
+                  <span class="filters__manufacturers-brand">HITACHI</span>
                 </label>
               </li>
             </ul>
-
           </fieldset>
 
-          <fieldset>
-
+          <fieldset class="filters__power">
             <legend>Питание:</legend>
-            <ul>
-              <li>
-                <label>
-                  <input type="radio" name="power" value="Аккумуляторные" checked> Аккумуляторные
+            <ul class="filters__power-list">
+              <li class="filters__power-item">
+                <label class="filters__power-label">
+                  <input class="filters__power-input visually-hidden" type="radio" name="power" value="Аккумуляторные" checked>
+                  <span class="filters__power-radio"></span>
+                  <span class="filters__power-brand">Аккумуляторные</span>
                 </label>
               </li>
-              <li>
-                <label>
-                  <input type="radio" name="power" value="Сетевые"> Сетевые
+              <li class="filters__power-item">
+                <label class="filters__power-label">
+                  <input class="filters__power-input visually-hidden" type="radio" name="power" value="Сетевые">
+                  <span class="filters__power-radio"></span>
+                  <span class="filters__power-brand">Сетевые</span>
                 </label>
               </li>
             </ul>
 
           </fieldset>
 
-          <button type="submit">Показать</button>
+          <button class="filters__submit" type="submit">Показать</button>
 
         </form>
       </section>
+
+      </div>
+
+      <div class="option-wrapper__right">
 
       <section class="catalog">
 
         <h3 class="visually-hidden">Перфораторы</h3>
 
-        <div class="sort">
-          Сортировка:
-          <ul>
+        <div class="sort-box">
+          <h4 class="products-sort-title">Сортировка:</h4>
+          <ul class="sort-box__list">
             <li><a class="sort-item sort-item--current by-price" href="#">По цене</a></li>
             <li><a class="sort-item by-type" href="#">По типу</a></li>
-            <li><a class="sort-item by-functional" href="#">По функционалу</a></li> -->
-
-
-            <!-- Две ниже текст надо будет скрыть через цсс... или какие там ещё приёмы есть -->
-
-
+            <li><a class="sort-item by-functional" href="#">По функционалу</a></li>
             <li><a class="sort-arrow ascending" href="#"><span class="visually-hidden">По возрастанию</span></a></li>
             <li><a class="sort-arrow descending" href="#"><span class="visually-hidden">По убыванию</span></a></li>
-
-
             <!-- Ссылки - ГЕТ-запросы -->
-
-
           </ul>
         </div>
 
@@ -190,17 +230,11 @@
           <li class="catalog__item catalog__item--new">
             <a class="btn buy-btn" href="#">Купить</a>
             <a class="btn bookmarks-btn">В закладки</a>
-
-
-
             <!-- Поправил. Но она же никуда не переносит - по логике кнопка. Как именно более доступно? ЭТО ВОПРОС НАСТАВНИКУ, А НЕ МЫСЛИ В СЛУХ -->
-
-
-
-
- <a href="#">
+            <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
+            <div class="popular-products__old-price"><del>ЗАГЛУШКА</del></div>
             <div class="catalog__new-price">12500 Р.</div>
           </li>
 
@@ -227,6 +261,7 @@
             <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
+            <div class="popular-products__old-price"><del>ЗАГЛУШКА</del></div>
             <div class="catalog__new-price">12500 Р.</div>
           </li>
 
@@ -253,6 +288,7 @@
             <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
+            <div class="popular-products__old-price"><del>ЗАГЛУШКА</del></div>
             <div class="catalog__new-price">12500 Р.</div>
           </li>
 
@@ -267,13 +303,24 @@
 
       </section>
 
+    </div>
+
+    </div>
+
+    </div>
+
       <!-- ---------------------------------------------------------------------------------------------- -->
 
 <section class="about-perforators">
+
+  <div class="main-wrapper">
+
         <h3>Пара слов о перфораторах</h3>
         <p>
           Перфоратор - универсальный строительный инструмент. Предназначен для сверления и долбления отверстий в кирпиче, бетоне и камне.<br> Существуют электромеханические и пневматические перфораторы. Современные модели могут выполнять функции дрели, шуруповерта и отбойного молотка. В ассортиментном ряду есть выбор "трехрежимников": в одном устройстве будут совмещены отбойный молоток и ударная дрель.
         </p>
+
+  </div>
 
       </section>
 

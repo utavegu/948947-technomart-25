@@ -39,26 +39,41 @@ src: url('../fonts/web/ptsans.woff')
 
 
 /*
-body > * { background: rgba(255, 0, 0, 0.1); }
-body > * > * { background: rgba(0, 255, 0, 0.1); }
-body > * > * > * { background: rgba(0, 0, 255, 0.1); }
-body > * > * > * > * { background: rgba(255, 255, 0, 0.1); }
-body > * > * > * > * > * { background: rgba(0, 255, 255, 0.1); }
-body > * > * > * > * > * > * { background: rgba(255, 0, 255, 0.1); }
-body > * > * > * > * > * > * > * { background: rgba(255, 255, 255, 0.1); }
+body > * { background: rgba(255, 0, 0, 0.02); }
+body > * > * { background: rgba(0, 255, 0, 0.02); }
+body > * > * > * { background: rgba(0, 0, 255, 0.02); }
+body > * > * > * > * { background: rgba(255, 255, 0, 0.02); }
+body > * > * > * > * > * { background: rgba(0, 255, 255, 0.02); }
+body > * > * > * > * > * > * { background: rgba(255, 0, 255, 0.02); }
+body > * > * > * > * > * > * > * { background: rgba(255, 255, 255, 0.02); }
+
+body > * { outline: red dotted 1px; }
+body > * > * { outline: green dotted 1px; }
+body > * > * > * { outline: blue dotted 1px; }
+body > * > * > * > * { outline: yellow dotted 1px; }
+body > * > * > * > * > * { outline: black dotted 1px; }
+body > * > * > * > * > * > * { outline: purple dotted 1px; }
+body > * > * > * > * > * > * > * { outline: orange dotted 1px; }
 */
 
+/*ДАВАЙ КОГДА МАРАФЕТ БУДЕШЬ НАВАДИТЬ, ДЕЛАЙ ТАК - ТИПОГРАФИКУ ВСЮ ЗАДАВАЙ "КОРОБКЕ", А ДОЧЕРНИМ ЭЛЕМЕНТАМ ИЛИ ИНХЕРИТЬ (ЕСЛИ САМО НЕ ИНХЕРИТИТСЯ), ИЛИ ПЕРЕОПРЕДЕЛЯЙ*/
 
 
 
+/*Версия 2019*/
 .visually-hidden {
 	position: absolute !important;
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1;
 	padding: 0 !important;
 	border: 0 !important;
-	height: 1px !important;
-	width: 1px !important;
+	white-space: nowrap;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	/*или всё-таки: ?*/
+	clip: rect(0, 0, 0, 0);
+	clip-path: inset(100%);
 	overflow: hidden;
 }
 
@@ -73,12 +88,34 @@ a {
 	color: #ffffff;
 }
 
-/*Блин, надоело каждый отдельно обнулять) Потом придумаю как для критериев сделать*/
-/*Хмм... а что если всем ul задать один класс... фак зе систем, так сказать*/
-ul {
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.btn {
+	display: inline-block;
+	min-width: 120px;
+	padding: 15px 45px;
+	border: none;
+	font: inherit;
+	text-align: center;
+	vertical-align: middle;
+	text-transform: uppercase;
+	/*Временные свойства*/
+	color: white;
+	background-color: black;
+	/*Потом собери статистику по ВСЕМ кнопкам сайта и наиболее повторяющиеся свойства добавь в общий базовый класс*/
+}
+
+.btn__solo {
+	font-style: italic;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	color: #ffffff;
+	background-color: #ee3643;
+	border-radius: 2px;
 }
 
 .main-wrapper {
@@ -86,26 +123,6 @@ ul {
 	margin: auto;
 	padding-left: 10px;
 	padding-right: 10px;
-}
-
-/*Вообще надо бы все кнопки разделить на несколько групп и придумать им классы*/
-/*Ну не связывает их больше ничего, кроме того, что они красные)) Придумаю потом синоним*/
-/* Хм... они одиночные... можно их "соло баттон" обозвать. И не забудь обязательно сделать "универсальную кнопку" btn по советам из 7 лекции. */
-
-.btn__red {
-	font-style: italic;
-	font-weight: normal;
-	font-size: 14px;
-	line-height: 18px;
-	color: #ffffff;
-	background-color: #ee3643;
-	text-transform: uppercase;
-	/*временные свойства*/
-	display: inline-block;
-	width: 150px;
-	height: 50px;
-	border: 3px solid black;
-	border-radius: 20%;
 }
 
 /* -----ХЭДЭР------------------------------------------------------- */
@@ -128,7 +145,7 @@ ul {
 
 .main-header__logo {
 	width: 220px;
-	height: 42px;   /*И нижняя граница ещё 5*/
+	height: 42px;
 	background-color: #ee3643;
 	margin: 0px;
 	padding: 0px;
@@ -165,7 +182,6 @@ position: relative;
 	padding: 0px;
 	box-sizing: border-box;
 	padding-left: 49px;
-
 }
 
 .main-header__search::before {
@@ -176,9 +192,11 @@ position: relative;
 	width: 20px; /*ПРИМЕРНО*/
 	height: 20px; /*ПРИМЕРНО*/
 
-	background-image: url("../img/svg/icon-search.svg");
+	/*background-image: url("../img/svg/icon-search.svg");*/
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17'%3E%3Cpath fill='%23ffffff' d='M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1 0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5 2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z'/%3E%3C/svg%3E%0A");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
+	z-index: 1000;
 
 	opacity: 0.3;
 }
@@ -188,6 +206,10 @@ position: relative;
 	height: 42px;
 	margin: 0px;
 	padding: 0px;
+}
+
+.main-header__bookmarks:active {
+	background-color: #161d29;
 }
 
 .main-header__bookmarks::before {
@@ -207,6 +229,10 @@ position: relative;
 	height: 42px;
 	margin: 0px;
 	padding: 0px;
+}
+
+.main-header__basket:active {
+	background-color: #161d29;
 }
 
 .main-header__basket::before {
@@ -229,6 +255,10 @@ position: relative;
 	padding: 0px;
 }
 
+.main-header__btn-order:hover  {
+	background-color: #5fbb2d;
+}
+
 .main-header__search input:hover,
 .main-header__bookmarks:hover,
 .main-header__basket:hover {
@@ -241,26 +271,11 @@ position: relative;
 	opacity: 1;
 }
 
-.main-header__btn-order:hover  {
-	background-color: #5fbb2d;
-}
-
 .main-header__bookmarks:active::before,
-.main-header__bookmarks:active {
-	opacity: 0.6;
-}
-
-.main-header__bookmarks:active {
-	background-color: #161d29;
-}
-
+.main-header__bookmarks:active,
 .main-header__basket:active::before,
 .main-header__basket:active {
 	opacity: 0.6;
-}
-
-.main-header__basket:active {
-	background-color: #161d29;
 }
 
 .main-header__btn-order:active  {
@@ -273,11 +288,11 @@ position: relative;
 	color: #111111;			/*ОПЯТЬ НЕ ХОЧЕТ НУЖНЫЙ ЦВЕТ ПРИНИМАТЬ. САМОМУ ПОЭЙСХОЛДЕРУ ТОЖЕ ПРОБОВАЛ МЕНЯТЬ. И С ОПАСИТИ ИГРАЛСЯ.*/
 }
 
-.main-header__search input:focus::before {
-	fill:#ee3643;
+.main-header__search:focus::before {
+	background-image: url("../img/svg/icon-search-red.svg");
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17'%3E%3Cpath fill='%23ee3643' d='M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1 0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5 2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z'/%3E%3C/svg%3E%0A");
 }
-
-/*ТАК, А ВОТ ТУТ Я ЧТО-ТО ЗАСТРЯЛ... ВРОДЕ, ЧТОБЫ ДО ЦВЕТА СВГ ЭЛЕМЕНТА ДОСТУЧАТЬСЯ, НАДО ЕГО ИНЛАЙН СДЕЛАТЬ ЧТОЛИ...*/
+/*НЕ РАБОТАЕТ*/
 
 /* ------------------------------------------------------------ */
 
@@ -360,6 +375,9 @@ position: relative;
 
 .main-header__user-navigation {
 	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
 	width: 280px;
 	font-style: normal;
 	font-weight: normal;
@@ -406,6 +424,9 @@ position: relative;
 
 .main-header__site-navigation {
 	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -426,7 +447,6 @@ position: relative;
 
 .promo {
 	background-color: #ffffff;
-	border: 3px dotted green;
 	margin-top: 59px;
 	margin-bottom: 53px;
 }
@@ -498,41 +518,13 @@ position: relative;
 .promo__slider {
 	width: 620px;
 	height: 266px;
-	border: 1px dotted red;
 	flex-shrink: 0;
 	position: relative;
 }
 
-/*.promo__pagination {
-	position: absolute;
-	left: 50%;
-	bottom: 10%;
-	list-style: none;
-	margin: 0px;
-	padding: 0px;
-}*/
-
-.promo__pagination-item {
-	z-index: 100;
-	position: absolute;
-}
-
-.promo__pagination-item--1 {
-top: 0px;
-left: 0px;
-}
-
-.promo__pagination-item--2 {
-top: 0px;
-right: 0px;
-}
-
-/* ЧОТО КАРТИНКИ-ТО РАЗНОГО РАЗМЕРА!*/
-/*Я ПОМНЮ ВРОДЕ ЕСТЬ КАКОЙ-ТО ТРЮК ПРАВИЛЬНО ВЫРОВНЯТЬ КАРТИНКУ ПОД РАЗМЕРЫ ОКНА, БЕЗ ИСКАЖЕНИЯ ПРОПОРЦИЙ, НО НЕ ПОМНЮ КАКОЙ - имг.. записал */
-
 .promo__slider-item {
-	width: 620px;
-  height: 266px;
+	width: 100%;
+  height: 100%;
 	position: absolute;
 	left: 0;
   top: 0;
@@ -541,31 +533,63 @@ right: 0px;
 }
 
 .promo__slider-item:nth-of-type(1) {
-  background-image: url("../img/man-1.jpg");
-  display: block;
+  background-image: url("../img/man-1-new.jpg");
 }
 
 .promo__slider-item:nth-of-type(2) {
-  background-image: url("../img/man-2.jpg");
+  background-image: url("../img/man-2-new.jpg");
+}
+
+.promo__pagination-item:nth-of-type(1):checked ~ .promo__slider-list .promo__slider-item:nth-of-type(1) {
+	display: block;
+}
+
+.promo__pagination-item:nth-of-type(2):checked ~ .promo__slider-list .promo__slider-item:nth-of-type(2) {
+	display: block;
+}
+
+.promo__check {
+	position: absolute;
+	width: 30px;
+	height: 10px;
+	z-index: 1;
+	bottom: 67px;
+	left: 50%;
+	margin-left: -10px;
+	display: flex;
+	justify-content: space-between;
+}
+/*Блин, походу коробку криво позиционировал. Ладно, потом.*/
+
+.promo__check-item {
+	font-size: 0px;
+	padding-right: 10px;
+}
+
+.promo__check-item::after {
+	position: absolute;
+	content: "";
+	cursor: pointer;
+	background-color: #ffffff;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
 }
 
 /*
-#switch-slides-1:checked ~ .promo__slider-list .promo__slider-item:nth-of-type(1) {
-  display: block;
-}
-
-#switch-slides-2:checked ~ .promo__slider-list .promo__slider-item:nth-of-type(2) {
-  display: block;
-}
-
-.promo__pagination [type="radio"]:nth-of-type(1):checked ~ .promo__slider-list .promo__slider-item:nth-child(1) {
-	display: block;
-}
-
-.promo__pagination [type="radio"]:nth-of-type(2):checked ~ .promo__slider-list .promo__slider-item:nth-child(2) {
-	display: block;
-}
+1) Не забудь из сделать видимыми через фокус-таб индекс
+2) Внутренний красный кружок - второй бэкграунд колор (смотри продвинутый курс фонов)
 */
+
+.promo__pagination-item:nth-of-type(1):checked ~ .promo__check .promo__check-item:nth-of-type(1)::after {
+	background-color: red;
+}
+
+.promo__pagination-item:nth-of-type(2):checked ~ .promo__check .promo__check-item:nth-of-type(2)::after {
+	background-color: red;
+}
+
+
 
 .promo__slider h4 {
 	font-style: normal;
@@ -618,7 +642,6 @@ right: 0px;
 
 .popular-products {
 	background-color: #ffffff;
-	border: 3px dotted red;
 	margin-bottom: 21px;
 }
 
@@ -646,12 +669,16 @@ right: 0px;
 
 .popular-products__list {
 	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 }
 
-.popular-products__item {
+.popular-products__item,
+.catalog__item {
 border: 1px solid #eaeaea;
 width: 220px;
 height: 318px;
@@ -670,7 +697,8 @@ height: 318px;
 	visibility: hidden;
 }
 
-.popular-products__item h3 {
+.popular-products__item h3,
+.catalog__item h4 {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: bold;
@@ -679,7 +707,8 @@ height: 318px;
 	color: #000000;
 }
 
-.popular-products__old-price {
+.popular-products__old-price,
+.catalog__old-price {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: bold;
@@ -688,7 +717,8 @@ height: 318px;
 	color: #a9a9a9;
 }
 
-.popular-products__new-price {
+.popular-products__new-price,
+.catalog__new-price {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: bold;
@@ -710,7 +740,6 @@ height: 318px;
 
 .popular-brands {
 	background-color: #ffffff;
-	border: 3px dotted yellow;
 	margin-bottom: 85px;
 }
 
@@ -776,19 +805,19 @@ height: 318px;
 }
 
 .services__selection {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
 	background-color: black; /*ВРЕМЕННО*/
 }
 
 .services__item {
-	border: 1px dashed white; /*ВРЕМЕННО*/
 }
 
 .services__slider {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-
-	border: 3px dotted pink; /*ВРЕМЕННО*/
 }
 
 .services__slide {
@@ -806,12 +835,6 @@ height: 318px;
 
 #pipiska-3:checked ~ .services__slide:nth-of-type(3) {
   display: block;
-}
-
-.services__selection {
-	list-style: none;
-	margin: 0;
-	padding: 0;
 }
 
 .services__item {
@@ -852,8 +875,6 @@ height: 318px;
 
 .about-box {
 	display: flex;
-	border: 3px dotted lightgreen;
-
 	position: relative;
 	min-height: 537px;
 }
@@ -878,8 +899,11 @@ height: 318px;
 	color: #000000;
 }
 
-.about ul {
+.about__list {
 	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
@@ -904,6 +928,12 @@ height: 318px;
 	list-style: none;
 }
 
+.main-footer__navigation {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
 .main-footer__navigation a {
 	font-style: normal;
 	font-weight: normal;
@@ -921,6 +951,12 @@ height: 318px;
 	color: #f3f7f9;
 }
 
+.main-footer__catalog {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
 .main-footer__catalog a {
 	font-style: normal;
 	font-weight: normal;
@@ -935,6 +971,12 @@ height: 318px;
 	font-size: 16px;
 	line-height: 18px;
 	color: #ffffff;
+}
+
+.main-footer__social-list {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
 }
 
 .main-footer__feedback,
@@ -993,10 +1035,42 @@ height: 318px;
 
 .breadcrumbs {
 	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
+	position: relative;
 }
 
-.breadcrumbs li {
+.breadcrumbs__item {
 	display: inline;
+	padding-left: 39px;
+	margin: 0;
+	padding: 0;
+	margin-left: 40px;
+}
+
+.breadcrumbs__item:first-child::before  {
+	content: "";
+	width: 15px; /*ПРИМЕРНО*/
+	height: 15px; /*ПРИМЕРНО*/
+	background-image: url("../img/svg/icon-home.svg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	position: absolute;
+	left: 0px;
+	bottom: 2px;
+}
+
+.breadcrumbs__item:nth-child(1n+2)::before {
+	content: "";
+	width: 8px; /*ПРИМЕРНО*/
+	height: 12px; /*ПРИМЕРНО*/
+	background-image: url("../img/svg/icon-right-gray.svg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	position: absolute;
+	margin-left: -22px;
+	bottom: 15%;
 }
 
 .breadcrumbs a {
@@ -1009,7 +1083,7 @@ height: 318px;
 	text-transform: uppercase;
 }
 
-/* ----------------------------ЗАБЫЛ ЧО-------------------------------- */
+/* ----------------------------ЗАГОЛОВОК ВСЕЙ СТРАНИЦЫ - ПЕРФОРАТОРЫ-------------------------------- */
 
 .page-section__title {
 	font-style: normal;
@@ -1018,12 +1092,41 @@ height: 318px;
 	line-height: 30px;
 	color: #32425c;
 	text-transform: uppercase;
+
+	padding-top: 33px;
+	padding-bottom: 35px;
+	padding-left: 30px;
+	background-color: #f2f6f8;
+
+	width: auto;
 }
 
-/* ---------------------------ФИЛЬТРЫ КАКИЕ-ТО--------------------------------- */
+/* ------------------------------------------------------------ */
+
+.option-wrapper {
+	display: flex;
+}
+
+.option-wrapper__left {
+	width: 220px;
+	padding-right: 5px;
+}
+
+.option-wrapper__right {
+	width: 700px;
+	padding-left: 5px;
+}
+
+
 
 .filters {
 	background-color: #ffffff;
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 18px;
+	color: #000000;
 }
 
 .filters legend {
@@ -1037,6 +1140,12 @@ height: 318px;
 }
 /*Внимание! Похоже у "питания" другой межсимвольный интервал!*/
 
+.filters fieldset {
+	border: none;
+	margin: 0px;
+	padding: 0px;
+}
+
 .filters label {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
@@ -1047,14 +1156,210 @@ height: 318px;
 	text-transform: uppercase;
 }
 
-.filters {
+.products-search-title {
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+	font-style: normal;
+	font-weight: normal;
+	color: #000000;
+	text-transform: uppercase;
+	padding-top: 14px;
+	padding-bottom: 15px;
+	padding-left: 18px;
+	background-color: #f7f3ec;
+	border-radius: 2px;
+}
+
+.range__box {
+	background-color: #f7f3ec;
+	border-radius: 2px;
+	position: relative;
+	width: 220px;
+	height: 80px;
+}
+
+.range__regulator,
+.range__line {
+	position: absolute;
+}
+
+.range__regulator {
+	cursor: pointer;
+	width: 20px;
+	height: 23px;
+	background-image: url("../img/svg/filter-button.svg");
+}
+
+.range__regulator--left {
+	left: 20px;
+	top: 50%;
+	margin-top: -10px;
+}
+
+.range__regulator--right {
+	right: 40px;
+	top: 50%;
+	margin-top: -10px;
+}
+
+.range__line--green {
+	top: 28px;
+	left: 40px;
+}
+
+.range__line--gray {
+	top: 28px;
+	right: 20px;
+}
+
+.filters__price-input {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.filters__select-price-box {
+	width: 95px;
+	height: 38px;
+	background-color: #f7f3ec;
+	border-radius: 2px;
+	display: flex;
+	margin-top: 9px;
+}
+
+.filters__select-price-box input {
+	text-align: center;
+	margin: auto;
+	width: 50%;
+	background-color: inherit;
+	border: none;
+}
+
+.filters__price-input-diapason {
+	margin-top: 10px;
+}
+
+
+/*---------- ПРОИЗВОДИТЕЛИ ----------*/
+
+/*СДЕЛАЙ, ЧТОБЫ ОНИ ТАБАЛИСЬ!... Точнее Ховер и Фокус... Думаю, это один стиль */
+/*ТАМ КОЛОР ОВЕРЛЭЙ ПОХОДУ... В ОБЩЕМ ЭТИ 2 ЭФФЕКТА ПОТОМ ДОПИЛЮ, ПОКА ХВАТИТ*/
+
+.filters__manufacturers-list {
+	position: relative;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.filters__manufacturers-item {
+	margin-bottom: 18px;
+}
+
+.filters__manufacturers-label {
+	margin-left: 35px;
+}
+
+.filters__manufacturers-checkbox {
+	background-image: url("../img/svg/checkbox-off.svg");
+	position: absolute;
+	left: 0px;
+	width: 23px;
+	height: 23px;
+	cursor: pointer;
+}
+
+.filters__manufacturers-input:checked + .filters__manufacturers-checkbox {
+	background-image: url("../img/svg/checkbox-on.svg");
+	width: 27px;
+	height: 23px;
+}
+
+/*А КАКОГО УРОВНЯ ВЛОЖЕННОСТИ СЧИТАЕТСЯ ЭТОТ СЕЛЕКТОР? ВТОРОГО?*/
+.filters__manufacturers-input:disabled + .filters__manufacturers-checkbox,
+.filters__manufacturers-input:disabled ~ .filters__manufacturers-brand {
+	opacity: 0.4;
+}
+
+/*На счёт курсора не уверен, надо ли его менять*/
+.filters__manufacturers-brand {
+	cursor: pointer;
+
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 20px;
+	color: #000000;
+}
+
+/*---------- ПИТАНИЕ ----------*/
+
+.filters__power-list {
+	position: relative;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.filters__power-item {
+	margin-bottom: 16px;
+}
+
+.filters__power-label {
+	margin-left: 35px;
+}
+
+.filters__power-radio {
+	background-image: url("../img/svg/radio-off.svg");
+	position: absolute;
+	left: 0px;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}
+
+.filters__power-input:checked + .filters__power-radio {
+	background-image: url("../img/svg/radio-on.svg");
+	width: 25px;
+	height: 25px;
+}
+
+.filters__power-input:disabled + .filters__power-radio,
+.filters__power-input:disabled ~ .filters__power-brand {
+	opacity: 0.4;
+}
+
+/*На счёт курсора не уверен, надо ли его менять*/
+.filters__power-brand {
+	cursor: pointer;
+
+	font-family: "PT Sans", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 20px;
+	color: #000000;
+}
+
+/*----КНОПКА ОТПРАВКИ ФОРМЫ----*/
+
+.filters__submit {
+	background-color: #ffffff;
+	width: 138px;
+	min-height: 36px;
+	border: 1px solid #e5e5e5;
+	border-radius: 2px;
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 13px;
 	line-height: 18px;
+	text-transform: uppercase;
 	color: #000000;
 }
+
 
 /* ---------------------------СОРТИРОВКИ--------------------------------- */
 
@@ -1062,17 +1367,57 @@ height: 318px;
 	background-color: #ffffff;
 }
 
-.catalog .sort {
+
+
+
+.sort-box {
 	font-family: "PT Sans", "Arial", sans-serif;
-	font-style: normal;
-	font-weight: normal;
 	font-size: 13px;
 	line-height: 18px;
+	font-style: normal;
+	font-weight: normal;
 	color: #000000;
 	text-transform: uppercase;
+
+	box-sizing: border-box;
+	width: 700px;
+	padding-top: 14px;
+	padding-bottom: 15px;
+	padding-left: 19px;
+
+	background-color: #f7f3ec;
+	border-radius: 2px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-shrink: 0;
+
+	position: relative;
 }
 
-.sort .sort-item {
+.products-sort-title {
+	font-weight: inherit;
+	margin: 0px;
+	padding: 0px;
+}
+
+.sort-box__list {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
+	margin-right: 17px;
+	margin-left: 140px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-shrink: 0;
+	flex-grow: 1;
+}
+
+.sort-item {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: normal;
@@ -1083,10 +1428,35 @@ height: 318px;
 	/*Возможно там чёрный цвет и опасити*/
 }
 
-.sort .sort-item--current {
+.sort-item--current {
 	color: #ee3643;
 	border-bottom: none;
 }
+
+.ascending::before {
+	position: absolute;
+	content: "";
+	width: 11px;
+	height: 10px;
+
+	background-image: url("../img/svg/icon-up-dir.svg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+.descending::before {
+	position: absolute;
+	content: "";
+	width: 11px;
+	height: 10px;
+
+	background-image: url("../img/svg/icon-down-dir.svg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+
+
 
 .buy-btn {
 	font-style: normal;
@@ -1106,10 +1476,43 @@ height: 318px;
 	text-transform: uppercase;
 }
 
+
+
+
+/* Сам каталог, видимо, тут*/
+.catalog__list {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
+	display: flex;
+	flex-wrap: wrap;
+	width: 700px;
+	justify-content: space-between;
+	flex-shrink: 0;
+}
+/*ХОТЯ, ДУМАЕТСЯ МНЕ, Я ТАКИМ МАКАРОМ ПРОВЕРКУ НА ПЕРЕПОЛНЕНИЕ НЕ ПРОЙДУ И ПРИДЁТСЯ ДЕЛАТЬ ЧЕРЕЗ "КАЖДЫЙ ТРЕТИЙ ОТСТУП ДРУГОЙ", А НЕ ЧЕРЕЗ ДЖУСТИФАЙ*/
+
+.catalog__item:nth-child(3n) del {
+	visibility: hidden;
+}
+
+
 /* --------------------------ПАГИНАЦИЯ КАТАЛОГА---------------------------------- */
 
 .catalog__pagination-list {
 	list-style: none;
+	margin: 0px;
+	padding: 0px;
+
+	width: 134px;
+	height: 36px;
+
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-shrink: 0;
+
 }
 
 .catalog__pagination-item {
@@ -1117,20 +1520,28 @@ height: 318px;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 13px;
-	line-height: 18px;
+	/*line-height: 18px;*/
 	color: #000000;
 	background-color: #ffffff;
 	text-transform: uppercase;
+
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	border: 1px solid #e5e5e5;
+	border-radius: 2px;
+	text-align: center;
+	line-height: 36px;
 }
 
 .catalog__pagination-item--current {
-	font-family: "PT Sans", "Arial", sans-serif;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 13px;
-	line-height: 18px;
 	color: #ffffff;
 	background-color: #ee3643;
+}
+
+.catalog__pagination-item--next {
+	display: inline-block;
+	width: 138px;
 }
 
 /* --------------------------ПАРА СЛОВ О ПЕРФОРАЦИИ---------------------------------- */

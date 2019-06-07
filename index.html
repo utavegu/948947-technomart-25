@@ -63,9 +63,6 @@
 
           </div>
 
-        <!-- Так, а нельзя же вроде лишки ссылками оборачивать... хм... или можно... пока так оставлю, потом валидатор подскажет. -->
-        <!-- Ага, нельзя... тогда остаётся открытым вопрос, как сделать, чтобы кликалась вся кнопка, а не только ссылка внутри нее. В ином случае я бы сделал обёрнутый див, но тут что-то не хочется городить конструкцию вида ul-li-a-div. -->
-
         <nav class="main-header__main-navigation">
           <ul class="main-header__site-navigation">
             <li><a class="main-header__navigation-item">Главная</a></li>
@@ -117,29 +114,10 @@
 
 <!-- СЛАЙДЕР 1 - НАЧАЛО -->
 
-            <div class="promo__slider">
+          <div class="promo__slider">
 
-              <!-- Ты, слайдер, не с тем связался. И ты будешь работать, хочется тебе того, или нет -->
-              <!-- Скрипты потом в самый низ перенести надо будет, я так понимаю. Если вообще конечно этот "костыль" не забракуют. Ну хотя это не костыль, имхо, но просто за рамки программы выходит
-              УВАЖАЕМАЯ КОМИССИЯ! Я 6 ЧАСОВ ПЫТАЛСЯ ОЖИВИТЬ ЭТОТ СЛАЙДЕР! СНАЧАЛА ПРОБОВАЛ ТАК ЖЕ, КАК И НИЖНИЙ. ПОТОМ ЕЩЁ ДЕСЯТКОМ СПОСОБОВ. ПАРА ОБРАЗКОВ СТАРОГО КОДА ПРИЛАГАЕТСЯ В ЗАКОММЕНТИРОВАННОМ ВИДЕ. НАДЕЮСЬ, ВЫ ОЦЕНИТЕ МОИ СТАРАНИЯ И СМЕКАЛКУ.
-              Хотя, походу, рано я победу праздную... в половине браузеров лэйбл кликает на кнопку, но скрипт не активируется. А если непосредственно на кнопку нажать, то всё норм.
-              -->
-
-                <input class="promo__pagination-item promo__pagination-item--1" id="TEST123" type="button" value="КНОПКА1" onclick="test1()">
-                <script type="text/javascript">
-                  function test1() {
-                  document.getElementsByClassName('promo__slider-item--1')[0].style.display = 'block';
-                  document.getElementsByClassName('promo__slider-item--2')[0].style.display = 'none';
-                  }
-                </script>
-
-                <input class="promo__pagination-item promo__pagination-item--2" id="TEST234" type="button" value="КНОПКА2" onclick="test2()">
-                <script type="text/javascript">
-                  function test2() {
-                  document.getElementsByClassName('promo__slider-item--2')[0].style.display = 'block';
-                  document.getElementsByClassName('promo__slider-item--1')[0].style.display = 'none';
-                  }
-                </script>
+              <input class="promo__pagination-item visually-hidden" type="radio" name="switch_slides_group" id="switch-slides-1" checked>
+              <input class="promo__pagination-item visually-hidden" type="radio" name="switch_slides_group" id="switch-slides-2">
 
               <div class="promo__slider-list">
                 <div class="promo__slider-item promo__slider-item--1">
@@ -156,42 +134,19 @@
                 </div>
               </div>
 
+              <div class="promo__check">
+                <label class="promo__check-item" for="switch-slides-1" aria-label="Первый" title="Первый">Первый</label>
+                <label class="promo__check-item" for="switch-slides-2" aria-label="Второй" title="Второй">Второй</label>
+              </div>
+
               <p class="promo__arrows">
-                <label for="TEST123">
                   <button class="promo__arrow promo__arrow-left" type="button"></button>
-                </label>
-                <label for="TEST234">
                   <button class="promo__arrow promo__arrow-right" type="button"></button>
-                </label>
               </p>
 
               <a class="btn btn__red promo__btn" href="#">Открыть каталог</a>
 
             </div>
-
-<!--   СТАРЫЙ КОД
-                <div class="promo__pagination">
-                  <input class="promo__pagination-item" id="switch-slides-1" type="radio" name="switch_slides_group" checked>
-                  <input class="promo__pagination-item" id="switch-slides-2" type="radio" name="switch_slides_group">
-                </div>
-
-                <ul class="promo__slider-list">
-                  <li class="promo__slider-item">
-                    <a href="#" title="Дрели">
-                      <h4>Дрели</h4>
-                      <p>Соседям на радость</p>
-                    </a>
-                  </li>
-                  <li class="promo__slider-item">
-                    <a href="#" title="Перфораторы">
-                      <h4>Перфораторы</h4>
-                      <p>Настоящие мужские игрушки</p>
-                    </a>
-                  </li>
-                </ul>
--->
-
-
 
 <!-- СЛАЙДЕР 1 - КОНЕЦ -->
 
@@ -221,7 +176,7 @@
 
           <h2>Популярные товары:</h2>
 
-          <a class="btn btn__red popular-products__btn" href="#">Все популярные товары</a>
+          <a class="btn btn__solo popular-products__btn" href="#">Все популярные товары</a>
 
         </div>
 
@@ -275,7 +230,7 @@
 
           <h2>Популярные производители:</h2>
 
-          <a class="btn btn__red popular-brands__btn" href="#">Все популярные производители</a>
+          <a class="btn btn__solo popular-brands__btn" href="#">Все популярные производители</a>
 
         </div>
 
@@ -420,13 +375,13 @@
           Техномарт работает со многими транспортными компаниями:
         </p>
 
-        <ul>
+        <ul class="about__list">
           <li>Деловые линии</li>
           <li>Автотрейдинг</li>
           <li>ЖелДорЭкспедиция</li>
         </ul>
 
-        <a class="btn btn__red about__btn" href="#">Подробнее о компании</a>
+        <a class="btn btn__solo about__btn" href="#">Подробнее о компании</a>
 
       </section>
 
@@ -438,7 +393,7 @@
 
         <a href="#"><img src="img/map-little.png" alt="Большая Конюшенная ул., 19" title="Смотреть офиc на карте" width="300" height="158"></a>
 
-        <a class="btn btn__red contacts__btn" href="#">Заблудились? Напишите нам!</a>
+        <a class="btn btn__solo contacts__btn" href="#">Заблудились? Напишите нам!</a>
 
       </section>
 
@@ -505,7 +460,7 @@
       </p>
 
       <div class="main-footer__social">
-        <ul>
+        <ul class="main-footer__social-list">
           <li><a class="social-btn vk-btn" href="#" title="Вконтакте">Вконтакте</a></li>
           <li><a class="social-btn fb-btn" href="#" title="Фейсбук">Фейсбук</a></li>
           <li><a class="social-btn in-btn" href="#" title="Инстаграм">Инстаграм</a></li>
@@ -586,14 +541,12 @@
       </button>
 
       <div class="NEPSEVDOELEMENT">
-        <button class="btn__red" type="submit">Отправить</button>
+        <button class="btn" type="submit">Отправить</button>
       </div>
 
     </form>
 
-<!-- Не, с кнопками полный пиздец, конечно. Надо их к какому-то единообразию привести. -->
 <!-- Чото мой самодельный крестик недостаточно жирный -->
-
 
 </body>
 
