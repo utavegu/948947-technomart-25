@@ -1,3 +1,4 @@
+/*
 body > * { background: rgba(255, 0, 0, 0.02); }
 body > * > * { background: rgba(0, 255, 0, 0.02); }
 body > * > * > * { background: rgba(0, 0, 255, 0.02); }
@@ -13,6 +14,7 @@ body > * > * > * > * { outline: yellow dotted 1px; }
 body > * > * > * > * > * { outline: black dotted 1px; }
 body > * > * > * > * > * > * { outline: purple dotted 1px; }
 body > * > * > * > * > * > * > * { outline: orange dotted 1px; }
+*/
 
 /*
 a:focus,
@@ -93,6 +95,8 @@ font-style: normal;
 
 /*ДАВАЙ КОГДА МАРАФЕТ БУДЕШЬ НАВАДИТЬ, ДЕЛАЙ ТАК - ТИПОГРАФИКУ ВСЮ ЗАДАВАЙ "КОРОБКЕ", А ДОЧЕРНИМ ЭЛЕМЕНТАМ ИЛИ ИНХЕРИТЬ (ЕСЛИ САМО НЕ ИНХЕРИТИТСЯ),
  ИЛИ ПЕРЕОПРЕДЕЛЯЙ*/
+
+ /*В З-ИНДЕКСАХ НАВЕДИ ПОРЯДОК, РАЗВЕЛ ЧОТО ТРЭШ*/
 
  *, *:before, *:after: {
   box-sizing: border-box;
@@ -229,6 +233,7 @@ img {
 }
 
 /*НЕ ГРУППИРУЮТСЯ*/
+/*ОСТОРОЖНЕЕ, НА ПЛЭЙСХОЛДЕРЫ ФОРМЫ ЭТО ТОЖЕ ПЕРЕНЕСЕТСЯ, ПРИДУМАЙ ПОТОМ КАК ИХ РАЗДЕЛИТЬ... И НАДО ЛИ*/
 input:-moz-placeholder {
   opacity: 1;
 }
@@ -534,7 +539,8 @@ input::placeholder {
   list-style: none;
   margin: 0px;
   padding: 0px;
-  margin-left: 51px;
+
+  margin-left: 57px;
 
   position: relative;
 }
@@ -910,7 +916,7 @@ input::placeholder {
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-	z-index: 150;
+	z-index: 10;
 }
 
 .promo__arrow-left {
@@ -2073,6 +2079,8 @@ input::placeholder {
   transition-timing-function: ease;
   opacity: 0;
   visibility: hidden;
+
+  z-index: 100;
 }
 
 .modal.is-opened {
@@ -2081,14 +2089,18 @@ input::placeholder {
 }
 
 
-/*
-.write-us {
+
+
+.write-us__form {
 	width: 620px;
-	min-height: 423px;
+	min-height: 312px;
 	border: 1px solid grey;
 	box-shadow: 0	-7px 0 0 #ff5257;
 	margin: auto;
 	position: relative;
+  background-color: #ffffff;
+
+  box-sizing: border-box;
 }
 
 .write-us__letter-wrapper {
@@ -2101,40 +2113,19 @@ input::placeholder {
 	justify-content: space-between;
 }
 
-.write-us textarea {
-	width: 460px;
-	height: 110px;
+.write-us__item textarea {
+	min-width: 460px;
+	min-height: 110px;
 	resize: none;
 }
 
-ДАЛЕЕ ЭПИЧЕСКАЯ БИТВА ЗА СЕРУЮ ПОЛОСУ ВНИЗУ ФОРМЫ
-А вроде можно ведь частичную заливку цветом сделать... ты повспоминай
-
-.write-us::after {
-	content: "БЛЯ ЧТО НЕ ТАК, НУ ЗАЕБИСЬ ЖЕ ПРИДУМАЛ. ЭТО ПОТОМУ ЧТО ТЫ ФОРМА, ДА?"
-	color: black;
-	width: 620px;
-	height: 112px;
-	background-color: #f4f4f4;
-	position: absolute;
+.write-us__footer {
+  width: 100%;
+  height: 112px;
+  background-color: #f4f4f4;
 }
 
-.NEPSEVDOELEMENT {
-	width: 620px;
-	height: 112px;
-	background-color: #f4f4f4;
-	position: relative;
-}
-
-.NEPSEVDOELEMENT .btn__red {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-}
-
-Бля, трэш какой...
-
-.write-us .button_close {
+.modal--write-us .modal-close {
 	background-color: transparent;
 	border: none;
 	position: absolute;
@@ -2142,6 +2133,23 @@ input::placeholder {
 	top: 10px;
 }
 
+.write-us-btn {
+  box-sizing: border-box;
+  width: 460px;
+  padding-left: 200px;
+  padding-right: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: calc(50%-230px);
+  /*Да пиздец, не хочет ни в какую выравниваться по центру! Только если по тупому:*/
+  margin-left: 80px;
+  /*620-460=160/2=80*/
+  margin-top: 37px;
+  /*112-38=74/2=37 хм... чото не ровно как-то...*/
+}
+
+
+/*
 Там ещё слабые размытые тени во все стороны! не забудь их добавить
 
 .map-popup {
@@ -2150,4 +2158,72 @@ input::placeholder {
 	opacity: 0.1;
 	width: 940px;
 	height: 446px;
-}*/
+}
+
+Это чо, какой-то старый код, можно удалить? Ладно, доберусь до карты - проверю.
+*/
+
+
+/* МОДАЛ: ТОВАР ДОБАВЛЕН В КОРЗИНУ */
+
+.modal--add-cart__first-floor {
+  box-sizing: border-box;
+  width: 620px;
+  height: 163px;
+  background-color: #ffffff;
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+  font-size: 30px;
+  line-height: 30px;
+
+  position: relative;
+
+  box-shadow: 0 -7px 0 0 #ff5257;
+
+  padding-left: 179px;
+}
+
+.modal--add-cart__first-floor::before {
+  content: "";
+  position: absolute;
+  left: 81px;
+
+  width: 66px;
+  height: 66px;
+
+  background-image: url("../img/svg/icon-mark.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.modal--add-cart__second-floor {
+  width: 620px;
+  height: 112px;
+  background-color: #f1f1f1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-next-buy {
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  line-height: 18px;
+  margin-left: 20px;
+}
+
+.modal--add-cart .modal-close {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+

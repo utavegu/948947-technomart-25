@@ -519,11 +519,13 @@
 </div>
 
 
+
 <div class="modal modal--write-us">
 
   <div class="modal__inner">
 
-    <form class="modal write-us-form" action="https://echo.htmlacademy.ru" method="post">
+<!-- ВОПРОС! А формам надо различные "защиты от дурака" прописывать, чтобы успешно защититься? -->
+    <form class="write-us__form" id="write-us" action="https://echo.htmlacademy.ru" method="post">
 
       <div class="write-us__letter-wrapper">
 
@@ -548,17 +550,20 @@
       <p class="write-us__item">
         <label>
           Текст письма:
-          <textarea name="letter">В свободной форме</textarea> <!-- Тут тоже плэйсхолдер должен быть! -->
+          <textarea name="letter" placeholder="В свободной форме"></textarea> <!-- Тут тоже плэйсхолдер должен быть! -->
         </label>
       </p>
 
       </div>
 
-      <div class="NEPSEVDOELEMENT">
-        <button class="btn" type="submit">Отправить</button>
-      </div>
-
     </form>
+
+<!-- А МОЖНО-ЛИ КАК-ТО ПРОСТО ЧАСТЬ ФОНА ЗАКРАСИТЬ? А ТО НЕ ПРАВИЛЬНО КАК-ТО РАДИ ЭТОГО ОТДЕЛЬНУЮ ОБЁРТКУ СОЗДАВАТЬ -->
+      <div class="write-us__footer">
+
+        <button class="btn btn__solo write-us-btn" type="submit" form="write-us">Отправить</button>
+
+      </div>
 
 </div>
 
@@ -572,6 +577,7 @@
 </div>
 
 <!-- Чото мой самодельный крестик недостаточно жирный -->
+<!-- ЛУЧШЕ ПЕРЕДЕЛАЙ ЕГО В ЦСС, ГОВОРЯТ НАДО В ЦСС -->
 
 
 
