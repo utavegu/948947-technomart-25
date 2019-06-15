@@ -10,7 +10,92 @@
 
 <body>
 
-  <!-- ХЭДЭР -->
+<header class="main-header">
+
+      <div class="main-header__first-line">
+
+        <div class="main-wrapper main-header__first-line-box">
+
+          <a class="main-header__logo" href="index.html">
+            <img class="visually-hidden" src="img/logo.png" alt="Техномарт" title="Техномарт" width="220" height="47">
+            <img src="img/svg/logo-technomart.svg" alt="Техномарт" width="110" height="18">
+          </a>
+          <!-- Логотип не должен отваливаться при отключении стилей. Надо либо сделать его тремя картинками, либо понять, как менять 3 цвета при разных состояниях. -->
+
+          <!--СТАРАЯ РАЗМЕТКА
+          <form class="main-header__search">
+            <label>
+              <span class="visually-hidden">Поиск</span>
+              <input name="search" type="text" placeholder="Поиск:">
+            </label>
+          </form>-->
+
+          <form class="main-header__search">
+            <label class="visually-hidden" for="search">Поиск:</label>
+            <input name="search" type="text" id="search" placeholder="Поиск:">
+            <svg class="main-header__icon-search" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"><path fill="#ffffff" d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1 0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5 2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z"/></svg>
+          </form>
+
+          <a class="main-header__bookmarks" href="#">Закладки</a>
+
+          <a class="main-header__basket" href="#">Корзина</a>
+
+          <a class="main-header__btn main-header__btn-order" href="#">Оформить заказ</a>
+
+        </div>
+
+      </div>
+
+<!-- -------------------- -->
+
+      <div class="main-header__second-line">
+
+        <div class="main-wrapper">
+
+          <div class="main-header__second-line-first-floor-box">
+
+            <h1 class="main-title">Интернет-магазин строительных материалов&nbsp;&nbsp; и инструментов для ремонта</h1>
+
+            <address class="main-header__address">
+              <a class="main-header__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
+              <span class="street">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
+            </address>
+
+           <!--  В блоке авторизованного посетителя имя и иконка пользователя являются ссылкой на профайл, а иконка выхода — на страницу деавторизации. -->
+            <ul class="main-header__user-navigation--login-on">
+              <li>
+                <a class="main-header__user-profile" href="user-profile.html">Равшан Джамшутович</a>
+                <a class="main-header__logout-link" href="deauthorization.html"></a>
+              </li>
+              <li>
+                <a class="main-header__my-order-link" href="#">Мои заказы</a>
+                .
+                <a class="main-header__personal-link" href="#">Личный кабинет</a>
+              </li>
+            </ul>
+
+
+          </div>
+
+<!-- -------------------- -->
+
+        <nav class="main-header__main-navigation">
+          <ul class="main-header__site-navigation">
+            <li><a class="main-header__navigation-item" href="index.html">Главная</a></li>
+            <li><a class="main-header__navigation-item" href="company.html">Компания</a></li>
+            <li><a class="main-header__navigation-item">Каталог</a></li>
+            <li><a class="main-header__navigation-item" href="news.html">Новости</a></li>
+            <li><a class="main-header__navigation-item" href="special-offers.html">Спецпредложения</a></li>
+            <li><a class="main-header__navigation-item" href="delivery.html">Доставка</a></li>
+            <li><a class="main-header__navigation-item" href="contacts.html">Контакты</a></li>
+          </ul>
+        </nav>
+
+        </div>
+
+      </div>
+
+    </header>
 
 <!-- ---------------------------------------------------------------------------------------------- -->
 
@@ -20,7 +105,7 @@
 
 <!-- Точность позиционирования пока оставляет желать лучшего -->
       <ul class="breadcrumbs">
-        <li class="breadcrumbs__item"><a href="index.html"><span class="visually-hidden">Главная</span></a></li>
+        <li class="breadcrumbs__item"><a class="icon-home" href="index.html"><span class="visually-hidden">Главная</span></a></li>
         <!-- Мне бы домик-то кликабельным сделать. Если я вместо визуалли-хиддена цвет текста на белый поменяю - так себе идея? -->
         <li class="breadcrumbs__item"><a href="catalog.html">Каталог</a></li>
         <li class="breadcrumbs__item"><a href="instruments.html">Инструменты</a></li>
@@ -225,13 +310,12 @@
           </li>
 
           <li class="catalog__item catalog__item--new">
-            <a class="btn buy-btn" href="#">Купить</a>
-            <a class="btn bookmarks-btn">В закладки</a>
-            <!-- Поправил. Но она же никуда не переносит - по логике кнопка. Как именно более доступно? ЭТО ВОПРОС НАСТАВНИКУ, А НЕ МЫСЛИ В СЛУХ -->
+            <a class="btn catalog-btn catalog-buy-btn" href="#">Купить</a>
+            <a class="btn catalog-btn catalog-bookmarks-btn" href="#">В закладки</a>
             <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
-            <div class="popular-products__old-price"><del>ЗАГЛУШКА</del></div>
+
             <div class="catalog__new-price">12500 Р.</div>
           </li>
 
@@ -258,7 +342,7 @@
             <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
-            <div class="popular-products__old-price"><del>ЗАГЛУШКА</del></div>
+
             <div class="catalog__new-price">12500 Р.</div>
           </li>
 
@@ -285,7 +369,7 @@
             <a href="#">
               <h4>Перфоратор BOSCH BFG 2000</h4>
             </a>
-            <div class="popular-products__old-price"><del>ЗАГЛУШКА</del></div>
+
             <div class="catalog__new-price">12500 Р.</div>
           </li>
 
@@ -323,7 +407,101 @@
 
     </main>
 
-<!-- ФУТЕР -->
+ <footer class="main-footer">
+
+      <div class="main-footer__first-line">
+
+      <div class="main-wrapper">
+
+        <div class="main-footer__first-box">
+
+          <a href="index.html" class="main-footer__logo">
+            <img src="img/logo-footer.png" alt="Техномарт" title="Техномарт" width="220" height="68">
+          </a>
+
+          <ul class="main-footer__navigation">
+            <li><a class="main-footer__navigation-item" href="company.html">Компания</a></li>
+            <li><a class="main-footer__navigation-item" href="news.html">Новости</a></li>
+            <li><a class="main-footer__navigation-item">Каталог</a></li>
+            <li><a class="main-footer__navigation-item" href="delivery.html">Доставка</a></li>
+            <li><a class="main-footer__navigation-item" href="contacts.html">Контакты</a></li>
+          </ul>
+
+        </div>
+
+        <div class="main-footer__second-box">
+
+          <address class="main-footer__address">
+            г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <br>
+            <a class="main-footer__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
+          </address>
+
+          <ul class="main-footer__catalog">
+            <li><a class="main-footer__catalog-item" href="#">Материалы</a></li>
+            <li><a class="main-footer__catalog-item" href="#">Техника</a></li>
+            <li><a class="main-footer__catalog-item" href="#">Инструмент</a></li>
+            <li><a class="main-footer__catalog-item" href="#">Спецпредложения</a></li>
+          </ul>
+
+        </div>
+
+    </div>
+
+    </div>
+
+<!-- -------------------- -->
+
+    <div class="main-footer__second-line">
+
+      <div class="main-wrapper">
+
+      <div class="main-footer__third-box">
+
+      <p class="main-footer__copyright">
+        &copy; 2010-2019 Компания "Техномарт"
+        <br>
+        Все права защищены
+      </p>
+
+      <div class="main-footer__social">
+        <span class="visually-hidden">Мы в социальных сетях:</span>
+        <ul class="main-footer__social-list">
+          <li>
+            <a class="social-btn vk-btn" href="#" title="Вконтакте">
+              <img src="img/svg/icon-vk.svg" alt="Вконтакте" title="Вконтакте" width="26" height="15">
+              <span class="visually-hidden">Вконтакте</span>
+            </a>
+          </li>
+          <li>
+            <a class="social-btn fb-btn" href="#" title="Фейсбук">
+              <img src="img/svg/icon-fb.svg" alt="Фейсбук" title="Фейсбук" width="12" height="22">
+              <span class="visually-hidden">Фейсбук</span>
+            </a>
+          </li>
+          <li>
+            <a class="social-btn in-btn" href="#" title="Инстаграм">
+              <img src="img/svg/icon-insta.svg" alt="Инстаграм" title="Инстаграм" width="21" height="21">
+              <span class="visually-hidden">Инстаграм</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <p class="main-footer__feedback">
+        Обратная связь: <a href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
+      </p>
+
+      <p class="main-footer__developer">
+        Разработано - <a href="https://htmlacademy.ru">htmlacademy.ru</a>
+      </p>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </footer>
 
 </body>
 

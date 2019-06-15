@@ -1,3 +1,19 @@
+body > * { background: rgba(255, 0, 0, 0.02); }
+body > * > * { background: rgba(0, 255, 0, 0.02); }
+body > * > * > * { background: rgba(0, 0, 255, 0.02); }
+body > * > * > * > * { background: rgba(255, 255, 0, 0.02); }
+body > * > * > * > * > * { background: rgba(0, 255, 255, 0.02); }
+body > * > * > * > * > * > * { background: rgba(255, 0, 255, 0.02); }
+body > * > * > * > * > * > * > * { background: rgba(255, 255, 255, 0.02); }
+
+body > * { outline: red dotted 1px; }
+body > * > * { outline: green dotted 1px; }
+body > * > * > * { outline: blue dotted 1px; }
+body > * > * > * > * { outline: yellow dotted 1px; }
+body > * > * > * > * > * { outline: black dotted 1px; }
+body > * > * > * > * > * > * { outline: purple dotted 1px; }
+body > * > * > * > * > * > * > * { outline: orange dotted 1px; }
+
 /*
 a:focus,
 img:focus,
@@ -19,13 +35,53 @@ background-color: orange;
 
 @font-face {
 font-family: Cuprum;
-src: url('../fonts/web/cuprum.woff')
+src: url('../fonts/web/cuprum.woff');
+src: url('../fonts/web/cuprum.woff2');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: Cuprum;
+src: url('../fonts/web/cuprumbold.woff');
+src: url('../fonts/web/cuprumbold.woff2');
+font-weight: bold;
+font-style: normal;
+}
+
+@font-face {
+font-family: Cuprum;
+src: url('../fonts/web/cuprumitalic.woff');
+src: url('../fonts/web/cuprumitalic.woff2');
+font-weight: normal;
+font-style: italic;
+}
+
+@font-face {
+font-family: Cuprum;
+src: url('../fonts/web/cuprumbolditalic.woff');
+src: url('../fonts/web/cuprumbolditalic.woff2');
+font-weight: bold;
+font-style: italic;
 }
 
 @font-face {
 font-family: PT Sans;
-src: url('../fonts/web/ptsans.woff')
+src: url('../fonts/web/ptsans.woff');
+src: url('../fonts/web/ptsans.woff2');
+font-weight: normal;
+font-style: normal;
 }
+
+@font-face {
+font-family: PT Sans;
+src: url('../fonts/web/ptsansbold.woff');
+src: url('../fonts/web/ptsansbold.woff2');
+font-weight: bold;
+font-style: normal;
+}
+
+/*Все вместе не понял как подключить*/
 
 
 /* Порядок свойств (в соответствии с кодгайдом) потом отсортирую. Автоматическую сортировку ставить не хочу, надо самому привыкать. */
@@ -33,48 +89,27 @@ src: url('../fonts/web/ptsans.woff')
 
 /*ТАК ЖЕ Я ВИЖУ, ЧТО ЧАСТЬ СВОЙСТВ ТУТ МОЖНО СХЛОПНУТЬ, НО ПОКА НЕ БУДУ РИСКОВАТЬ, ЧТОБЫ НЕ НАПАРИТЬ, ЗАЙМУСЬ ЭТИМ НА ЭТАПАХ ДОПИЛКИ*/
 
-/*Ещё я бы ul сразу все лист стайл нон сделал, но это вроде критерии не позволяют. Да перечитай их уже.*/
+/*ВООБЩЕ МИНИМАЛЬНУЮ ВЫСОТУ ВЕРНИ ВСЕМ СЕКЦИЯМ, нет, это хреновая идея.*/
 
-/*ВООБЩЕ МИНИМАЛЬНУЮ ВЫСОТУ ВЕРНИ ВСЕМ СЕКЦИЯМ*/
+/*ДАВАЙ КОГДА МАРАФЕТ БУДЕШЬ НАВАДИТЬ, ДЕЛАЙ ТАК - ТИПОГРАФИКУ ВСЮ ЗАДАВАЙ "КОРОБКЕ", А ДОЧЕРНИМ ЭЛЕМЕНТАМ ИЛИ ИНХЕРИТЬ (ЕСЛИ САМО НЕ ИНХЕРИТИТСЯ),
+ ИЛИ ПЕРЕОПРЕДЕЛЯЙ*/
 
+ *, *:before, *:after: {
+  box-sizing: border-box;
+ }
+ /*ВРОДЕ НИЧО НЕ РАЗЛОМАЛ - ЗНАЧИТ В КОДИ ПОЧИСТИ ИХ. ТОЛЬКО ПОСЛЕ КАЖДОЙ ЧИСТКИ ПРОВЕРЯЙ, ЧТО НИЧЕГО НЕ УЕХАЛО*/
 
-/*
-body > * { background: rgba(255, 0, 0, 0.02); }
-body > * > * { background: rgba(0, 255, 0, 0.02); }
-body > * > * > * { background: rgba(0, 0, 255, 0.02); }
-body > * > * > * > * { background: rgba(255, 255, 0, 0.02); }
-body > * > * > * > * > * { background: rgba(0, 255, 255, 0.02); }
-body > * > * > * > * > * > * { background: rgba(255, 0, 255, 0.02); }
-body > * > * > * > * > * > * > * { background: rgba(255, 255, 255, 0.02); }
-
-body > * { outline: red dotted 1px; }
-body > * > * { outline: green dotted 1px; }
-body > * > * > * { outline: blue dotted 1px; }
-body > * > * > * > * { outline: yellow dotted 1px; }
-body > * > * > * > * > * { outline: black dotted 1px; }
-body > * > * > * > * > * > * { outline: purple dotted 1px; }
-body > * > * > * > * > * > * > * { outline: orange dotted 1px; }
-*/
-
-/*ДАВАЙ КОГДА МАРАФЕТ БУДЕШЬ НАВАДИТЬ, ДЕЛАЙ ТАК - ТИПОГРАФИКУ ВСЮ ЗАДАВАЙ "КОРОБКЕ", А ДОЧЕРНИМ ЭЛЕМЕНТАМ ИЛИ ИНХЕРИТЬ (ЕСЛИ САМО НЕ ИНХЕРИТИТСЯ), ИЛИ ПЕРЕОПРЕДЕЛЯЙ*/
-
-
-
-/*Версия 2019*/
 .visually-hidden {
-	position: absolute !important;
-	width: 1px !important;
-	height: 1px !important;
-	margin: -1;
-	padding: 0 !important;
-	border: 0 !important;
-	white-space: nowrap;
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-	clip: rect(1px, 1px, 1px, 1px);
-	/*или всё-таки: ?*/
-	clip: rect(0, 0, 0, 0);
-	clip-path: inset(100%);
-	overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0px;
+  border: 0px;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
 }
 
 body {
@@ -94,6 +129,7 @@ img {
 }
 
 .btn {
+  box-sizing: border-box;;
 	display: inline-block;
 	min-width: 120px;
 	padding: 15px 45px;
@@ -109,7 +145,7 @@ img {
 }
 
 .btn__solo {
-	font-style: italic;
+	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 18px;
@@ -119,6 +155,7 @@ img {
 }
 
 .main-wrapper {
+  box-sizing: border-box;
 	width: 960px;
 	margin: auto;
 	padding-left: 10px;
@@ -138,20 +175,28 @@ img {
 
 .main-header__first-line-box {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	min-height: 42px;
+  flex-direction: row;
+  flex-shrink: 0;
+  justify-content: space-between;
+  text-align: center;
+
+	height: 42px;
 }
 
+/* -------------------------------------------------- */
+
 .main-header__logo {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 	width: 220px;
 	height: 42px;
 	background-color: #ee3643;
 	margin: 0px;
 	padding: 0px;
 	box-shadow: 0 5px 0 0 #b52933;
-	text-align: center;
-	line-height: 42px; /*Бля, щикарное свойство... А то этот вертикал алигн нифига не работает, как и алигн итем/селф/контент у флексов*/
 }
 
 .main-header__logo:hover {
@@ -162,50 +207,86 @@ img {
 	background-color: #ba2732;
 }
 
+/* -------------------------------------------------- */
+
 .main-header__search {
-position: relative;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  width: 270px;
+  height: 42px;
+  position: relative;
 }
 
 .main-header__search input {
-	width: 270px;
-	height: 42px;
-	border: none;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 17px;
-	line-height: 18px;
-	color: #ffffff;  /*НЕ ПОЛУЧАЕТСЯ ПОМЕНЯТЬ ЦВЕТ ПЛЭЙСХОЛДЕРА НА НУЖНЫЙ*/
-	/*А ещё не понимаю как его подвинуть от левого края... Хотя походу начинаю понимать. Лупа - не часть плэйсхолдера.
-	Он начинается после неё. Но белеть они должны вместе, при фокусе.*/
-	background-color: #293449;
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box;
-	padding-left: 49px;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: inherit;
 }
 
-.main-header__search::before {
-	content: "";
-	position: absolute;
-	left: 17px;
-	top: 12px;
-	width: 20px; /*ПРИМЕРНО*/
-	height: 20px; /*ПРИМЕРНО*/
-
-	/*background-image: url("../img/svg/icon-search.svg");*/
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17'%3E%3Cpath fill='%23ffffff' d='M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1 0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5 2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z'/%3E%3C/svg%3E%0A");
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	z-index: 1000;
-
-	opacity: 0.3;
+/*НЕ ГРУППИРУЮТСЯ*/
+input:-moz-placeholder {
+  opacity: 1;
 }
+
+input::-moz-placeholder {
+  opacity: 1;
+}
+
+input::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+input:-ms-placeholder {
+  opacity: 1;
+}
+
+input::placeholder {
+  opacity: 1;
+}
+
+.main-header__search input[placeholder] {
+  padding-left: 49px;
+  color: #ffffff;
+}
+
+.main-header__search input:focus,
+.main-header__search input:focus:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.main-header__search input:focus + svg path {
+  fill: #ee3643;
+}
+
+.main-header__search input:focus + svg {
+  opacity: 1;
+}
+
+.main-header__icon-search {
+  position: absolute;
+  left: 17px;
+  top: 12px;
+  width: 17px;
+  height: 17px;
+  opacity: 0.3;
+}
+
+/* -------------------------------------------------- */
 
 .main-header__bookmarks {
+  box-sizing: border-box;
 	width: 140px;
 	height: 42px;
 	margin: 0px;
 	padding: 0px;
+  padding-top: 12px;
+  position: relative;
 }
 
 .main-header__bookmarks:active {
@@ -215,20 +296,26 @@ position: relative;
 .main-header__bookmarks::before {
 	content: "";
 	position: absolute;
-	padding-bottom: 30px;
-	width: 20px; /*ПРИМЕРНО*/
-	height: 20px; /*ПРИМЕРНО*/
+  top: calc(50%-10px);
+  left: 11px;
+	width: 14px;
+	height: 16px;
 	background-image: url("../img/svg/icon-bookmark.svg");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	opacity: 0.3;
 }
 
+/* -------------------------------------------------- */
+
 .main-header__basket {
+  box-sizing: border-box;
 	width: 160px;
 	height: 42px;
 	margin: 0px;
 	padding: 0px;
+  padding-top: 12px;
+  position: relative;
 }
 
 .main-header__basket:active {
@@ -238,26 +325,17 @@ position: relative;
 .main-header__basket::before {
 	content: "";
 	position: absolute;
-	padding-bottom: 30px;
-	width: 20px; /*ПРИМЕРНО*/
-	height: 20px; /*ПРИМЕРНО*/
+  top: calc(50%-10px);
+  left: 21px;
+	width: 15px;
+	height: 15px;
 	background-image: url("../img/svg/icon-cart.svg");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	opacity: 0.3;
 }
 
-.main-header__btn-order {
-	width: 150px;
-	height: 42px;
-	background-color: #63a63e;
-	margin: 0px;
-	padding: 0px;
-}
-
-.main-header__btn-order:hover  {
-	background-color: #5fbb2d;
-}
+/* -------------------------------------------------- */
 
 .main-header__search input:hover,
 .main-header__bookmarks:hover,
@@ -265,7 +343,7 @@ position: relative;
 	background-color: #212a3a;
 }
 
-.main-header__search:hover::before,
+.main-header__search:hover .main-header__icon-search,
 .main-header__bookmarks:hover::before,
 .main-header__basket:hover::before {
 	opacity: 1;
@@ -278,46 +356,54 @@ position: relative;
 	opacity: 0.6;
 }
 
+/* -------------------------------------------------- */
+
+.main-header__btn-order {
+  box-sizing: border-box;
+  width: 150px;
+  height: 42px;
+  background-color: #63a63e;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 12px;
+}
+
+.main-header__btn-order:hover  {
+  background-color: #5fbb2d;
+}
+
 .main-header__btn-order:active  {
-	opacity: 0.5;
-	background-color: #518534;     /*ИЛИ БЭКГРАУНД КАЛОР ТУТ ЛИШНИЙ? (КАК И ВЫШЕ)... ЦВЕТ МЕНЯЕТСЯ ОТ ОПАСИТИ*/
+  opacity: 0.5;
+  /*background-color: #518534;     ИЛИ БЭКГРАУНД КАЛОР ТУТ ЛИШНИЙ? (КАК И ВЫШЕ)... ЦВЕТ МЕНЯЕТСЯ ОТ ОПАСИТИ*/
 }
-
-.main-header__search input:focus {
-	background-color: #ffffff;
-	color: #111111;			/*ОПЯТЬ НЕ ХОЧЕТ НУЖНЫЙ ЦВЕТ ПРИНИМАТЬ. САМОМУ ПОЭЙСХОЛДЕРУ ТОЖЕ ПРОБОВАЛ МЕНЯТЬ. И С ОПАСИТИ ИГРАЛСЯ.*/
-}
-
-.main-header__search:focus::before {
-	background-image: url("../img/svg/icon-search-red.svg");
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17'%3E%3Cpath fill='%23ee3643' d='M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1 0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5 2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z'/%3E%3C/svg%3E%0A");
-}
-/*НЕ РАБОТАЕТ*/
 
 /* ------------------------------------------------------------ */
 
 .main-header__second-line {
 	background-color: #f4f7f9;
-	padding-top: 46px;
-	padding-bottom: 60px;
+  min-height: 278px;
+/*	padding-top: 36px;
+	padding-bottom: 60px;*/
 }
 
 .main-header__second-line-first-floor-box {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
 	align-items: flex-start;
-	padding-bottom: 50px;
+
+  padding-top: 46px;
+/*	padding-bottom: 78px;*/
 }
 
 /* ----- */
 
-.main-header__second-line h1 {
+.main-title {
 	padding: 0px;
 	margin: 0px;
 	padding-left: 53px;
-	padding-right: 62px;
+	padding-right: 60px;
 	box-sizing: border-box;
+
 	font-style: italic;
 	font-weight: normal;
 	font-size: 16px;
@@ -329,12 +415,15 @@ position: relative;
 /* ----- */
 
 .main-header__address {
+  padding: 0px;
+  margin: 0px;
+  margin-left: 10px;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 24px;
 	color: #32425c;
-	width: 320px;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -377,6 +466,7 @@ position: relative;
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
+  margin-left: 76px;
 
 	width: 280px;
 	font-style: normal;
@@ -384,6 +474,7 @@ position: relative;
 	font-size: 21px;
 	line-height: 21px;
 	display: flex;
+  flex-shrink: 0;
 	justify-content: space-between;
 }
 
@@ -394,11 +485,30 @@ position: relative;
 }
 
 .main-header__login-link {
-	width: 120px;
+	box-sizing: border-box;
+  width: 120px;
 	height: 45px;
 	margin-right: 10px;
+  padding-left: 10px;
 	background-color: #ffffff;
 	LINE-HEIGHT: 45px; /*Походу "костыль", но сработало*/
+  position: relative;
+}
+
+.main-header__login-link::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 17px;
+  left: 14px;
+  top: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='17' viewBox='0 0 20 17'%3E%3Cpath fill='%23c5c5c5' d='M14.875 8.5L6 0v6H0v5h6v6z'/%3E%3Cpath fill='%23c5c5c5' d='M16.986 15.01h-5.027V17h5.027c2.178 0 3.004-1.81 3.029-3.026V3.028C19.99 1.811 19.164 0 16.986 0h-5.027v1.99h5.027c.839 0 .992.681 1.01 1.057v10.904c-.017.376-.171 1.059-1.01 1.059z'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.main-header__login-link:hover:not(:active)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='17' viewBox='0 0 20 17'%3E%3Cpath fill='%2332425c' d='M14.875 8.5L6 0v6H0v5h6v6z'/%3E%3Cpath fill='%2332425c' d='M16.986 15.01h-5.027V17h5.027c2.178 0 3.004-1.81 3.029-3.026V3.028C19.99 1.811 19.164 0 16.986 0h-5.027v1.99h5.027c.839 0 .992.681 1.01 1.057v10.904c-.017.376-.171 1.059-1.01 1.059z'/%3E%3C/svg%3E%0A");
 }
 
 .main-header__registration-link {
@@ -406,6 +516,78 @@ position: relative;
 	height: 45px;
 	background-color: #ffffff;
 	LINE-HEIGHT: 45px; /*Походу "костыль", но сработало*/
+}
+
+.main-header__login-link:hover,
+.main-header__registration-link:hover {
+  color: #ee3643;
+}
+
+.main-header__login-link:active,
+.main-header__registration-link:active {
+  color: #b2b2b2;
+}
+
+/*----------*/
+
+.main-header__user-navigation--login-on {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  margin-left: 51px;
+
+  position: relative;
+}
+
+.main-header__user-profile {
+  box-sizing: border-box;
+
+  background-color: #ffffff;
+
+  width: 299px;
+  height: 45px;
+
+  font-size: 21px;
+  line-height: 21px;
+  color: #000000;
+
+  display: flex;
+
+  padding-left: 47px;
+  line-height: 45px;
+}
+
+.main-header__user-profile:before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 13px;
+
+  background-image: url("../img/svg/icon-user.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 20px;
+  height: 18px;
+
+}
+
+.main-header__logout-link {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  background-image: url("../img/svg/icon-logout.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 21px;
+  height: 17px;
+}
+
+.main-header__my-order-link,
+.main-header__personal-link {
+  font-size: 16px;
+  line-height: 18px;
+  color: #32425c;
+  text-decoration: underline;
 }
 
 
@@ -420,6 +602,10 @@ position: relative;
 	color: #ffffff;
 	background-color: #32425c;
 	box-shadow: 0 5px 0 0 #293449;
+
+  margin: 0px;
+  padding: 0px;
+  margin-top: 38px;
 }
 
 .main-header__site-navigation {
@@ -428,9 +614,17 @@ position: relative;
 	padding: 0px;
 
 	display: flex;
-	justify-content: space-around;
+  justify-content: center;
 	align-items: center;
+  flex-wrap: wrap;
 }
+
+/*
+В учебных целях
+.main-header__site-navigation li {
+  margin-right: 30px;
+}
+*/
 
 .main-header__navigation-item {
 	margin: 0px;
@@ -439,8 +633,18 @@ position: relative;
 	box-sizing: border-box;
 	padding-top: 22px;
 	padding-bottom: 26px;
-	padding-left: 31px;
-	padding-right: 31px;
+	padding-left: 30px;
+  padding-right: 30px;
+  height: 55px;
+}
+
+.main-header__navigation-item:hover {
+  background-color: #293449;
+}
+
+.main-header__navigation-item:active {
+  opacity: 0.5;
+  background-color: #1d2739;
 }
 
 /* -----ПРОМО------------------------------------------------------- */
@@ -471,9 +675,12 @@ position: relative;
 }
 
 .promo__item {
+  box-sizing: border-box;
 	width: 300px;
 	height: 123px;
 	display: inline-block;
+  padding-left: 24px;
+  position: relative;
 }
 
 .promo__item h3 {
@@ -482,35 +689,92 @@ position: relative;
 	font-size: 24px;
 	line-height: 30px;
 	color: #ffffff;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 25px;
 }
 
-.promo__item a {
+.promo__detail {
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 18px;
 	color: #ffffff;
 	text-transform: uppercase;
+
+  width: 135px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  margin-top: 20px;
 }
 
-.promo__materials {
+.promo__item:before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+
+.promo__item--materials {
 	background-color: #ffbf47;
 }
 
-.promo__instruments {
+.promo__item--materials:before {
+  width: 44px;
+  height: 65px;
+  background-image: url("../img/svg/icon-1.svg");
+  right: 43px;
+}
+
+.promo__item--instruments {
 	background-color: #3bbce3;
 }
 
-.promo__equipment {
+.promo__item--instruments:before {
+  width: 75px;
+  height: 61px;
+  background-image: url("../img/svg/icon-2.svg");
+  right: 28px;
+}
+
+.promo__item--equipment {
 	background-color: #dc91d8;
 }
 
-.promo__discounts {
+.promo__item--equipment:before {
+  width: 78px;
+  height: 62px;
+  background-image: url("../img/svg/icon-3.svg");
+  right: 31px;
+}
+
+.promo__item--discounts {
 	background-color: #8ed78f;
 }
 
-.promo__delivery {
+.promo__item--discounts:before {
+  width: 59px;
+  height: 72px;
+  background-image: url("../img/svg/icon-4.svg");
+  right: 45px;
+}
+
+.promo__item--delivery {
 	background-color: #ffc047;
+}
+
+.promo__item--delivery:before {
+  width: 78px;
+  height: 63px;
+  background-image: url("../img/svg/icon-5.svg");
+  right: 31px;
 }
 
 /*Далее слайдер*/
@@ -562,19 +826,40 @@ position: relative;
 /*Блин, походу коробку криво позиционировал. Ладно, потом.*/
 
 .promo__check-item {
+  position: relative;
 	font-size: 0px;
-	padding-right: 10px;
+  background-color: #ffffff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .promo__check-item::after {
-	position: absolute;
-	content: "";
-	cursor: pointer;
-	background-color: #ffffff;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 6px;
+  height: 6px;
+  background-color: #ee3643;
+  border-radius: 50%;
+
+  display: none;
 }
+
+.promo__pagination-item:nth-of-type(1):checked ~ .promo__check .promo__check-item:nth-of-type(1)::after {
+  display: block;
+}
+
+.promo__pagination-item:nth-of-type(2):checked ~ .promo__check .promo__check-item:nth-of-type(2)::after {
+  display: block;
+}
+
+
+
+
+/*position:absolute;top:25px;left:25px;width:50px;height:50px;background:black;border-radius:25px*/
 
 /*
 1) Не забудь из сделать видимыми через фокус-таб индекс
@@ -612,6 +897,8 @@ position: relative;
 	position: absolute;
 	left: 5%;
 	bottom: 5%;
+
+  min-width: 195px;
 }
 
 .promo__arrow {
@@ -673,28 +960,34 @@ position: relative;
 	padding: 0px;
 
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+  flex-shrink: 0;
+  flex-wrap: wrap;
 }
+
+
 
 .popular-products__item,
 .catalog__item {
-border: 1px solid #eaeaea;
-width: 220px;
-height: 318px;
+  box-sizing: border-box;
+  border: 1px solid #eaeaea;
+  width: 220px;
+  height: 318px;
+
+  text-align: center;
+
+  position: relative;
 }
 
-.popular-products__item--new {
-/*	font-family: "PT Sans", "Arial", sans-serif;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 4.85px;
-	line-height: 5.13px;
-	color: #ffffff;*/
+.catalog__item {
+  margin-bottom: 20px;
 }
 
-.popular-products__item:nth-child(4) del {
-	visibility: hidden;
+.popular-products__item:not(:nth-child(4n)) {
+  margin-right: 20px;
+}
+
+.catalog__item:not(:nth-child(3n)) {
+  margin-right: 20px;
 }
 
 .popular-products__item h3,
@@ -705,6 +998,9 @@ height: 318px;
 	font-size: 18px;
 	line-height: 20px;
 	color: #000000;
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 18px;
 }
 
 .popular-products__old-price,
@@ -715,6 +1011,8 @@ height: 318px;
 	font-size: 17px;
 	line-height: 18px;
 	color: #a9a9a9;
+
+  margin-bottom: 12px;
 }
 
 .popular-products__new-price,
@@ -725,13 +1023,30 @@ height: 318px;
 	font-size: 17px;
 	line-height: 18px;
 	color: #ffffff;
-	background-image: url("../img/svg/red-button.svg");
-	background-position: center;
-	background-repeat: no-repeat;
 
-/*	background-color: #ee3643;  */
-	width: 142px;
-	height: 38px;
+/*  Вот тут это имеет смысл, вероятно! Но как сделать, чтобы бэкграунд колор, не перекрывал бэкграунд имэйдж?*/
+/*  background-color: #ee3643;*/
+
+	background-image: url("../img/svg/red-button.svg");
+	background-repeat: no-repeat;
+  background-position: center;
+  width: 141px;
+  height: 38px;
+  line-height: 38px;
+
+  position: absolute;
+  bottom: 20px;
+  left: 42px;
+}
+
+
+.popular-products__item--new {
+/*  font-family: "PT Sans", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4.85px;
+  line-height: 5.13px;
+  color: #ffffff;*/
 }
 
 
@@ -767,23 +1082,30 @@ height: 318px;
 
 .popular-brands__item-list {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
 	flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
 .popular-brands__item-card {
 	width: 218px;
 	height: 143px;
 	border: 1px solid #eaeaea;
+  margin-bottom: 20px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popular-brands__item-card:not(:nth-of-type(4n)) {
+  margin-right: 20px;
 }
 
 /* -----СЕРВИСЫ------------------------------------------------------- */
 
 .services {
 	background-color: #f4f8f9;
+  min-height: 523px;
 }
 
 .services__header h2 {
@@ -804,49 +1126,61 @@ height: 318px;
 	color: #000000;
 }
 
+/* ---------- */
+
+.services__slider {
+  display: flex;
+  position: relative;
+}
+
 .services__selection {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
-	background-color: black; /*ВРЕМЕННО*/
+
+  margin-right: 80px;
 }
 
 .services__item {
+  display: block;
+  width: 240px;
+  height: 61px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 30px;
+  color: #ffffff;
+
+  cursor: pointer;
 }
 
-.services__slider {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+
+
+#service-item-1:checked ~ .services__slide:nth-of-type(1) {
+  display: block;
 }
+
+#service-item-2:checked ~ .services__slide:nth-of-type(2) {
+  display: block;
+}
+
+#service-item-3:checked ~ .services__slide:nth-of-type(3) {
+  display: block;
+}
+
+
 
 .services__slide {
-	display: none;
-	width: 600px; /*нука харэ прыгать... ВРЕМЕННО!*/
+  display: none;
+  width: 620px;
 }
 
-#pipiska-1:checked ~ .services__slide:nth-of-type(1) {
-  display: block;
-}
-
-#pipiska-2:checked ~ .services__slide:nth-of-type(2) {
-  display: block;
-}
-
-#pipiska-3:checked ~ .services__slide:nth-of-type(3) {
-  display: block;
-}
-
-.services__item {
-	font-style: normal;
-	font-weight: bold;
-	font-size: 21px;
-	line-height: 30px;
-	color: #ffffff;
-}
-
-.services__item--active {
-	color: #32425c;
+.services__slide:after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 20%;
 }
 
 .services__slide h3 {
@@ -865,6 +1199,37 @@ height: 318px;
 	font-size: 13px;
 	line-height: 24px;
 	color: #000000;
+}
+
+.services__slide--delivery {
+  width: 300px;
+}
+
+.services__slide--delivery::after {
+  width: 468px;
+  height: 261px;
+  background-image: url("../img/delivery.png");
+
+}
+
+.services__slide--warranty {
+  width: 380px;
+}
+
+.services__slide--warranty::after {
+  width: 389px;
+  height: 283px;
+  background-image: url("../img/warranty.png");
+}
+
+.services__slide--credit {
+  width: 285px;
+}
+
+.services__slide--credit::after {
+  width: 465px;
+  height: 285px;
+  background-image: url("../img/credit.png");
 }
 
 /* -----О КОМПАНИИ и КОНТАКТЫ------------------------------------------------------- */
@@ -912,35 +1277,44 @@ height: 318px;
 }
 
 /* --------------------------ФУТЕР---------------------------------- */
-
-.main-footer {
-}
-
 .main-footer__first-line {
 	background-color: #32425c;
+  padding-bottom: 55px;
 }
 
-.main-footer__second-line {
-	background-color: #293449;
+.main-footer__first-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-bottom: 30px;
 }
 
-.main-footer ul {
-	list-style: none;
+.main-footer__second-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .main-footer__navigation {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
+
+  display: inline-flex;
 }
 
-.main-footer__navigation a {
+.main-footer__navigation-item {
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
 	line-height: 24px;
 	color: #f1f5f7;
+
+  margin-left: 60px;
 }
+
+
 
 .main-footer__address,
 .main-footer__phone {
@@ -949,20 +1323,58 @@ height: 318px;
 	font-size: 18px;
 	line-height: 24px;
 	color: #f3f7f9;
+
+  margin-left: 4px;
 }
+
+.main-footer__phone {
+  margin: 0px;
+}
+
+
 
 .main-footer__catalog {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
+
+  display: inline-flex;
 }
 
-.main-footer__catalog a {
+.main-footer__catalog-item {
 	font-style: normal;
 	font-weight: normal;
 	font-size: 18px;
 	line-height: 24px;
 	color: #ffd180;
+
+  margin-left: 60px;
+}
+
+
+.main-footer__navigation-item:hover,
+.main-footer__catalog-item:hover {
+  text-decoration: underline;
+}
+
+.main-footer__navigation-item:active,
+.main-footer__catalog-item:active {
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+
+
+.main-footer__second-line {
+  background-color: #293449;
+}
+
+.main-footer__third-box {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  min-height: 107px;
 }
 
 .main-footer__copyright {
@@ -971,13 +1383,39 @@ height: 318px;
 	font-size: 16px;
 	line-height: 18px;
 	color: #ffffff;
+
+  margin: 0px;
+  padding: 0px;
+
+  margin-right: 160px;
 }
 
 .main-footer__social-list {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
+
+  display: flex;
+
+  margin-right: 120px;
 }
+
+.social-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #212a3a;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.social-btn:hover,
+.social-btn:active {
+  background-color: #ee3643;
+}
+
 
 .main-footer__feedback,
 .main-footer__developer {
@@ -986,6 +1424,8 @@ height: 318px;
 	font-size: 16px;
 	line-height: 18px;
 	color: #ffffff;
+
+  width: 140px;
 }
 
 .main-footer__feedback a,
@@ -996,6 +1436,26 @@ height: 318px;
 	line-height: 18px;
 	color: #ffd180;
 }
+
+.main-footer__feedback a:hover,
+.main-footer__developer a:hover {
+  text-decoration: underline;
+}
+
+.main-footer__feedback a:active,
+.main-footer__developer a:active {
+  color: #ee3643;
+  text-decoration: none;
+}
+
+.main-footer__feedback {
+  margin-right: 53px;
+}
+
+.main-footer__developer {
+  width: 96px;
+}
+
 
 /* ------------------------------++++++++++ДАЛЕЕ КАТАЛОГ++++++++++------------------------------ */
 
@@ -1049,7 +1509,7 @@ height: 318px;
 	margin-left: 40px;
 }
 
-.breadcrumbs__item:first-child::before  {
+.icon-home {
 	content: "";
 	width: 15px; /*ПРИМЕРНО*/
 	height: 15px; /*ПРИМЕРНО*/
@@ -1479,7 +1939,7 @@ height: 318px;
 
 
 
-/* Сам каталог, видимо, тут*/
+/* Сам каталог, видимо, тут... Но все итемы выше, в разделе популярных товаров*/
 .catalog__list {
 	list-style: none;
 	margin: 0px;
@@ -1487,16 +1947,44 @@ height: 318px;
 
 	display: flex;
 	flex-wrap: wrap;
+  flex-shrink: 0;
+
 	width: 700px;
-	justify-content: space-between;
-	flex-shrink: 0;
-}
-/*ХОТЯ, ДУМАЕТСЯ МНЕ, Я ТАКИМ МАКАРОМ ПРОВЕРКУ НА ПЕРЕПОЛНЕНИЕ НЕ ПРОЙДУ И ПРИДЁТСЯ ДЕЛАТЬ ЧЕРЕЗ "КАЖДЫЙ ТРЕТИЙ ОТСТУП ДРУГОЙ", А НЕ ЧЕРЕЗ ДЖУСТИФАЙ*/
-
-.catalog__item:nth-child(3n) del {
-	visibility: hidden;
 }
 
+.catalog-btn {
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 135px;
+  height: 38px;
+
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 18px;
+
+  padding: 0px;
+  margin: 0px;
+
+  line-height: 38px;
+}
+
+.catalog-buy-btn {
+  border-bottom: 3px solid #367315;
+  margin-bottom: 8px;
+  color: #ffffff;
+  background-color: #63a63e;
+
+  margin-top: 43px;
+}
+
+.catalog-bookmarks-btn {
+  border: 3px solid #63a63e;
+  color: #32425c;
+  background-color: #ffffff;
+
+  margin-bottom: 47px;
+}
 
 /* --------------------------ПАГИНАЦИЯ КАТАЛОГА---------------------------------- */
 
@@ -1574,6 +2062,26 @@ height: 318px;
 
 /* -------------------------МОДАЛЫ И ПОПУПЫ----------------------------------- */
 
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  display: block;
+  transform: translate(-50%, -50%);
+  transition-property: opacity, visibility;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal.is-opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/*
 .write-us {
 	width: 620px;
 	min-height: 423px;
@@ -1599,8 +2107,8 @@ height: 318px;
 	resize: none;
 }
 
-/*ДАЛЕЕ ЭПИЧЕСКАЯ БИТВА ЗА СЕРУЮ ПОЛОСУ ВНИЗУ ФОРМЫ
-А вроде можно ведь частичную заливку цветом сделать... ты повспоминай*/
+ДАЛЕЕ ЭПИЧЕСКАЯ БИТВА ЗА СЕРУЮ ПОЛОСУ ВНИЗУ ФОРМЫ
+А вроде можно ведь частичную заливку цветом сделать... ты повспоминай
 
 .write-us::after {
 	content: "БЛЯ ЧТО НЕ ТАК, НУ ЗАЕБИСЬ ЖЕ ПРИДУМАЛ. ЭТО ПОТОМУ ЧТО ТЫ ФОРМА, ДА?"
@@ -1624,7 +2132,7 @@ height: 318px;
 	top: 50%;
 }
 
-/*Бля, трэш какой...*/
+Бля, трэш какой...
 
 .write-us .button_close {
 	background-color: transparent;
@@ -1634,10 +2142,7 @@ height: 318px;
 	top: 10px;
 }
 
-/*Там ещё слабые размытые тени во все стороны! не забудь их добавить*/
-
-
-
+Там ещё слабые размытые тени во все стороны! не забудь их добавить
 
 .map-popup {
 	position: absolute;
@@ -1645,4 +2150,4 @@ height: 318px;
 	opacity: 0.1;
 	width: 940px;
 	height: 446px;
-}
+}*/
