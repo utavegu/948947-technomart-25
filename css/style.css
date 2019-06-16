@@ -98,10 +98,11 @@ font-style: normal;
 
  /*В З-ИНДЕКСАХ НАВЕДИ ПОРЯДОК, РАЗВЕЛ ЧОТО ТРЭШ*/
 
- *, *:before, *:after: {
+ *, *:before, *:after {
   box-sizing: border-box;
  }
  /*ВРОДЕ НИЧО НЕ РАЗЛОМАЛ - ЗНАЧИТ В КОДИ ПОЧИСТИ ИХ. ТОЛЬКО ПОСЛЕ КАЖДОЙ ЧИСТКИ ПРОВЕРЯЙ, ЧТО НИЧЕГО НЕ УЕХАЛО*/
+ /*Ах, дак он и не работал поди... двоеточие после афтер было... снова всё проверяй, лишнее поудаляй*/
 
 .visually-hidden {
   position: absolute;
@@ -301,7 +302,7 @@ input::placeholder {
 .main-header__bookmarks::before {
 	content: "";
 	position: absolute;
-  top: calc(50%-10px);
+  top: calc(50% - 10px); /*Не понял. И что тут не валидно?*/
   left: 11px;
 	width: 14px;
 	height: 16px;
@@ -330,7 +331,7 @@ input::placeholder {
 .main-header__basket::before {
 	content: "";
 	position: absolute;
-  top: calc(50%-10px);
+  top: calc(50% - 10px); /*Тоже что-то не валидно*/
   left: 21px;
 	width: 15px;
 	height: 15px;
@@ -935,7 +936,6 @@ input::placeholder {
 
 .popular-products {
 	background-color: #ffffff;
-	margin-bottom: 21px;
 }
 
 .popular-products__first-box {
@@ -965,6 +965,8 @@ input::placeholder {
 	margin: 0px;
 	padding: 0px;
 
+  margin-top: 20px;
+
 	display: flex;
   flex-shrink: 0;
   flex-wrap: wrap;
@@ -972,32 +974,52 @@ input::placeholder {
 
 
 
-.popular-products__item,
-.catalog__item {
+.product-card {
   box-sizing: border-box;
   border: 1px solid #eaeaea;
   width: 220px;
   height: 318px;
+  margin-bottom: 20px;
 
   text-align: center;
 
   position: relative;
 }
 
-.catalog__item {
-  margin-bottom: 20px;
+.product-card__interactive {
+  width: 218px;
+  height: 170px;
+  display: none;
+
 }
 
-.popular-products__item:not(:nth-child(4n)) {
+.product-card__image {
+  width: 218px;
+  height: 170px;
+  display: block;
+}
+
+.product-card:hover {
+  box-shadow:0 0 10px #aeb2ba
+}
+
+.product-card:hover .product-card__interactive {
+  display: block;
+}
+
+.product-card:hover .product-card__image {
+  display: none;
+}
+
+.popular-products__list .product-card:not(:nth-child(4n)) {
   margin-right: 20px;
 }
 
-.catalog__item:not(:nth-child(3n)) {
+.catalog__list .product-card:not(:nth-child(3n)) {
   margin-right: 20px;
 }
 
-.popular-products__item h3,
-.catalog__item h4 {
+.product-card__title {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: bold;
@@ -1009,8 +1031,7 @@ input::placeholder {
   margin-bottom: 18px;
 }
 
-.popular-products__old-price,
-.catalog__old-price {
+.product-card__old-price {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: bold;
@@ -1021,8 +1042,7 @@ input::placeholder {
   margin-bottom: 12px;
 }
 
-.popular-products__new-price,
-.catalog__new-price {
+.product-card__new-price {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
 	font-weight: bold;
@@ -1045,14 +1065,16 @@ input::placeholder {
   left: 42px;
 }
 
-
-.popular-products__item--new {
-/*  font-family: "PT Sans", "Arial", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 4.85px;
-  line-height: 5.13px;
-  color: #ffffff;*/
+.product-card--new::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 60px;
+  height: 59px;
+  background-image: url("../img/new-flag.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 
@@ -1630,6 +1652,9 @@ input::placeholder {
 	font-weight: normal;
 	color: #000000;
 	text-transform: uppercase;
+
+  margin: 0px;
+
 	padding-top: 14px;
 	padding-bottom: 15px;
 	padding-left: 18px;
@@ -1951,6 +1976,8 @@ input::placeholder {
 	margin: 0px;
 	padding: 0px;
 
+  margin-top: 20px;
+
 	display: flex;
 	flex-wrap: wrap;
   flex-shrink: 0;
@@ -2140,7 +2167,7 @@ input::placeholder {
   padding-right: 200px;
   margin-left: auto;
   margin-right: auto;
-  margin-left: calc(50%-230px);
+  margin-left: calc(50% - 230px);
   /*Да пиздец, не хочет ни в какую выравниваться по центру! Только если по тупому:*/
   margin-left: 80px;
   /*620-460=160/2=80*/
