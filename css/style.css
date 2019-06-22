@@ -1,11 +1,13 @@
-/*
-body > * { background: rgba(255, 0, 0, 0.02); }
+/*body > * { background: rgba(255, 0, 0, 0.02); }
 body > * > * { background: rgba(0, 255, 0, 0.02); }
 body > * > * > * { background: rgba(0, 0, 255, 0.02); }
 body > * > * > * > * { background: rgba(255, 255, 0, 0.02); }
 body > * > * > * > * > * { background: rgba(0, 255, 255, 0.02); }
 body > * > * > * > * > * > * { background: rgba(255, 0, 255, 0.02); }
 body > * > * > * > * > * > * > * { background: rgba(255, 255, 255, 0.02); }
+body > * > * > * > * > * > * > * > * { background: rgba(0, 0, 255, 0.02); }
+body > * > * > * > * > * > * > * > * > * { background: rgba(255, 0, 0, 0.02); }
+body > * > * > * > * > * > * > * > * > * > * { background: rgba(0, 255, 0, 0.02); }
 
 body > * { outline: red dotted 1px; }
 body > * > * { outline: green dotted 1px; }
@@ -14,7 +16,10 @@ body > * > * > * > * { outline: yellow dotted 1px; }
 body > * > * > * > * > * { outline: black dotted 1px; }
 body > * > * > * > * > * > * { outline: purple dotted 1px; }
 body > * > * > * > * > * > * > * { outline: orange dotted 1px; }
-*/
+body > * > * > * > * > * > * > * > * { outline: yellow dotted 1px; }
+body > * > * > * > * > * > * > * > * > * { outline: red dotted 1px; }
+body > * > * > * > * > * > * > * > * > * > * { outline: black dotted 1px; }*/
+
 
 /*
 a:focus,
@@ -29,79 +34,75 @@ background-color: orange;
 }
 */
 
-/*.modal, .popup {
-	display: none;
-}*/
 
 /* ------------------------------------------------------------ */
 
 @font-face {
-font-family: Cuprum;
-src: url('../fonts/web/cuprum.woff');
-src: url('../fonts/web/cuprum.woff2');
-font-weight: normal;
-font-style: normal;
+  font-family: Cuprum;
+  src: url("../fonts/web/cuprum.woff");
+  src: url("../fonts/web/cuprum.woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-font-family: Cuprum;
-src: url('../fonts/web/cuprumbold.woff');
-src: url('../fonts/web/cuprumbold.woff2');
-font-weight: bold;
-font-style: normal;
+  font-family: Cuprum;
+  src: url("../fonts/web/cuprumbold.woff");
+  src: url("../fonts/web/cuprumbold.woff2");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-font-family: Cuprum;
-src: url('../fonts/web/cuprumitalic.woff');
-src: url('../fonts/web/cuprumitalic.woff2');
-font-weight: normal;
-font-style: italic;
+  font-family: Cuprum;
+  src: url("../fonts/web/cuprumitalic.woff");
+  src: url("../fonts/web/cuprumitalic.woff2");
+  font-weight: normal;
+  font-style: italic;
 }
 
 @font-face {
-font-family: Cuprum;
-src: url('../fonts/web/cuprumbolditalic.woff');
-src: url('../fonts/web/cuprumbolditalic.woff2');
-font-weight: bold;
-font-style: italic;
+  font-family: Cuprum;
+  src: url("../fonts/web/cuprumbolditalic.woff");
+  src: url("../fonts/web/cuprumbolditalic.woff2");
+  font-weight: bold;
+  font-style: italic;
 }
 
 @font-face {
-font-family: PT Sans;
-src: url('../fonts/web/ptsans.woff');
-src: url('../fonts/web/ptsans.woff2');
-font-weight: normal;
-font-style: normal;
+  font-family: PT Sans;
+  src: url("../fonts/web/ptsans.woff");
+  src: url("../fonts/web/ptsans.woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-font-family: PT Sans;
-src: url('../fonts/web/ptsansbold.woff');
-src: url('../fonts/web/ptsansbold.woff2');
-font-weight: bold;
-font-style: normal;
+  font-family: PT Sans;
+  src: url("../fonts/web/ptsansbold.woff");
+  src: url("../fonts/web/ptsansbold.woff2");
+  font-weight: bold;
+  font-style: normal;
 }
 
 /*Все вместе не понял как подключить*/
-
 
 /* Порядок свойств (в соответствии с кодгайдом) потом отсортирую. Автоматическую сортировку ставить не хочу, надо самому привыкать. */
 /* Однако, спроси, как её правильно прикручивать. И про направляющие спросить не забудь. */
 
 /*ТАК ЖЕ Я ВИЖУ, ЧТО ЧАСТЬ СВОЙСТВ ТУТ МОЖНО СХЛОПНУТЬ, НО ПОКА НЕ БУДУ РИСКОВАТЬ, ЧТОБЫ НЕ НАПАРИТЬ, ЗАЙМУСЬ ЭТИМ НА ЭТАПАХ ДОПИЛКИ*/
 
-/*ВООБЩЕ МИНИМАЛЬНУЮ ВЫСОТУ ВЕРНИ ВСЕМ СЕКЦИЯМ, нет, это хреновая идея.*/
-
-/*ДАВАЙ КОГДА МАРАФЕТ БУДЕШЬ НАВАДИТЬ, ДЕЛАЙ ТАК - ТИПОГРАФИКУ ВСЮ ЗАДАВАЙ "КОРОБКЕ", А ДОЧЕРНИМ ЭЛЕМЕНТАМ ИЛИ ИНХЕРИТЬ (ЕСЛИ САМО НЕ ИНХЕРИТИТСЯ),
- ИЛИ ПЕРЕОПРЕДЕЛЯЙ*/
+/*ДАВАЙ КОГДА МАРАФЕТ БУДЕШЬ НАВОДИТЬ, ДЕЛАЙ ТАК - ТИПОГРАФИКУ ВСЮ ЗАДАВАЙ "КОРОБКЕ", А ДОЧЕРНИМ ЭЛЕМЕНТАМ ИЛИ ИНХЕРИТЬ (ЕСЛИ САМО НЕ ИНХЕРИТИТСЯ),
+ ИЛИ ПЕРЕОПРЕДЕЛЯЙ... Причём фонт-же вроде есть сборное свойство - вот через него инхерить... если критерии на этот счёт ничего против не имеет*/
 
  /*В З-ИНДЕКСАХ НАВЕДИ ПОРЯДОК, РАЗВЕЛ ЧОТО ТРЭШ*/
+
+ /*ВЕЗДЕ, ГДЕ ЕСТЬ :active, добавь ещё и :focus... если я правильно понял... короче фокус по-любому должен быть у чекбоксов и радиобаттонов фильтров каталога*/
 
  *, *:before, *:after {
   box-sizing: border-box;
  }
- /*ВРОДЕ НИЧО НЕ РАЗЛОМАЛ - ЗНАЧИТ В КОДИ ПОЧИСТИ ИХ. ТОЛЬКО ПОСЛЕ КАЖДОЙ ЧИСТКИ ПРОВЕРЯЙ, ЧТО НИЧЕГО НЕ УЕХАЛО*/
+ /*ВРОДЕ НИЧО НЕ РАЗЛОМАЛ - ЗНАЧИТ В КОДЕ ПОЧИСТИ ИХ. ТОЛЬКО ПОСЛЕ КАЖДОЙ ЧИСТКИ ПРОВЕРЯЙ, ЧТО НИЧЕГО НЕ УЕХАЛО*/
  /*Ах, дак он и не работал поди... двоеточие после афтер было... снова всё проверяй, лишнее поудаляй*/
 
 .visually-hidden {
@@ -134,10 +135,10 @@ img {
 }
 
 .btn {
-  box-sizing: border-box;;
+  box-sizing: border-box;
 	display: inline-block;
 	min-width: 120px;
-	padding: 15px 45px;
+	padding: 10px 45px;
 	border: none;
 	font: inherit;
 	text-align: center;
@@ -156,7 +157,7 @@ img {
 	line-height: 18px;
 	color: #ffffff;
 	background-color: #ee3643;
-	border-radius: 2px;
+	border-radius: 3px;
 }
 
 .main-wrapper {
@@ -239,6 +240,8 @@ input:-moz-placeholder {
   opacity: 1;
 }
 
+/*Так, секунду, почему одинаковые?*/
+
 input::-moz-placeholder {
   opacity: 1;
 }
@@ -292,6 +295,7 @@ input::placeholder {
 	margin: 0px;
 	padding: 0px;
   padding-top: 12px;
+  padding-left: 25px;
   position: relative;
 }
 
@@ -302,8 +306,8 @@ input::placeholder {
 .main-header__bookmarks::before {
 	content: "";
 	position: absolute;
-  top: calc(50% - 10px); /*Не понял. И что тут не валидно?*/
-  left: 11px;
+  top: calc(50% - 8px);
+  left: 17px;
 	width: 14px;
 	height: 16px;
 	background-image: url("../img/svg/icon-bookmark.svg");
@@ -321,6 +325,7 @@ input::placeholder {
 	margin: 0px;
 	padding: 0px;
   padding-top: 12px;
+  padding-left: 25px;
   position: relative;
 }
 
@@ -331,8 +336,8 @@ input::placeholder {
 .main-header__basket::before {
 	content: "";
 	position: absolute;
-  top: calc(50% - 10px); /*Тоже что-то не валидно*/
-  left: 21px;
+  top: calc(50% - 8px);
+  left: 28px;
 	width: 15px;
 	height: 15px;
 	background-image: url("../img/svg/icon-cart.svg");
@@ -380,7 +385,7 @@ input::placeholder {
 
 .main-header__btn-order:active  {
   opacity: 0.5;
-  /*background-color: #518534;     ИЛИ БЭКГРАУНД КАЛОР ТУТ ЛИШНИЙ? (КАК И ВЫШЕ)... ЦВЕТ МЕНЯЕТСЯ ОТ ОПАСИТИ*/
+  /*background-color: #518534;     ИЛИ БЭКГРАУНД КАЛОР ТУТ ЛИШНИЙ? (КАК И ВЫШЕ)... ЦВЕТ МЕНЯЕТСЯ ОТ ОПАСИТИ -- Дак элементарно же - выключил на макете опасити и проверил, какой цвет исходный*/
 }
 
 /* ------------------------------------------------------------ */
@@ -395,7 +400,8 @@ input::placeholder {
 .main-header__second-line-first-floor-box {
 	display: flex;
 	flex-direction: row;
-	align-items: flex-start;
+  flex-shrink: 0;
+  flex-grow: 0;
 
   padding-top: 46px;
 /*	padding-bottom: 78px;*/
@@ -406,8 +412,9 @@ input::placeholder {
 .main-title {
 	padding: 0px;
 	margin: 0px;
-	padding-left: 53px;
-	padding-right: 60px;
+  margin-left: 53px;
+  margin-right: 71px;
+
 	box-sizing: border-box;
 
 	font-style: italic;
@@ -415,15 +422,12 @@ input::placeholder {
 	font-size: 16px;
 	line-height: 23px;
 	color: #ee3643;
-	width: 310px;
+	width: 197px;
 }
-
-/* ----- */
 
 .main-header__address {
   padding: 0px;
   margin: 0px;
-  margin-left: 10px;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 14px;
@@ -433,6 +437,10 @@ input::placeholder {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+  flex-shrink: 0;
+  flex-grow: 0;
+
+
 }
 
 .main-header__phone {
@@ -442,10 +450,10 @@ input::placeholder {
 	font-size: 21px;
 	line-height: 21px;
 	color: #ee3643;
-	width: 264px;
+	width: 270px; /*264*/
 	border: 3px solid #ffffff;
-	padding-top: 11px;
-	padding-bottom: 12px;
+	padding-top: 9px; /*11*/
+	padding-bottom: 9px; /*12*/
 	padding-left: 72px;
 	position: relative;
 }
@@ -466,28 +474,30 @@ input::placeholder {
 	background-position: 50% 50%;
 }
 
-/* ----- */
+
 
 .main-header__user-navigation {
-	list-style: none;
-	margin: 0px;
-	padding: 0px;
-  margin-left: 76px;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
 
-	width: 280px;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 21px;
-	line-height: 21px;
-	display: flex;
+  margin-left: 69px;
+
+  width: 280px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 21px;
+  display: flex;
   flex-shrink: 0;
-	justify-content: space-between;
+  justify-content: space-between;
 }
 
 .main-header__user-navigation a {
-	color: #000000;
-	display: inline-block;
-	text-align: center;
+  color: #000000;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .main-header__login-link {
@@ -495,7 +505,7 @@ input::placeholder {
   width: 120px;
 	height: 45px;
 	margin-right: 10px;
-  padding-left: 10px;
+  padding-left: 23px;
 	background-color: #ffffff;
 	LINE-HEIGHT: 45px; /*Походу "костыль", но сработало*/
   position: relative;
@@ -534,14 +544,14 @@ input::placeholder {
   color: #b2b2b2;
 }
 
-/*----------*/
+
 
 .main-header__user-navigation--login-on {
   list-style: none;
   margin: 0px;
   padding: 0px;
 
-  margin-left: 57px;
+  margin-left: 50px;
 
   position: relative;
 }
@@ -609,10 +619,10 @@ input::placeholder {
 	color: #ffffff;
 	background-color: #32425c;
 	box-shadow: 0 5px 0 0 #293449;
-
   margin: 0px;
   padding: 0px;
-  margin-top: 38px;
+  margin-top: 43px;
+
 }
 
 .main-header__site-navigation {
@@ -621,9 +631,11 @@ input::placeholder {
 	padding: 0px;
 
 	display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 	align-items: center;
   flex-wrap: wrap;
+
+  margin-left: 25px;
 }
 
 /*
@@ -637,6 +649,7 @@ input::placeholder {
 	margin: 0px;
 	padding: 0px;
 	display: inline-block;
+  vertical-align: middle;
 	box-sizing: border-box;
 	padding-top: 22px;
 	padding-bottom: 26px;
@@ -686,7 +699,8 @@ input::placeholder {
 	width: 300px;
 	height: 123px;
 	display: inline-block;
-  padding-left: 24px;
+  vertical-align: middle;
+  padding-left: 22px;
   position: relative;
 }
 
@@ -698,7 +712,7 @@ input::placeholder {
 	color: #ffffff;
   margin: 0px;
   padding: 0px;
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 .promo__detail {
@@ -717,13 +731,14 @@ input::placeholder {
   border-radius: 2px;
   background-color: rgba(0, 0, 0, 0.1);
 
-  margin-top: 20px;
+  margin-top: 13px;
+  margin-left: 3px;
 }
 
 .promo__item:before {
   content: "";
   position: absolute;
-  top: 30%;
+  top: 26%;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
@@ -771,6 +786,7 @@ input::placeholder {
   height: 72px;
   background-image: url("../img/svg/icon-4.svg");
   right: 45px;
+  top: 21%;
 }
 
 .promo__item--delivery {
@@ -791,6 +807,32 @@ input::placeholder {
 	height: 266px;
 	flex-shrink: 0;
 	position: relative;
+}
+
+.promo__slider h4 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 36px;
+  color: #ffffff;
+  text-transform: uppercase;
+
+  margin: 0px;
+  padding: 0px;
+  margin-left: 24px;
+  margin-top: 24px;
+}
+
+.promo__slider p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+
+  margin: 0px;
+  padding: 0px;
+  margin-left: 25px;
 }
 
 .promo__slider-item {
@@ -824,8 +866,8 @@ input::placeholder {
 	width: 30px;
 	height: 10px;
 	z-index: 1;
-	bottom: 67px;
-	left: 50%;
+	bottom: 36px;
+	left: 49.3%;
 	margin-left: -10px;
 	display: flex;
 	justify-content: space-between;
@@ -863,15 +905,14 @@ input::placeholder {
   display: block;
 }
 
-
-
-
 /*position:absolute;top:25px;left:25px;width:50px;height:50px;background:black;border-radius:25px*/
 
 /*
 1) Не забудь из сделать видимыми через фокус-таб индекс
 2) Внутренний красный кружок - второй бэкграунд колор (смотри продвинутый курс фонов)
 */
+
+/*НАХРЕНА 2 РАЗА-ТО? В 1 МОЖНО СОБРАТЬ*/
 
 .promo__pagination-item:nth-of-type(1):checked ~ .promo__check .promo__check-item:nth-of-type(1)::after {
 	background-color: red;
@@ -881,55 +922,34 @@ input::placeholder {
 	background-color: red;
 }
 
-
-
-.promo__slider h4 {
-	font-style: normal;
-	font-weight: bold;
-	font-size: 36px;
-	line-height: 36px;
-	color: #ffffff;
-	text-transform: uppercase;
-}
-
-.promo__slider p {
-	font-style: normal;
-	font-weight: normal;
-	font-size: 18px;
-	line-height: 24px;
-	color: #ffffff;
-}
-
-.promo__btn {
-	position: absolute;
-	left: 5%;
-	bottom: 5%;
-
-  min-width: 195px;
-}
-
 .promo__arrow {
 	position: absolute;
-	width: 40px; /*ПОКА ПРИМЕРНО*/
-	height: 40px; /*ПОКА ПРИМЕРНО*/
+	width: 22px;
+	height: 40px;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
 	z-index: 10;
+  top: 43%;
 }
 
 .promo__arrow-left {
 	background-image: url("../img/svg/icon-left.svg");
-	left: 10px;
-	top: 50%;
+	left: 25px;
 }
 
 .promo__arrow-right {
 	background-image: url("../img/svg/icon-right.svg");
-	right: 10px;
-	top: 50%;
+	right: 20px;
+}
+
+.promo__btn {
+  position: absolute;
+  min-width: 195px;
+  left: 25px;
+  bottom: 22px;
 }
 
 /* -----ПОПУЛЯРНЫЕ ТОВАРЫ------------------------------------------------------- */
@@ -942,7 +962,7 @@ input::placeholder {
 	display: flex;
 	justify-content: space-between;
 	background-color: #f9f5f0;
-	align-items: baseline;
+	align-items: center;
 	min-height: 89px;
 }
 
@@ -953,11 +973,12 @@ input::placeholder {
 	line-height: 30px;
 	color: #32425c;
 	text-transform: uppercase;
-	margin-left: 30px;
+	margin-left: 29px;
 }
 
 .popular-products__btn {
 	margin-right: 24px;
+  min-width: 254px;
 }
 
 .popular-products__list {
@@ -978,19 +999,23 @@ input::placeholder {
   box-sizing: border-box;
   border: 1px solid #eaeaea;
   width: 220px;
-  height: 318px;
+  min-height: 318px;
   margin-bottom: 20px;
 
   text-align: center;
 
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .product-card__interactive {
   width: 218px;
   height: 170px;
   display: none;
-
 }
 
 .product-card__image {
@@ -1000,7 +1025,7 @@ input::placeholder {
 }
 
 .product-card:hover {
-  box-shadow:0 0 10px #aeb2ba
+  box-shadow: 0 0 10px #aeb2ba
 }
 
 .product-card:hover .product-card__interactive {
@@ -1019,6 +1044,10 @@ input::placeholder {
   margin-right: 20px;
 }
 
+.product-card a {
+  align-self: center;
+}
+
 .product-card__title {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
@@ -1028,7 +1057,10 @@ input::placeholder {
 	color: #000000;
   margin: 0px;
   padding: 0px;
-  margin-bottom: 18px;
+  margin-top: 9px;
+  margin-bottom: 13px;
+
+  width: 175px;
 }
 
 .product-card__old-price {
@@ -1042,6 +1074,10 @@ input::placeholder {
   margin-bottom: 12px;
 }
 
+.product-card__old-price--none {
+  visibility: hidden;
+}
+
 .product-card__new-price {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
@@ -1049,23 +1085,18 @@ input::placeholder {
 	font-size: 17px;
 	line-height: 18px;
 	color: #ffffff;
-
 /*  Вот тут это имеет смысл, вероятно! Но как сделать, чтобы бэкграунд колор, не перекрывал бэкграунд имэйдж?*/
 /*  background-color: #ee3643;*/
-
 	background-image: url("../img/svg/red-button.svg");
 	background-repeat: no-repeat;
   background-position: center;
   width: 141px;
   height: 38px;
   line-height: 38px;
-
-  position: absolute;
-  bottom: 20px;
-  left: 42px;
+  margin: 0px auto;
 }
 
-.product-card--new::before {
+.product-card--new::after {
   content: "";
   position: absolute;
   top: 0px;
@@ -1083,15 +1114,15 @@ input::placeholder {
 
 .popular-brands {
 	background-color: #ffffff;
-	margin-bottom: 85px;
 }
 
 .popular-brands__first-box {
 	display: flex;
 	justify-content: space-between;
 	background-color: #f9f5f0;
-	align-items: baseline;
+	align-items: center;
 	min-height: 89px;
+  margin-bottom: 20px;
 }
 
 .popular-brands h2 {
@@ -1106,7 +1137,9 @@ input::placeholder {
 
 .popular-brands__btn {
 	margin-right: 24px;
+  min-width: 254px;
 }
+
 
 .popular-brands__item-list {
 	display: flex;
@@ -1115,8 +1148,8 @@ input::placeholder {
 }
 
 .popular-brands__item-card {
-	width: 218px;
-	height: 143px;
+	width: 220px;
+	height: 145px;
 	border: 1px solid #eaeaea;
   margin-bottom: 20px;
 
@@ -1134,6 +1167,13 @@ input::placeholder {
 .services {
 	background-color: #f4f8f9;
   min-height: 523px;
+  margin-top: 66px;
+}
+
+.services__header {
+  padding-top: 40px;
+  width: 400px;
+  margin-bottom: 70px;
 }
 
 .services__header h2 {
@@ -1165,14 +1205,27 @@ input::placeholder {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
-
   margin-right: 80px;
+  position: relative;
+}
+
+.services__selection:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 272px;
+  background-image: url("../img/shadow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  right: 0px;
+  top: -40px;
+  z-index: 2;
 }
 
 .services__item {
   display: block;
   width: 240px;
-  height: 61px;
+  height: 62px;
 
   font-style: normal;
   font-weight: bold;
@@ -1181,9 +1234,40 @@ input::placeholder {
   color: #ffffff;
 
   cursor: pointer;
+
+  background-color: #32425c;
+  padding-left: 23px;
+  padding-top: 15px;
+  border-top: 1px solid #405069;
+  border-bottom: 1px solid #293449;
+
 }
 
+/*ПОКА НЕ ДОДУМАЮСЬ КАК УМЕНЬШИТЬ ВЛОЖЕННОСТЬ... Поидее можно сервисез итем присвоить элементу списка... хм... и это будет разумно*/
 
+#service-item-1:checked ~ .services__selection li:nth-of-type(1) .services__item  {
+  color: #32425c;
+  background-color: #ffffff;
+  border: none;
+}
+
+#service-item-2:checked ~ .services__selection li:nth-of-type(2) .services__item  {
+  color: #32425c;
+  background-color: #ffffff;
+  border: none;
+}
+
+#service-item-3:checked ~ .services__selection li:nth-of-type(3) .services__item  {
+  color: #32425c;
+  background-color: #ffffff;
+  border: none;
+}
+
+/*
+.promo__pagination-item:nth-of-type(1):checked ~ .promo__check .promo__check-item:nth-of-type(1)::after {
+  background-color: red;
+}
+*/
 
 #service-item-1:checked ~ .services__slide:nth-of-type(1) {
   display: block;
@@ -1207,8 +1291,6 @@ input::placeholder {
 .services__slide:after {
   content: "";
   position: absolute;
-  right: 0px;
-  top: 20%;
 }
 
 .services__slide h3 {
@@ -1218,6 +1300,9 @@ input::placeholder {
 	line-height: 36px;
 	color: #32425c;
 	text-transform: uppercase;
+
+  margin: 0px;
+  padding: 0px;
 }
 
 .services__slide p {
@@ -1227,6 +1312,14 @@ input::placeholder {
 	font-size: 13px;
 	line-height: 24px;
 	color: #000000;
+
+  margin: 0px;
+  padding: 0px;
+  margin-top: 25px;
+}
+
+.services__slide--delivery p {
+  width: 278px;
 }
 
 .services__slide--delivery {
@@ -1237,17 +1330,20 @@ input::placeholder {
   width: 468px;
   height: 261px;
   background-image: url("../img/delivery.png");
-
+  right: 1px;
+  top: 13%;
 }
 
 .services__slide--warranty {
-  width: 380px;
+  width: 379px; /*380*/
 }
 
 .services__slide--warranty::after {
   width: 389px;
   height: 283px;
   background-image: url("../img/warranty.png");
+  right: -8px;
+  top: 1px;
 }
 
 .services__slide--credit {
@@ -1258,18 +1354,28 @@ input::placeholder {
   width: 465px;
   height: 285px;
   background-image: url("../img/credit.png");
+  right: -10px;
+  top: -1px;
+}
+
+.credit-btn {
+  margin-top: 25px;
+  background-color: #ff5357;
 }
 
 /* -----О КОМПАНИИ и КОНТАКТЫ------------------------------------------------------- */
 
 .about {
 	background-color: #ffffff;
+  width: 520px;
 }
 
 .about-box {
 	display: flex;
+  justify-content: space-between;
+
 	position: relative;
-	min-height: 537px;
+  margin-top: 55px;
 }
 
 .about__header h2,
@@ -1282,7 +1388,7 @@ input::placeholder {
 	text-transform: uppercase;
 }
 
-.about__header p,
+.about p,
 .contacts p {
 	font-family: "PT Sans", "Arial", sans-serif;
 	font-style: normal;
@@ -1290,6 +1396,11 @@ input::placeholder {
 	font-size: 13px;
 	line-height: 24px;
 	color: #000000;
+}
+
+.about__header + p {
+  width: 390px;
+  margin-top: 22px;
 }
 
 .about__list {
@@ -1302,13 +1413,62 @@ input::placeholder {
 	font-size: 18px;
 	line-height: 20px;
 	color: #000000;
+
+  position: relative;
+
+  margin-top: 23px;
+}
+
+.about__list li {
+  padding-left: 36px;
+  margin-bottom: 20px;
+}
+
+.about__list li::before {
+  content: "";
+  left: 0px;
+
+  position: absolute;
+
+  background-image: url("../img/redline.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+
+  width: 25px;
+  height: 20px;
+}
+
+.about__btn {
+  margin-top: 15px;
+  margin-bottom: 86px;
+  padding: 10px 40px;
+}
+
+.contacts {
+  width: 300px;
+}
+
+.contacts p {
+  width: 180px;
+  margin-bottom: 30px;
+}
+
+/*Чото не нравится мне тутошняя вложенность... надо классов понавесить*/
+.contacts img {
+  margin-bottom: 36px;
+}
+
+.contacts__btn {
+  width: 100%;
 }
 
 /* --------------------------ФУТЕР---------------------------------- */
 .main-footer__first-line {
 	background-color: #32425c;
-  padding-bottom: 55px;
+  padding-bottom: 50px;
 }
+
+/*Вероятно тут надо будет спэйс битвин заменить, я ж провернку на переполнение тут не делал вроде*/
 
 .main-footer__first-box {
   display: flex;
@@ -1322,12 +1482,16 @@ input::placeholder {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  margin-top: -6px;
 }
 
 .main-footer__navigation {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
+
+  padding-bottom: 10px;
 
   display: inline-flex;
 }
@@ -1339,10 +1503,12 @@ input::placeholder {
 	line-height: 24px;
 	color: #f1f5f7;
 
-  margin-left: 60px;
+  margin-left: 59px;
 }
 
-
+.main-footer__address {
+  width: 325px;
+}
 
 .main-footer__address,
 .main-footer__phone {
@@ -1412,6 +1578,8 @@ input::placeholder {
 	line-height: 18px;
 	color: #ffffff;
 
+  width: 230px;
+
   margin: 0px;
   padding: 0px;
 
@@ -1425,7 +1593,7 @@ input::placeholder {
 
   display: flex;
 
-  margin-right: 120px;
+  margin-right: 111px;
 }
 
 .social-btn {
@@ -1437,6 +1605,35 @@ input::placeholder {
   background-color: #212a3a;
   border-radius: 50%;
   margin-right: 5px;
+
+  position: relative;
+}
+
+.social-btn::before {
+  content: "";
+  position: absolute;
+
+
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.social-btn--vk-btn::before {
+  background-image: url(../img/svg/icon-vk.svg);
+  width: 26px;
+  height: 15px;
+}
+
+.social-bt--fb-btn::before {
+  background-image: url(../img/svg/icon-fb.svg);
+  width: 12px;
+  height: 22px;
+}
+
+.social-btn--in-btn::before {
+  background-image: url(../img/svg/icon-insta.svg);
+  width: 21px;
+  height: 21px;
 }
 
 .social-btn:hover,
@@ -1463,6 +1660,10 @@ input::placeholder {
 	font-size: 16px;
 	line-height: 18px;
 	color: #ffd180;
+}
+
+.main-footer__developer  {
+  margin-right: 0px;
 }
 
 .main-footer__feedback a:hover,
@@ -2047,6 +2248,7 @@ input::placeholder {
 	text-transform: uppercase;
 
 	display: inline-block;
+  vertical-align: middle;
 	width: 36px;
 	height: 36px;
 	border: 1px solid #e5e5e5;
@@ -2062,6 +2264,7 @@ input::placeholder {
 
 .catalog__pagination-item--next {
 	display: inline-block;
+  vertical-align: middle;
 	width: 138px;
 }
 
@@ -2163,16 +2366,11 @@ input::placeholder {
 .write-us-btn {
   box-sizing: border-box;
   width: 460px;
-  padding-left: 200px;
-  padding-right: 200px;
+  padding: 11px 200px;
   margin-left: auto;
   margin-right: auto;
   margin-left: calc(50% - 230px);
-  /*Да пиздец, не хочет ни в какую выравниваться по центру! Только если по тупому:*/
-  margin-left: 80px;
-  /*620-460=160/2=80*/
   margin-top: 37px;
-  /*112-38=74/2=37 хм... чото не ровно как-то...*/
 }
 
 

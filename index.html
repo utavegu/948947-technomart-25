@@ -22,15 +22,6 @@
             <img class="visually-hidden" src="img/logo.png" alt="Техномарт" title="Техномарт" width="220" height="47">
             <img src="img/svg/logo-technomart.svg" alt="Техномарт" width="110" height="18">
           </a>
-          <!-- Логотип не должен отваливаться при отключении стилей. Надо либо сделать его тремя картинками, либо понять, как менять 3 цвета при разных состояниях. -->
-
-          <!--СТАРАЯ РАЗМЕТКА
-          <form class="main-header__search">
-            <label>
-              <span class="visually-hidden">Поиск</span>
-              <input name="search" type="text" placeholder="Поиск:">
-            </label>
-          </form>-->
 
           <form class="main-header__search">
             <label class="visually-hidden" for="search">Поиск:</label>
@@ -38,9 +29,9 @@
             <svg class="main-header__icon-search" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"><path fill="#ffffff" d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1 0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5 2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z"/></svg>
           </form>
 
-          <a class="main-header__bookmarks" href="#">Закладки</a>
+          <a class="main-header__bookmarks" href="#">Закладки: 0</a>
 
-          <a class="main-header__basket" href="#">Корзина</a>
+          <a class="main-header__basket" href="#">Корзина: 0</a>
 
           <a class="main-header__btn main-header__btn-order" href="#">Оформить заказ</a>
 
@@ -56,7 +47,7 @@
 
           <div class="main-header__second-line-first-floor-box">
 
-            <h1 class="main-title">Интернет-магазин строительных материалов&nbsp;&nbsp; и инструментов для ремонта</h1>
+            <h1 class="main-title">Интернет-магазин строительных материалов &nbsp; и инструментов для ремонта</h1>
 
             <address class="main-header__address">
               <a class="main-header__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
@@ -102,7 +93,7 @@
 
           <div class="promo__first-box">
 
-            <div class="promo__item promo__item--new promo__item--materials">
+            <div class="promo__item promo__item--new product-card--new promo__item--materials">
               <h3>Материалы</h3>
               <a class="promo__detail" href="#" title="Материалы">На любой вкус</a>
             </div>
@@ -132,7 +123,7 @@
                 <div class="promo__slider-item promo__slider-item--1">
                   <a href="#" title="Дрели">
                     <h4>Дрели</h4>
-                    <p>Соседям на радость</p>
+                    <p>Соседям на радость!</p>
                   </a>
                 </div>
                 <div class="promo__slider-item promo__slider-item--2">
@@ -191,8 +182,6 @@
 
         <ul class="popular-products__list">
 
-          <!-- Вставил br потому-что, ну, по-моему, это идеальное решение тут. -->
-
           <li class="product-card">
             <div class="product-card__interactive">
               <a class="btn catalog-btn catalog-buy-btn" href="#">Купить</a>
@@ -200,7 +189,7 @@
             </div>
             <img class="product-card__image" src="img/Perforator_1.jpg" alt="Перфоратор BOSCH BFG 9000" title="Перфоратор BOSCH BFG 9000" width="218" height="170">
             <a href="#">
-             <h3 class="product-card__title">Перфоратор BOSCH <br> BFG 9000</h3>
+             <h3 class="product-card__title">Перфоратор BOSCH BFG 9000</h3>
             </a>
             <div class="product-card__old-price"><del>32500 Р.</del></div>
             <div class="product-card__new-price">25500 Р.</div>
@@ -213,7 +202,7 @@
             </div>
             <img class="product-card__image" src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 3000" title="Перфоратор BOSCH BFG 3000" width="218" height="170">
             <a href="#">
-              <h3 class="product-card__title">Перфоратор BOSCH <br> BFG 3000</h3>
+              <h3 class="product-card__title">Перфоратор BOSCH BFG 3000</h3>
             </a>
             <div class="product-card__old-price"><del>22500 Р.</del></div>
             <div class="product-card__new-price">15500 Р.</div>
@@ -226,7 +215,7 @@
             </div>
             <img class="product-card__image" src="img/Perforator_3.jpg" alt="Перфоратор BOSCH BFG 6000" title="Перфоратор BOSCH BFG 6000" width="218" height="170">
             <a href="#">
-              <h3 class="product-card__title">Перфоратор BOSCH <br> BFG 6000</h3>
+              <h3 class="product-card__title">Перфоратор BOSCH BFG 6000</h3>
             </a>
             <div class="product-card__old-price"><del>30500 Р.</del></div>
             <div class="product-card__new-price">25500 Р.</div>
@@ -239,9 +228,9 @@
             </div>
             <img class="product-card__image" src="img/Perforator_2.jpg" alt="Перфоратор BOSCH BFG 2000" title="Перфоратор BOSCH BFG 2000" width="218" height="170">
             <a href="#">
-              <h3 class="product-card__title">Перфоратор BOSCH <br> BFG 2000</h3>
+              <h3 class="product-card__title">Перфоратор BOSCH BFG 2000</h3>
             </a>
-
+            <div class="product-card__old-price product-card__old-price--none"><del>Старая цена</del></div>
             <div class="product-card__new-price">12500 Р.</div>
           </li>
 
@@ -257,7 +246,7 @@
 
           <h2>Популярные производители:</h2>
 
-          <a class="btn btn__solo popular-brands__btn" href="#">Все популярные производители</a>
+          <a class="btn btn__solo popular-brands__btn" href="#">Все производители</a>
 
         </div>
 
@@ -276,7 +265,7 @@
           </a>
 
           <a class="popular-brands__item-card" href="#">
-              <img src="img/Интерскол.png" alt="ИНТЕРСКОЛ" title="ИНТЕРСКОЛ" width="200" height="88">
+              <img src="img/Interscol.png" alt="ИНТЕРСКОЛ" title="ИНТЕРСКОЛ" width="200" height="88">
           </a>
 
           <a class="popular-brands__item-card" href="#">
@@ -313,7 +302,6 @@
 
           <p>
             Хороший интернет-магазин отличается от плохого не только ценами!
-            <br>
             Мы стараемся изо всех сил, чтобы сделать ваши покупки приятными
           </p>
 
@@ -323,25 +311,27 @@
 
           <div class="services__slider">
 
+            <input class="visually-hidden" type="radio" id="service-item-1" name="services-group" checked>
+            <input class="visually-hidden" type="radio" id="service-item-2" name="services-group">
+            <input class="visually-hidden" type="radio" id="service-item-3" name="services-group">
+
             <ul class="services__selection">
               <li><label class="services__item" for="service-item-1">Доставка</label></li>
               <li><label class="services__item" for="service-item-2">Гарантия</label></li>
               <li><label class="services__item" for="service-item-3">Кредит</label></li>
             </ul>
 
-            <input class="visually-hidden" type="radio" id="service-item-1" name="services-group" checked>
-            <input class="visually-hidden" type="radio" id="service-item-2" name="services-group">
-            <input class="visually-hidden" type="radio" id="service-item-3" name="services-group">
+<!-- Другие 2 слайда тоже через пиксель-перфект проверь. И второго мужика с дрелью с ними заодно. Вроде больше никакие элементы не меняются -->
 
             <div class="services__slide services__slide--delivery">
               <h3>Доставка</h3>
-              <p>Мы с удовольствием доставим ваш товар прямо <br> к вашему подъезду совершенно бесплатно! <br>
-              Ведь мы неплохо заработаем, <br> поднимаея его на ваш этаж!</p>
+              <p>Мы с удовольствием доставим ваш товар прямо <br> к вашему подъезду совершенно бесплатно!
+              Ведь мы неплохо заработаем, <br> поднимая его на ваш этаж!</p>
             </div>
 
             <div class="services__slide services__slide--warranty">
               <h3>Гарантия</h3>
-              <p>Если купленный у нас товар поломается или заискрит, <br> а также в случае пожара, спровоцированного его возгаранием, <br> вы всегда можете быть уверены в нашей гарантии. Мы обменяем сгоревший товар на новый. <br>
+              <p>Если купленный у нас товар поломается или заискрит, <br> а также в случае пожара, спровоцированного его возгаранием, вы всегда можете быть уверены в нашей гарантии. Мы обменяем сгоревший товар на новый. <br>
               Дом уж восстановите как-нибудь сами.</p>
             </div>
 
@@ -357,7 +347,6 @@
         </div>
 
 <!-- УКАЗАТЕЛЬ ПОИНТЕР ДОБАВЬ... Эм... куда? Чот забыл уже. И нужен ли он там. Да вроде нужен. Ладно, ог, добавлю чо -->
-<!-- Ладно, вот так сойдёт пока. Работает как надо. Причесать его дальше - уже не проблема. У дальшейшим же приключениям! -->
 
 <!-- СЛАЙДЕР 2 - КОНЕЦ -->
 
@@ -373,14 +362,14 @@
 
         <header class="about__header">
 
-          <h2>Компания "Техномарт"</h2>
+          <h2>Компания «Техномарт»</h2>
 
           <p>Настоящий мужской шоппинг начинается здесь! Огромный выбор товаров для ремонта и строительства не оставит равнодушными любителей сэкономить на гастробайтерах.</p>
 
         </header>
 
-        <p>Мы можем доставить ваш товар в самые отдалённые точки России!
-          <br>
+        <p>
+          Мы можем доставить ваш товар в самые отдалённые точки России!
           Техномарт работает со многими транспортными компаниями:
         </p>
 
@@ -398,7 +387,7 @@
 
         <h2>Контакты</h2>
 
-        <p>Вы можете забрать товар сами, <br> заехав в наш офис:</p>
+        <p>Вы можете забрать товар сами, заехав в наш офис:</p>
 
         <a href="#"><img src="img/map-little.png" alt="Большая Конюшенная ул., 19" title="Смотреть офиc на карте" width="300" height="158"></a>
 
@@ -439,7 +428,7 @@
         <div class="main-footer__second-box">
 
           <address class="main-footer__address">
-            г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <br>
+            г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8
             <a class="main-footer__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
           </address>
 
@@ -465,8 +454,7 @@
       <div class="main-footer__third-box">
 
       <p class="main-footer__copyright">
-        &copy; 2010-2019 Компания "Техномарт"
-        <br>
+        &copy; 2010-2019 Компания «Техномарт»
         Все права защищены
       </p>
 
@@ -474,20 +462,17 @@
         <span class="visually-hidden">Мы в социальных сетях:</span>
         <ul class="main-footer__social-list">
           <li>
-            <a class="social-btn vk-btn" href="#" title="Вконтакте">
-              <img src="img/svg/icon-vk.svg" alt="Вконтакте" title="Вконтакте" width="26" height="15">
+            <a class="social-btn social-btn--vk-btn" href="#" title="Вконтакте">
               <span class="visually-hidden">Вконтакте</span>
             </a>
           </li>
           <li>
-            <a class="social-btn fb-btn" href="#" title="Фейсбук">
-              <img src="img/svg/icon-fb.svg" alt="Фейсбук" title="Фейсбук" width="12" height="22">
+            <a class="social-btn social-bt--fb-btn" href="#" title="Фейсбук">
               <span class="visually-hidden">Фейсбук</span>
             </a>
           </li>
           <li>
-            <a class="social-btn in-btn" href="#" title="Инстаграм">
-              <img src="img/svg/icon-insta.svg" alt="Инстаграм" title="Инстаграм" width="21" height="21">
+            <a class="social-btn social-btn--in-btn" href="#" title="Инстаграм">
               <span class="visually-hidden">Инстаграм</span>
             </a>
           </li>
@@ -499,7 +484,7 @@
       </p>
 
       <p class="main-footer__developer">
-        Разработано - <a href="https://htmlacademy.ru">htmlacademy.ru</a>
+        Разработано &ndash; <a href="https://htmlacademy.ru">htmlacademy.ru</a>
       </p>
 
     </div>
@@ -526,7 +511,6 @@
 
   <div class="modal__inner">
 
-<!-- ВОПРОС! А формам надо различные "защиты от дурака" прописывать, чтобы успешно защититься? -->
     <form class="write-us__form" id="write-us" action="https://echo.htmlacademy.ru" method="post">
 
       <div class="write-us__letter-wrapper">
@@ -535,14 +519,14 @@
 
         <p class="write-us__item">
           <label>
-            Ваше имя:<br>
+            Ваше имя:
             <input name="name" type="text" placeholder="Имя Фамилия">
           </label>
         </p>
 
         <p class="write-us__item">
           <label>
-            Ваш e-mail:<br>
+            Ваш e-mail:
             <input name="mail" type="email" placeholder="email@example.com">
           </label>
         </p>
@@ -552,7 +536,7 @@
       <p class="write-us__item">
         <label>
           Текст письма:
-          <textarea name="letter" placeholder="В свободной форме"></textarea> <!-- Тут тоже плэйсхолдер должен быть! -->
+          <textarea name="letter" placeholder="В свободной форме"></textarea>
         </label>
       </p>
 
@@ -560,7 +544,6 @@
 
     </form>
 
-<!-- А МОЖНО-ЛИ КАК-ТО ПРОСТО ЧАСТЬ ФОНА ЗАКРАСИТЬ? А ТО НЕ ПРАВИЛЬНО КАК-ТО РАДИ ЭТОГО ОТДЕЛЬНУЮ ОБЁРТКУ СОЗДАВАТЬ -->
       <div class="write-us__footer">
 
         <button class="btn btn__solo write-us-btn" type="submit" form="write-us">Отправить</button>
@@ -580,8 +563,6 @@
 
 <!-- Чото мой самодельный крестик недостаточно жирный -->
 <!-- ЛУЧШЕ ПЕРЕДЕЛАЙ ЕГО В ЦСС, ГОВОРЯТ НАДО В ЦСС -->
-
-
 
 </body>
 

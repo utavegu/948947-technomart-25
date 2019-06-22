@@ -12,7 +12,7 @@
 
 <header class="main-header">
 
-      <div class="main-header__first-line">
+     <div class="main-header__first-line">
 
         <div class="main-wrapper main-header__first-line-box">
 
@@ -20,15 +20,6 @@
             <img class="visually-hidden" src="img/logo.png" alt="Техномарт" title="Техномарт" width="220" height="47">
             <img src="img/svg/logo-technomart.svg" alt="Техномарт" width="110" height="18">
           </a>
-          <!-- Логотип не должен отваливаться при отключении стилей. Надо либо сделать его тремя картинками, либо понять, как менять 3 цвета при разных состояниях. -->
-
-          <!--СТАРАЯ РАЗМЕТКА
-          <form class="main-header__search">
-            <label>
-              <span class="visually-hidden">Поиск</span>
-              <input name="search" type="text" placeholder="Поиск:">
-            </label>
-          </form>-->
 
           <form class="main-header__search">
             <label class="visually-hidden" for="search">Поиск:</label>
@@ -36,9 +27,9 @@
             <svg class="main-header__icon-search" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"><path fill="#ffffff" d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1 0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5 2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z"/></svg>
           </form>
 
-          <a class="main-header__bookmarks" href="#">Закладки</a>
+          <a class="main-header__bookmarks" href="#">Закладки: 0</a>
 
-          <a class="main-header__basket" href="#">Корзина</a>
+          <a class="main-header__basket" href="#">Корзина: 0</a>
 
           <a class="main-header__btn main-header__btn-order" href="#">Оформить заказ</a>
 
@@ -54,18 +45,17 @@
 
           <div class="main-header__second-line-first-floor-box">
 
-            <h1 class="main-title">Интернет-магазин строительных материалов&nbsp;&nbsp; и инструментов для ремонта</h1>
+            <h1 class="main-title">Интернет-магазин строительных материалов &nbsp; и инструментов для ремонта</h1>
 
             <address class="main-header__address">
               <a class="main-header__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
               <span class="street">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</span>
             </address>
 
-           <!--  В блоке авторизованного посетителя имя и иконка пользователя являются ссылкой на профайл, а иконка выхода — на страницу деавторизации. -->
             <ul class="main-header__user-navigation--login-on">
               <li>
-                <a class="main-header__user-profile" href="user-profile.html">Равшан Джамшутович</a>
-                <a class="main-header__logout-link" href="deauthorization.html"></a>
+                <a class="main-header__user-profile" href="user-profile.html" title="Профиль пользователя">Равшан Джамшутович</a>
+                <a class="main-header__logout-link" href="deauthorization.html" title="Выход"></a>
               </li>
               <li>
                 <a class="main-header__my-order-link" href="#">Мои заказы</a>
@@ -73,7 +63,6 @@
                 <a class="main-header__personal-link" href="#">Личный кабинет</a>
               </li>
             </ul>
-
 
           </div>
 
@@ -106,7 +95,6 @@
 <!-- Точность позиционирования пока оставляет желать лучшего -->
       <ul class="breadcrumbs">
         <li class="breadcrumbs__item"><a class="icon-home" href="index.html"><span class="visually-hidden">Главная</span></a></li>
-        <!-- Мне бы домик-то кликабельным сделать. Если я вместо визуалли-хиддена цвет текста на белый поменяю - так себе идея? -->
         <li class="breadcrumbs__item"><a href="catalog.html">Каталог</a></li>
         <li class="breadcrumbs__item"><a href="instruments.html">Инструменты</a></li>
         <li class="breadcrumbs__item"><a class="breadcrumbs--current">Перфораторы</a></li>
@@ -164,17 +152,23 @@
 
               <div class="filters__price-input">
 
-                <div class="filters__select-price-box">
-                  <input type="text" name="min-price" value="0">
-                </div>
+                <label>
+                  <span class="visually-hidden">Минимальная цена</span>
+                  <div class="filters__select-price-box">
+                    <input type="text" name="min-price" value="0">
+                  </div>
+                </label>
 
                 <svg class="filters__price-input-diapason" width="10" height="1">
                   <line x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="1" />
                 </svg>
 
-                <div class="filters__select-price-box">
-                  <input type="text" name="max-price" value="30000">
-                </div>
+                <label>
+                  <span class="visually-hidden">Максимальная цена</span>
+                  <div class="filters__select-price-box">
+                      <input type="text" name="max-price" value="30000">
+                  </div>
+                </label>
 
               </div>
 
@@ -326,7 +320,7 @@
             <a href="#">
               <h4 class="product-card__title">Перфоратор BOSCH BFG 2000</h4>
             </a>
-
+            <div class="product-card__old-price product-card__old-price--none"><del>Старая цена</del></div>
             <div class="product-card__new-price">12500 Р.</div>
           </li>
 
@@ -365,7 +359,7 @@
             <a href="#">
               <h4 class="product-card__title">Перфоратор BOSCH BFG 2000</h4>
             </a>
-
+            <div class="product-card__old-price product-card__old-price--none"><del>Старая цена</del></div>
             <div class="product-card__new-price">12500 Р.</div>
           </li>
 
@@ -404,7 +398,7 @@
             <a href="#">
               <h4 class="product-card__title">Перфоратор BOSCH BFG 2000</h4>
             </a>
-
+            <div class="product-card__old-price product-card__old-price--none"><del>Старая цена</del></div>
             <div class="product-card__new-price">12500 Р.</div>
           </li>
 
@@ -467,7 +461,7 @@
         <div class="main-footer__second-box">
 
           <address class="main-footer__address">
-            г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <br>
+            г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8
             <a class="main-footer__phone" href="tel:+78125550555">+7 (812) 555-05-55</a>
           </address>
 
@@ -494,7 +488,6 @@
 
       <p class="main-footer__copyright">
         &copy; 2010-2019 Компания "Техномарт"
-        <br>
         Все права защищены
       </p>
 
