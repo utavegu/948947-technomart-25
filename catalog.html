@@ -57,9 +57,9 @@
                 <a class="main-header__user-profile" href="user-profile.html" title="Профиль пользователя">Равшан Джамшутович</a>
                 <a class="main-header__logout-link" href="deauthorization.html" title="Выход"></a>
               </li>
-              <li>
+              <li class="main-header__user-options">
                 <a class="main-header__my-order-link" href="#">Мои заказы</a>
-                .
+                &bull;
                 <a class="main-header__personal-link" href="#">Личный кабинет</a>
               </li>
             </ul>
@@ -108,9 +108,10 @@
 
       <div class="option-wrapper__left">
 
+
       <section class="filters">
 
-        <h3 class="products-search-title">Фильтр:</h3>
+        <h3 class="filters__title">Фильтр:</h3>
 
         <form action="https://echo.htmlacademy.ru" method="post">
 
@@ -137,14 +138,14 @@
                 </div>
 
                 <div class="range__line range__line--green">
-                  <svg width="120" height="2">
-                    <line x1="0" y1="0" x2="120" y2="0" stroke="#00ca74" />
+                  <svg width="120" height="3">
+                    <line x1="0" y1="3" x2="120" y2="3" stroke="#00ca74" stroke-width="3" />
                   </svg>
                 </div>
 
                 <div class="range__line range__line--gray">
-                  <svg width="20" height="2">
-                    <line x1="0" y1="0" x2="20" y2="0" stroke="#d7dcde" />
+                  <svg width="20" height="3">
+                    <line x1="0" y1="3" x2="20" y2="3" stroke="#d7dcde" stroke-width="3" />
                   </svg>
                 </div>
 
@@ -272,13 +273,13 @@
         <h3 class="visually-hidden">Перфораторы</h3>
 
         <div class="sort-box">
-          <h4 class="products-sort-title">Сортировка:</h4>
+          <h4 class="sort-box__title">Сортировка:</h4>
           <ul class="sort-box__list">
             <li><a class="sort-item sort-item--current by-price" href="#">По цене</a></li>
             <li><a class="sort-item by-type" href="#">По типу</a></li>
             <li><a class="sort-item by-functional" href="#">По функционалу</a></li>
-            <li><a class="sort-arrow ascending" href="#"><span class="visually-hidden">По возрастанию</span></a></li>
-            <li><a class="sort-arrow descending" href="#"><span class="visually-hidden">По убыванию</span></a></li>
+            <li><a class="sort-arrow sort-arrow--ascending sort-arrow--current" href="#"><span class="visually-hidden">По возрастанию</span></a></li>
+            <li><a class="sort-arrow sort-arrow--descending" href="#"><span class="visually-hidden">По убыванию</span></a></li>
             <!-- Ссылки - ГЕТ-запросы -->
           </ul>
         </div>
@@ -546,15 +547,16 @@
 
       </div>
 
-<!-- И ЭТОТ ТОЖЕ ПЕРЕДЕЛАЙ ЧЕРЕЗ ЦСС -->
       <button class="modal-close" type="button">
-              <svg width="21" height="21">
-                <line x1="0" y1="0" x2="21" y2="21" stroke="#ee3643" stroke-width="3" />
-                <line x1="0" y1="21" x2="21" y2="00" stroke="#ee3643" stroke-width="3" />
-              </svg>
+        <svg width="21" height="21">
+          <line x1="0" y1="0" x2="21" y2="21" stroke="#ee3643" stroke-width="4" />
+          <line x1="0" y1="21" x2="21" y2="00" stroke="#ee3643" stroke-width="4" />
+        </svg>
       </button>
 
     </div>
+
+<script type="text/javascript" src="js/script.js"></script>
 
 </body>
 

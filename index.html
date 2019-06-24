@@ -389,7 +389,7 @@
 
         <p>Вы можете забрать товар сами, заехав в наш офис:</p>
 
-        <a href="#"><img src="img/map-little.png" alt="Большая Конюшенная ул., 19" title="Смотреть офиc на карте" width="300" height="158"></a>
+        <a class="contacts__map-little" href="#"><img src="img/map-little.png" alt="Большая Конюшенная ул., 19" title="Смотреть офиc на карте" width="300" height="158"></a>
 
         <a class="btn btn__solo contacts__btn" href="#">Заблудились? Напишите нам!</a>
 
@@ -498,11 +498,19 @@
 
 
 <div class="modal modal--map">
+
   <div class="modal__inner">
     <img class="popup map-popup" src="img/map-big.png" alt="Большая Конюшенная ул., 19" width="940" height="446">
     <!-- Внимание, тут тоже размытые тени! -->
   </div>
-  <button class="modal-close"></button>
+
+  <button class="modal-close" type="button">
+        <svg width="21" height="21">
+          <line x1="0" y1="0" x2="21" y2="21" stroke="#ee3643" stroke-width="4" />
+          <line x1="0" y1="21" x2="21" y2="00" stroke="#ee3643" stroke-width="4" />
+        </svg>
+  </button>
+
 </div>
 
 
@@ -554,15 +562,41 @@
 
 <button class="modal-close" type="button">
         <svg width="21" height="21">
-          <line x1="0" y1="0" x2="21" y2="21" stroke="#ee3643" stroke-width="3" />
-          <line x1="0" y1="21" x2="21" y2="00" stroke="#ee3643" stroke-width="3" />
+          <line x1="0" y1="0" x2="21" y2="21" stroke="#ee3643" stroke-width="4" />
+          <line x1="0" y1="21" x2="21" y2="00" stroke="#ee3643" stroke-width="4" />
         </svg>
 </button>
 
 </div>
 
+    <div class="modal modal--add-cart">
+
+      <div class="modal__inner">
+
+        <div class="modal--add-cart__first-floor">
+          Товар добавлен в корзину!
+        </div>
+
+        <div class="modal--add-cart__second-floor">
+          <a class="btn btn__solo" href="#">Оформить заказ</a>
+          <a class="btn btn-next-buy" href="#">Продолжить покупки</a>
+        </div>
+
+      </div>
+
+      <button class="modal-close" type="button">
+        <svg width="21" height="21">
+          <line x1="0" y1="0" x2="21" y2="21" stroke="#ee3643" stroke-width="4" />
+          <line x1="0" y1="21" x2="21" y2="00" stroke="#ee3643" stroke-width="4" />
+        </svg>
+      </button>
+
+    </div>
+
 <!-- Чото мой самодельный крестик недостаточно жирный -->
 <!-- ЛУЧШЕ ПЕРЕДЕЛАЙ ЕГО В ЦСС, ГОВОРЯТ НАДО В ЦСС -->
+
+<script type="text/javascript" src="js/script.js"></script>
 
 </body>
 
