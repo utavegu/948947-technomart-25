@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>HTML Academy: Техномарт - каталог</title>
+  <link href="https://fonts.googleapis.com/css?family=Cuprum:400,400italic,700&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/min-style.css">
 </head>
@@ -101,8 +103,8 @@
               <fieldset class="filters__price">
                 <legend>Цена:</legend>
                 <div class="range__box">
-                  <div class="range__regulator range__regulator--left" tabindex="0"></div>
-                  <div class="range__regulator range__regulator--right" tabindex="0"></div>
+                  <div class="range__regulator range__regulator--left"></div>
+                  <div class="range__regulator range__regulator--right"></div>
                   <div class="range__line range__line--green">
                     <svg width="120" height="3">
                       <line x1="0" y1="3" x2="120" y2="3" stroke="#00ca74" stroke-width="3" />
@@ -210,6 +212,8 @@
                 <li>
                   <a class="sort-item by-functional" href="#by-functional">По функционалу</a>
                 </li>
+              </ul>
+              <ul class="sort-box__list">
                 <li>
                   <a class="sort-arrow sort-arrow--ascending sort-arrow--current" href="#ascending"><span class="visually-hidden">По возрастанию</span></a>
                 </li>
@@ -409,26 +413,23 @@
           </p>
           <div class="main-footer__social">
             <span class="visually-hidden">Мы в социальных сетях:</span>
-            <ul class="main-footer__social-list">
-              <li>
-                <a class="social-btn vk-btn" href="#" title="Вконтакте">
-                  <img src="img/svg/icon-vk.svg" alt="Вконтакте" title="Вконтакте" width="26" height="15">
-                  <span class="visually-hidden">Вконтакте</span>
-                </a>
-              </li>
-              <li>
-                <a class="social-btn fb-btn" href="#" title="Фейсбук">
-                  <img src="img/svg/icon-fb.svg" alt="Фейсбук" title="Фейсбук" width="12" height="22">
-                  <span class="visually-hidden">Фейсбук</span>
-                </a>
-              </li>
-              <li>
-                <a class="social-btn in-btn" href="#" title="Инстаграм">
-                  <img src="img/svg/icon-insta.svg" alt="Инстаграм" title="Инстаграм" width="21" height="21">
-                  <span class="visually-hidden">Инстаграм</span>
-                </a>
-              </li>
-            </ul>
+              <ul class="main-footer__social-list">
+                <li>
+                  <a class="social-btn social-btn--vk-btn" href="#" title="Вконтакте">
+                    <span class="visually-hidden">Вконтакте</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="social-btn social-bt--fb-btn" href="#" title="Фейсбук">
+                    <span class="visually-hidden">Фейсбук</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="social-btn social-btn--in-btn" href="#" title="Инстаграм">
+                    <span class="visually-hidden">Инстаграм</span>
+                  </a>
+                </li>
+              </ul>
           </div>
           <p class="main-footer__feedback">
           Обратная связь: <a href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
