@@ -8,4 +8,4 @@
 
 ---
 
-![](./img/miniature/tech_min_1(2).png) ![](./img/miniature/tech_min_2(2).png)
+![](./img/miniature/tech_min_1(3).png) ![](./img/miniature/tech_min_2(3).png)
