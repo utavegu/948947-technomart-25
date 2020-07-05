@@ -8,6 +8,6 @@
 
 И РАЗБЕРИСЬ В MD-СИНТАКСИСЕ, ЧТОБ КРАСИВО БЫЛО
 
-hr
+---
 
 ![](./img/miniature/tech_min_3.png)   ![](./img/miniature/tech_min_1.png)   ![](./img/miniature/tech_min_2.png)
