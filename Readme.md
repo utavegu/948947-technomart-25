@@ -8,7 +8,8 @@
 Дизайн и контент собственность HTML-академии.
 HTML, CSS и JavaScript полностью мои.
 И разберись какой правильный синтаксис в файлах этого формата, чтобы красиво было.
-![](./img/miniature/tech_min_1.png)
-![](./img/miniature/tech_min_2.png)
-![](./img/miniature/tech_min_3.png)
+![](./img/miniature/tech_min_3.png)   
+![](./img/miniature/tech_min_1.png)   
+![](./img/miniature/tech_min_2.png)   
+
 
